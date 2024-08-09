@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrair Texto do PDF, Adicionar Imagem e Converter para DOCX</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+
+<h2>Selecione um arquivo PDF e uma imagem para criar um DOCX</h2>
+<input type="file" id="pdfInput" accept="application/pdf" />
+<input type="file" id="imageInput" accept="image/*" />
+<button id="convertButton">Converter para DOCX</button>
+<div id="output"></div>
+
+<script>
+    document.getElementById('convertButton').addEventListener('click', function() {
+        const pdfInput = document.getElementById('pdfInput');
+        const imageInput = document.getElementById('imageInput');
+        const pdfFile = pdfInput.files[0];
+        const imageFile = imageInput.files[0];
+
+        if (pdfFile && imageFile) {
+            const pdfReader = new FileReader();
+            pdfReader.onload = function(pdfEvent) {
+                const typedarray = new Uint8Array(pdfEvent.target.result);
+
+                pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
+                    let fullText = '';
+                    const numPages = pdf.numPages;
+                    let promises = [];
+
+                    for (let i = 1; i <= numPages; i++) {
+                        promises.push(pdf.getPage(i).then(function(page) {
+                            return page.getTextContent();
+                        }).then(function(textContent) {
+                            return textContent.items.map(item => item.str).join(' ');
+                        }));
+                    }
+
+                    Promise.all(promises).then(function(pageTexts) {
+                        fullText = pageTexts.join('\n\n');
+                        document.getElementById('output').textContent = fullText;
+                        
+                        // Ler a imagem como base64
+                        const imageReader = new FileReader();
+                        imageReader.onload = function(imageEvent) {
+                            const imageBase64 = imageEvent.target.result;
+
+                            // Criar o documento DOCX
+                            const doc = new docx.Document({
+                                sections: [{
+                                    properties: {},
+                                    children: [
+                                        new docx.Paragraph({
+                                            children: [new docx.TextRun(fullText)],
+                                        }),
+                                        new docx.Paragraph({
+                                            children: [
+                                                new docx.ImageRun({
+                                                    data: imageBase64,
+                                                    transformation: {
+                                                        width: 200,
+                                                        height: 200,
+                                                    },
+                                                }),
+                                            ],
+                                        }),
+                                    ],
+                                }],
+                            });
+
+                            // Gerar e baixar o arquivo DOCX
+                            docx.Packer.toBlob(doc).then(blob => {
+                                saveAs(blob, "documento_com_imagem.docx");
+                            });
+                        };
+                        imageReader.readAsDataURL(imageFile);
+                    });
+                });
+            };
+            pdfReader.readAsArrayBuffer(pdfFile);
+        } else {
+            alert('Por favor, selecione um arquivo PDF e uma imagem.');
+        }
+    });
+</script>
+
+</body>
+</html>
