@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrair Texto do PDF e Converter para DOCX com Cabeçalho</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+    <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+
+<h2>Selecione um arquivo PDF para criar um DOCX com cabeçalho</h2>
+<input type="file" id="pdfInput" accept="application/pdf" />
+<button id="convertButton">Cria DOCX</button>
+<div id="output"></div>
+
+<script>
+    document.getElementById('convertButton').addEventListener('click', function() {
+        const pdfInput = document.getElementById('pdfInput');
+        const pdfFile = pdfInput.files[0];
+
+        if (pdfFile) {
+            const pdfReader = new FileReader();
+            pdfReader.onload = function(pdfEvent) {
+                const typedarray = new Uint8Array(pdfEvent.target.result);
+
+                pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
+                    let fullText = '';
+                    const numPages = pdf.numPages;
+                    let promises = [];
+
+                    for (let i = 1; i <= numPages; i++) {
+                        promises.push(pdf.getPage(i).then(function(page) {
+                            return page.getTextContent();
+                        }).then(function(textContent) {
+                            return textContent.items.map(item => item.str).join(' ');
+                        }));
+                    }
+
+                    Promise.all(promises).then(function(pageTexts) {
+                        fullText = pageTexts.join('\n\n');
+                        document.getElementById('output').textContent = fullText;
+                        
+                        //Cria DOCX
+                        criaDOCX(fullText,"textinho");
+
+                        // Carregar a imagem do cabeçalho
+                   /*     fetch('cabecalho.png')
+                            .then(res => res.arrayBuffer())
+                            .then(buffer => {
+                                // Criar o documento DOCX com cabeçalho
+                                const doc = new docx.Document({
+                                    sections: [{
+                                        properties: {
+                                            page: {
+                                                margin: {
+                                                    top: 1000, // Ajuste conforme necessário
+                                                },
+                                            },
+                                        },
+                                        headers: {
+                                            default: new docx.Header({
+                                                children: [
+                                                    new docx.Paragraph({
+                                                        children: [
+                                                            new docx.ImageRun({
+                                                                data: buffer,
+                                                                transformation: {
+                                                                    width: 600,
+                                                                    height: 75,
+                                                                },
+                                                            }),
+                                                        ],
+                                                    }),
+                                                ],
+                                            }),
+                                        },
+                                        children: [
+                                            new docx.Paragraph({
+                                                children: [new docx.TextRun(fullText)],
+                                            }),
+                                        ],
+                                    }],
+                                });
+
+                                // Gerar e baixar o arquivo DOCX
+                                docx.Packer.toBlob(doc).then(blob => {
+                                    saveAs(blob, "documento_com_cabecalho.docx");
+                                });
+                            });*/
+                    });
+                });
+            };
+            pdfReader.readAsArrayBuffer(pdfFile);
+        } else {
+            alert('Por favor, selecione um arquivo PDF.');
+        }
+    });
+</script>
+
+</body>
+</html>

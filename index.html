@@ -3,25 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extrair Texto do PDF e Converter para DOCX com Cabeçalho</title>
+    <title>Criar DOCX com Foto e Texto do PDF</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
-    <script type="text/javascript" src="funcoes.js"></script>
     <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 <body>
 
-<h2>Selecione um arquivo PDF para criar um DOCX com cabeçalho</h2>
+<h2>Criar DOCX com Foto e Texto do PDF</h2>
 <input type="file" id="pdfInput" accept="application/pdf" />
-<button id="convertButton">Cria DOCX</button>
+<button id="takePhotoButton">Tirar Foto</button>
+<video id="video" style="display:none;"></video>
+<canvas id="canvas" style="display:none;"></canvas>
+<img id="photo" style="display:none;">
+<button id="convertButton" disabled>Criar DOCX</button>
 <div id="output"></div>
 
 <script>
+    let photoData = null;
+
+    document.getElementById('takePhotoButton').addEventListener('click', function() {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+                video.play();
+
+                video.onloadedmetadata = function() {
+                    const canvas = document.getElementById('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                    photoData = canvas.toDataURL('image/jpeg');
+                    document.getElementById('photo').src = photoData;
+                    document.getElementById('photo').style.display = 'block';
+                    stream.getTracks().forEach(track => track.stop());
+                    document.getElementById('convertButton').disabled = false;
+                };
+            })
+            .catch(function(err) {
+                console.log("Erro ao acessar a câmera: " + err);
+            });
+    });
+
     document.getElementById('convertButton').addEventListener('click', function() {
         const pdfInput = document.getElementById('pdfInput');
         const pdfFile = pdfInput.files[0];
 
-        if (pdfFile) {
+        if (pdfFile && photoData) {
             const pdfReader = new FileReader();
             pdfReader.onload = function(pdfEvent) {
                 const typedarray = new Uint8Array(pdfEvent.target.result);
@@ -43,59 +72,38 @@
                         fullText = pageTexts.join('\n\n');
                         document.getElementById('output').textContent = fullText;
                         
-                        //Cria DOCX
-                        criaDOCX(fullText,"textinho");
-
-                        // Carregar a imagem do cabeçalho
-                   /*     fetch('cabecalho.png')
-                            .then(res => res.arrayBuffer())
-                            .then(buffer => {
-                                // Criar o documento DOCX com cabeçalho
-                                const doc = new docx.Document({
-                                    sections: [{
-                                        properties: {
-                                            page: {
-                                                margin: {
-                                                    top: 1000, // Ajuste conforme necessário
-                                                },
-                                            },
-                                        },
-                                        headers: {
-                                            default: new docx.Header({
-                                                children: [
-                                                    new docx.Paragraph({
-                                                        children: [
-                                                            new docx.ImageRun({
-                                                                data: buffer,
-                                                                transformation: {
-                                                                    width: 600,
-                                                                    height: 75,
-                                                                },
-                                                            }),
-                                                        ],
-                                                    }),
-                                                ],
-                                            }),
-                                        },
+                        // Criar o documento DOCX com a foto
+                        const doc = new docx.Document({
+                            sections: [{
+                                children: [
+                                    new docx.Paragraph({
                                         children: [
-                                            new docx.Paragraph({
-                                                children: [new docx.TextRun(fullText)],
+                                            new docx.ImageRun({
+                                                data: photoData.split(',')[1],
+                                                transformation: {
+                                                    width: 400,
+                                                    height: 300,
+                                                },
                                             }),
                                         ],
-                                    }],
-                                });
+                                    }),
+                                    new docx.Paragraph({
+                                        children: [new docx.TextRun(fullText)],
+                                    }),
+                                ],
+                            }],
+                        });
 
-                                // Gerar e baixar o arquivo DOCX
-                                docx.Packer.toBlob(doc).then(blob => {
-                                    saveAs(blob, "documento_com_cabecalho.docx");
-                                });
-                            });*/
+                        // Gerar e baixar o arquivo DOCX
+                        docx.Packer.toBlob(doc).then(blob => {
+                            saveAs(blob, "documento_com_foto.docx");
+                        });
                     });
                 });
             };
             pdfReader.readAsArrayBuffer(pdfFile);
         } else {
-            alert('Por favor, selecione um arquivo PDF.');
+            alert('Por favor, selecione um arquivo PDF e tire uma foto.');
         }
     });
 </script>
