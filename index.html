@@ -12,7 +12,7 @@
 
 <h2>Selecione um arquivo PDF para criar um DOCX com cabeçalho</h2>
 <input type="file" id="pdfInput" accept="application/pdf" />
-<button id="convertButton">Converter para DOCX</button>
+<button id="Cria DOCX">Converter para DOCX</button>
 <div id="output"></div>
 
 <script>
@@ -42,8 +42,11 @@
                         fullText = pageTexts.join('\n\n');
                         document.getElementById('output').textContent = fullText;
                         
+                        //Cria DOCX
+                        criaDOCX(fullText,"textinho");
+
                         // Carregar a imagem do cabeçalho
-                        fetch('cabecalho.png')
+                   /*     fetch('cabecalho.png')
                             .then(res => res.arrayBuffer())
                             .then(buffer => {
                                 // Criar o documento DOCX com cabeçalho
@@ -85,7 +88,7 @@
                                 docx.Packer.toBlob(doc).then(blob => {
                                     saveAs(blob, "documento_com_cabecalho.docx");
                                 });
-                            });
+                            });*/
                     });
                 });
             };
