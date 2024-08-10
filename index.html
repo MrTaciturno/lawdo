@@ -16,13 +16,14 @@
 <input type="file" id="pdfInput" accept="application/pdf" />
 <button id="convertButton">Cria DOCX</button>
 <div id="output"></div>
+<div id="output2"></div>
 
 <fieldset id="fieldCola">
     <legend>Inserir EMAIL</legend>
     <p> Selecione e Copie todo o conteúdo do e-mail, cole na caixa de texto abaixo.</p>
 
     <label for="cCampodeColagem">Campo de Colagem:</label>
-    <input type="text"  name="tCampodeColagem" id="cCampodeColagem" size="30" maxlenght="1000" onpaste="var aaa=fProcessaEmail()" placeholder="Cole o email aqui" />
+    <input type="text"  name="tCampodeColagem" id="cCampodeColagem" size="30" maxlenght="1000" onpaste="document.getElementById('output2').textContent=fProcessaEmail()" placeholder="Cole o email aqui" />
 </fieldset>
 
 <script>
