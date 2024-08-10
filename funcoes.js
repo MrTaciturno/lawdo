@@ -95,9 +95,9 @@ function fProcessaEmail(){
 
     var posVeiculoInfo = conteudoEmail.search("Veículo");
 
-    var fullText = posAcusado+posAutoridade+posDataFatoInfo+posDataAcionamento+posDataExame+posLocalFatoInfo+posLocalExameInfo+posAcusado+posVitimaInfo+posVitimaFatal+posPreservaInfo+posPrioridade+posHistoricoInfo+posQuesitos+posObs+posPessoasEnvolvidas+posVeiculoInfo;
+    var fullText = " "+posAcusado+" "+posAutoridade+" "+posDataFatoInfo+" "+posDataAcionamento+" "+posDataExame+" "+posLocalFatoInfo+" "+posLocalExameInfo+" "+posAcusado+" "+posVitimaInfo+" "+posVitimaFatal+" "+posPreservaInfo+" "+posPrioridade+" "+posHistoricoInfo+" "+posQuesitos+" "+posObs+" "+posPessoasEnvolvidas+" "+posVeiculoInfo;
 
     return fullText;
-    
+
     //revela();
 }
