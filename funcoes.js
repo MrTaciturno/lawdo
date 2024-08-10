@@ -97,6 +97,7 @@ function fProcessaEmail(){
 
     var fullText = posAcusado+posAutoridade+posDataFatoInfo+posDataAcionamento+posDataExame+posLocalFatoInfo+posLocalExameInfo+posAcusado+posVitimaInfo+posVitimaFatal+posPreservaInfo+posPrioridade+posHistoricoInfo+posQuesitos+posObs+posPessoasEnvolvidas+posVeiculoInfo;
 
-    criaDOCX(fullText,"textinho");
+    return fullText;
+    
     //revela();
 }
