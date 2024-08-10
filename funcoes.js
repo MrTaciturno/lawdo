@@ -45,7 +45,7 @@ function criaDOCX(fullText,nome){
 }
 
 function fProcessaEmail(){
-    var conteudoEmail = document.getElementById('cCampodeColagem').value;
+    var conteudoEmail = document.getElementById('cCampodeColagem').textContent;
     document.getElementById('cCampodeColagem').value = "";
     document.getElementById('cCampodeColagem').placeholder= "OK";
 
