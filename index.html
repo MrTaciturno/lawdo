@@ -22,15 +22,21 @@
     <legend>Inserir EMAIL</legend>
     <p> Selecione e Copie todo o conteúdo do e-mail, cole na caixa de texto abaixo.</p>
 
-    <label for="cCampodeColagem">Campo de Colagem:</label>
-    <input type="text"  name="tCampodeColagem" id="cCampodeColagem" size="30" maxlenght="1000" onpaste="document.getElementById('output2').textContent=fProcessaEmail()" placeholder="Cole o email aqui" />
+    <textarea id="cCampodeColagem" name="tCampodeColagem" rows="1" cols="10" placeholder="Cole o email aqui" onpaste="fProcessaEmail()"></textarea>
+
+    <!-- <label for="cCampodeColagem">Campo de Colagem:</label> -->
+    <!-- <input type="text"  name="tCampodeColagem" id="cCampodeColagem" size="30" maxlenght="1000" onpaste="fProcessaEmail()" placeholder="Cole o email aqui" /> -->
+    <div id='editableDiv' contenteditable='true'>Paste</div>
+
 </fieldset>
 
 <script>
+    document.getElementById('editableDiv').addEventListener('paste', handlePaste);
+
     document.getElementById('convertButton').addEventListener('click', function() {
         const pdfInput = document.getElementById('pdfInput');
         const pdfFile = pdfInput.files[0];
-
+        
         if (pdfFile) {
             const pdfReader = new FileReader();
             pdfReader.onload = function(pdfEvent) {

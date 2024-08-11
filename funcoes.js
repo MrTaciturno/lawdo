@@ -43,9 +43,24 @@ function criaDOCX(fullText,nome){
         });
     });
 }
+function handlePaste(e) {
+    var clipboardData, pastedData;
+  
+    // Stop data actually being pasted into div
+    e.stopPropagation();
+    e.preventDefault();
+  
+    // Get pasted data via clipboard API
+    clipboardData = e.clipboardData || window.clipboardData;
+    pastedData = clipboardData.getData('Text');
+  
+    // Do whatever with pasteddata
+    alert(pastedData);
+  }
+
 
 function fProcessaEmail(){
-    var conteudoEmail = document.getElementById('cCampodeColagem').textContent;
+    var conteudoEmail = document.getElementById('cCampodeColagem').value;
     document.getElementById('cCampodeColagem').value = "";
     document.getElementById('cCampodeColagem').placeholder= "OK";
 
@@ -97,7 +112,7 @@ function fProcessaEmail(){
 
     var fullText = " "+posAcusado+" "+posAutoridade+" "+posDataFatoInfo+" "+posDataAcionamento+" "+posDataExame+" "+posLocalFatoInfo+" "+posLocalExameInfo+" "+posAcusado+" "+posVitimaInfo+" "+posVitimaFatal+" "+posPreservaInfo+" "+posPrioridade+" "+posHistoricoInfo+" "+posQuesitos+" "+posObs+" "+posPessoasEnvolvidas+" "+posVeiculoInfo;
 
-    criaDOCX(fullText,"textinho");
+    //criaDOCX(fullText,"textinho");
     return fullText;
 
     //revela();
