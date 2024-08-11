@@ -61,42 +61,6 @@ function handlePaste(e) {
     fProcessaEmail();
 }
 
-function convertePDF(){
-    
-    const pdfInput = document.getElementById('pdfInput');
-    const pdfFile = pdfInput.files[0];
-        
-    if (pdfFile) {
-        const pdfReader = new FileReader();
-        pdfReader.onload = function(pdfEvent) {
-            const typedarray = new Uint8Array(pdfEvent.target.result);
-
-            pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
-                let fullText = '';
-                const numPages = pdf.numPages;
-                let promises = [];
-
-                for (let i = 1; i <= numPages; i++) {
-                    promises.push(pdf.getPage(i).then(function(page) {
-                        return page.getTextContent();
-                    }).then(function(textContent) {
-                            return textContent.items.map(item => item.str).join(' ');
-                        }));
-                }
-
-                Promise.all(promises).then(function(pageTexts) {
-                    fullText = pageTexts.join('\n\n');
-                    processaPDF(fullText);
-
-                });
-            });
-        };
-        pdfReader.readAsArrayBuffer(pdfFile);
-    } else {
-        alert('Por favor, selecione um arquivo PDF.');
-    }
-}
-
 function processaPDF(fullText){
     console.log(fullText);
 }
@@ -150,4 +114,40 @@ function fProcessaEmail(){
     return fullText;
 
     //revela();
+}
+
+function convertePDF(){
+    
+    const pdfInput = document.getElementById('pdfInput');
+    const pdfFile = pdfInput.files[0];
+        
+    if (pdfFile) {
+        const pdfReader = new FileReader();
+        pdfReader.onload = function(pdfEvent) {
+            const typedarray = new Uint8Array(pdfEvent.target.result);
+
+            pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
+                let fullText = '';
+                const numPages = pdf.numPages;
+                let promises = [];
+
+                for (let i = 1; i <= numPages; i++) {
+                    promises.push(pdf.getPage(i).then(function(page) {
+                        return page.getTextContent();
+                    }).then(function(textContent) {
+                            return textContent.items.map(item => item.str).join(' ');
+                        }));
+                }
+
+                Promise.all(promises).then(function(pageTexts) {
+                    fullText = pageTexts.join('\n\n');
+                    processaPDF(fullText);
+
+                });
+            });
+        };
+        pdfReader.readAsArrayBuffer(pdfFile);
+    } else {
+        alert('Por favor, selecione um arquivo PDF.');
+    }
 }
