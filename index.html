@@ -12,16 +12,18 @@
 <body>
 <script>
     window.onload = function(e){ // assim que carrega a pagina
-			//adiciona observador para colagem do email
-			document.getElementById('cCampodeColagem').addEventListener('paste', handlePaste);
-		}
+		//adiciona observador para colagem do email
+	 	document.getElementById('cCampodeColagem').addEventListener('paste', handlePaste);
+        //obs para pdf           
+        document.getElementById('convertButton').addEventListener('click', convertePDF);           
+            
+	}
 
 </script>
 <h2>Selecione um arquivo PDF para criar um DOCX com cabeçalho</h2>
 <input type="file" id="pdfInput" accept="application/pdf" />
-<button id="convertButton">Cria DOCX</button>
-<div id="output"></div>
-<div id="output2"></div>
+<button id="convertButton">Processa BO</button>
+
 
 <fieldset id="fieldCola">
     <legend>Inserir EMAIL</legend>
@@ -30,52 +32,15 @@
     <button id="criaDOCX">Cria DOCX</button>
 </fieldset>
 
+<fieldset id="fieldOutput">
+    <legend>Output</legend>
+    <div id="output"></div>
+</fieldset>
+
 <script>
-
-    //botão para processar o PDF
-    document.getElementById('convertButton').addEventListener('click', function() {
-        const pdfInput = document.getElementById('pdfInput');
-        const pdfFile = pdfInput.files[0];
-        
-        if (pdfFile) {
-            const pdfReader = new FileReader();
-            pdfReader.onload = function(pdfEvent) {
-                const typedarray = new Uint8Array(pdfEvent.target.result);
-
-                pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
-                    let fullText = '';
-                    const numPages = pdf.numPages;
-                    let promises = [];
-
-                    for (let i = 1; i <= numPages; i++) {
-                        promises.push(pdf.getPage(i).then(function(page) {
-                            return page.getTextContent();
-                        }).then(function(textContent) {
-                            return textContent.items.map(item => item.str).join(' ');
-                        }));
-                    }
-
-                    Promise.all(promises).then(function(pageTexts) {
-                        fullText = pageTexts.join('\n\n');
-                        document.getElementById('output').textContent = fullText;
-                        
-                        //Cria DOCX
-
-                        processaPDF(fullText);
-                        //criaDOCX(aaa,"textinho");
-
-                    });
-                });
-            };
-            pdfReader.readAsArrayBuffer(pdfFile);
-        } else {
-            alert('Por favor, selecione um arquivo PDF.');
-        }
-    });
-
     //botão para criar o DOCX
     document.getElementById('criaDOCX').addEventListener('click', function() {
-        var aaa = document.getElementById('output2').textContent;
+        var aaa = document.getElementById('output').textContent;
         criaDOCX(aaa,"textinho");
     });
 

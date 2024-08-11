@@ -43,6 +43,7 @@ function criaDOCX(fullText,nome){
         });
     });
 }
+
 function handlePaste(e) {
     var clipboardData, pastedData;
   
@@ -58,11 +59,46 @@ function handlePaste(e) {
     document.getElementById('cCampodeColagem').textContent = pastedData;
     //console.log(pastedData);
     fProcessaEmail();
-  }
+}
 
-  function processaPDF(fullText){
+function convertePDF(){
+    const pdfInput = document.getElementById('pdfInput');
+    const pdfFile = pdfInput.files[0];
+        
+    if (pdfFile) {
+        const pdfReader = new FileReader();
+        pdfReader.onload = function(pdfEvent) {
+            const typedarray = new Uint8Array(pdfEvent.target.result);
+
+            pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
+                let fullText = '';
+                const numPages = pdf.numPages;
+                let promises = [];
+
+                for (let i = 1; i <= numPages; i++) {
+                    promises.push(pdf.getPage(i).then(function(page) {
+                        return page.getTextContent();
+                    }).then(function(textContent) {
+                            return textContent.items.map(item => item.str).join(' ');
+                        }));
+                }
+
+                Promise.all(promises).then(function(pageTexts) {
+                    fullText = pageTexts.join('\n\n');
+                    processaPDF(fullText);
+
+                });
+            });
+        };
+        pdfReader.readAsArrayBuffer(pdfFile);
+    } else {
+        alert('Por favor, selecione um arquivo PDF.');
+    }
+}
+
+function processaPDF(fullText){
     console.log(fullText);
-  }
+}
 
 function fProcessaEmail(){
 
@@ -72,7 +108,7 @@ function fProcessaEmail(){
 
     console.log(conteudoEmail);
 
-    var posProtSAEP = conteudoEmail.search   ("Local LiberadoNº");
+    var posProtSAEP = conteudoEmail.search   ("Local Liberado\r\nNº ");
     var posNumLaudo = conteudoEmail.search   ("Laudo:");
     
     var posTipoOrigem = conteudoEmail.search("Tipo de Origem:");
@@ -82,43 +118,34 @@ function fProcessaEmail(){
     var posOrgaoCircunscricao = conteudoEmail.search("Órgão Circunscrição:");
     var posDPRequisitante = conteudoEmail.search("DP Requisitante:");
         
-    var posMSG = conteudoEmail.search("MSG n°:");
     var posAutoridade = conteudoEmail.search("Nome do Requisitante:");
     
     var posEndereco = conteudoEmail.search("Endereço:");
 
-    //var posEmailReq = conteudoEmail.search("Email Requisitante:");
-
     var posNaturezaExame = conteudoEmail.search("Natureza:");
-    var posNaturezaCrime = conteudoEmail.search("Natureza Criminal da Ocorrência:");
+    var posNaturezaCrime = conteudoEmail.search("Naturezas Criminais da Ocorrência:");
     
-    //var posDataSolicitacao = conteudoEmail.search("Solicitação:");
+
     var posDataFatoInfo = conteudoEmail.search("Data/Hora do Fato:");
     var posDataAcionamento = conteudoEmail.search("Protocolo Aberto");
     
     var posDataExame = conteudoEmail.search("Protocolo em Atendimento");
 
-    
-    var posLocalFatoInfo = conteudoEmail.search("Local do Fato:");
-    var posLocalExameInfo = conteudoEmail.search("Local do Exame:");
-    var posAcusado = conteudoEmail.search("Acusado");
-    var posVitimaInfo = conteudoEmail.search("Vitíma");
-    var posVitimaFatal = conteudoEmail.search("Vitíma Fatal:");
-    var posPreservaInfo = conteudoEmail.search("Preservado:");
-    var posPrioridade = conteudoEmail.search("Prioridade:");
-    
-    var posHistoricoInfo = conteudoEmail.search("Histórico:");
-    //var posObjetivoExame = conteudoEmail.search("Quesitos:");
 
-    var posQuesitos = conteudoEmail.search("Quesitos:");
-    var posObs = conteudoEmail.search("Observações/Mensagem na Íntegra:");
+
     var posPessoasEnvolvidas = conteudoEmail.search("Pessoas Envolvidas:");
 
-    var posVeiculoInfo = conteudoEmail.search("Veículo");
+    var posPreservaInfo = conteudoEmail.search("Estado de Preservação:");
+    
+    var posHistoricoInfo = conteudoEmail.search("Histórico:");
+    var posQuesitos = conteudoEmail.search("Quesitos:");
 
-    var fullText = " "+posAcusado+" "+posAutoridade+" "+posDataFatoInfo+" "+posDataAcionamento+" "+posDataExame+" "+posLocalFatoInfo+" "+posLocalExameInfo+" "+posAcusado+" "+posVitimaInfo+" "+posVitimaFatal+" "+posPreservaInfo+" "+posPrioridade+" "+posHistoricoInfo+" "+posQuesitos+" "+posObs+" "+posPessoasEnvolvidas+" "+posVeiculoInfo;
+    var posVeiculoInfo = conteudoEmail.search("Veículos Relacionados:");
+
+    var fullText = "Protocolo:"+posProtSAEP+"  Laudo:"+posNumLaudo+" Tipo de Origem:"+posTipoOrigem+" Cidade:"+posCidadeOrigem+" Origem:"+posOrigem+" Órgão Circunscrição: "+posOrgaoCircunscricao+" DP Requisitante:"+posDPRequisitante+" Autoridade:"+posAutoridade+" Endereço:"+posEndereco+" Natureza:"+posNaturezaExame+" Natureza Criminal:"+posNaturezaCrime+" Data/Hora do Fato:"+posDataFatoInfo+" Data/Hora do Acionamento:"+posDataAcionamento+" Data/Hora do Exame:"+posDataExame+" Estado da Preservação:"+posPreservaInfo+" Histórico:"+posHistoricoInfo+" Quesitos:"+posQuesitos+" Pessoas Envolvidas:"+posPessoasEnvolvidas+" Veículos Relacionados:"+posVeiculoInfo; 
 
     //criaDOCX(fullText,"textinho");
+    document.getElementById('output').textContent = fullText;
     return fullText;
 
     //revela();
