@@ -62,6 +62,7 @@ function handlePaste(e) {
 }
 
 function convertePDF(){
+    
     const pdfInput = document.getElementById('pdfInput');
     const pdfFile = pdfInput.files[0];
         
