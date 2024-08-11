@@ -55,7 +55,7 @@ function handlePaste(e) {
     pastedData = clipboardData.getData('Text');
   
     // Do whatever with pasteddata
-    alert(pastedData);
+    console.log(pastedData);
   }
 
 
