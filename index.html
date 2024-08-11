@@ -27,11 +27,12 @@
     <legend>Inserir EMAIL</legend>
     <p> Selecione e Copie todo o conteúdo do e-mail, cole na caixa de texto abaixo.</p>
     <textarea id="cCampodeColagem" name="tCampodeColagem" rows="1" cols="10" placeholder="Cole o email aqui" onpaste="fProcessaEmail()"></textarea>
+    <button id="criaDOCX">Cria DOCX</button>
 </fieldset>
 
 <script>
 
-
+    //botão para processar o PDF
     document.getElementById('convertButton').addEventListener('click', function() {
         const pdfInput = document.getElementById('pdfInput');
         const pdfFile = pdfInput.files[0];
@@ -57,11 +58,11 @@
                     Promise.all(promises).then(function(pageTexts) {
                         fullText = pageTexts.join('\n\n');
                         document.getElementById('output').textContent = fullText;
-                        var aaa = document.getElementById('output2').textContent;
+                        
                         //Cria DOCX
 
-                        //processa PDF.
-                        criaDOCX(aaa,"textinho");
+                        processaPDF(fullText);
+                        //criaDOCX(aaa,"textinho");
 
                     });
                 });
@@ -71,6 +72,13 @@
             alert('Por favor, selecione um arquivo PDF.');
         }
     });
+
+    //botão para criar o DOCX
+    document.getElementById('criaDOCX').addEventListener('click', function() {
+        var aaa = document.getElementById('output2').textContent;
+        criaDOCX(aaa,"textinho");
+    });
+
 </script>
 
 </body>

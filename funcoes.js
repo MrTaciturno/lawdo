@@ -60,6 +60,9 @@ function handlePaste(e) {
     fProcessaEmail();
   }
 
+  function processaPDF(fullText){
+    console.log(fullText);
+  }
 
 function fProcessaEmail(){
 
