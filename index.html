@@ -15,7 +15,7 @@
 		//adiciona observador para colagem do email
 	 	document.getElementById('cCampodeColagem').addEventListener('paste', handlePaste);
         //obs para pdf           
-        document.getElementById('convertButton').addEventListener('click', convertePDF);           
+       
             
 	}
 
@@ -38,6 +38,8 @@
 </fieldset>
 
 <script>
+    document.getElementById('convertButton').addEventListener('click', convertePDF);    
+    
     //botão para criar o DOCX
     document.getElementById('criaDOCX').addEventListener('click', function() {
         var aaa = document.getElementById('output').textContent;
