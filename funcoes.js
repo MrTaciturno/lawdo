@@ -55,13 +55,16 @@ function handlePaste(e) {
     pastedData = clipboardData.getData('Text');
   
     // Do whatever with pasteddata
-    console.log(pastedData);
+    document.getElementById('cCampodeColagem').textContent = pastedData;
+    //console.log(pastedData);
+    fProcessaEmail();
   }
 
 
 function fProcessaEmail(){
-    var conteudoEmail = document.getElementById('cCampodeColagem').value;
-    document.getElementById('cCampodeColagem').value = "";
+
+    var conteudoEmail = document.getElementById('cCampodeColagem').textContent;
+    document.getElementById('cCampodeColagem').textContent = "";
     document.getElementById('cCampodeColagem').placeholder= "OK";
 
     console.log(conteudoEmail);
