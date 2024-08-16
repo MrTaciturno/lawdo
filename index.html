@@ -112,16 +112,10 @@
         <label for="cRua">Logradouro:</label>
         <input type="text" name="tRua" id="cRua" size="50" maxlenght="100" placeholder="Rua" />
     </p>
+    
     <p>
-        <label><input type="radio" name="tCidade" value="Americana" id="cAmericana" checked/>Americana</label></br>
-        <label><input type="radio" name="tCidade" value="Santa Bárbara d'Oeste" id="cSantaBarb" />Santa Bárbara d'Oeste</label></br>
-        <label><input type="radio" name="tCidade" value="Nova Odessa" id="cNovaOdessa" />Nova Odessa</label></br>
-        <label><input type="radio" name="tCidade" value="Sumaré" id="cSumare"/>Sumaré</label></br>
-        <label><input type="radio" name="tCidade" value="Hortolândia" id="cHortolandia" />Hortolândia</label></br>
-        <label><input type="radio" name="tCidade" value="Monte Mor" id="cMonteMor" />Monte Mor</label></br>
-        <label><input type="radio" name="tCidade" value="Artur Nogueira" id="cArturNogueira" />Artur Nogueira</label></br>
-        <label><input type="radio" name="tCidade" value="Cosmópolis" id="cCosmopolis" />Cosmópolis</label></br>
-        <label><input type="radio" name="tCidade" value="Engenheiro Coelho" id="cEngenheiroCoelho" />Engenheiro Coelho</label>
+        <label for="cCidade">Cidade:</label>
+        <input type="text" name="tCidade" id="cCidade" size="50" maxlenght="100" placeholder="Americana" />
     </p>
 
     <p>
@@ -130,72 +124,12 @@
         <label id="cLongitude">; Longitude:</label></br>
         <button type="button" onclick="getLocation()">PEGAR GEOLOCALIZAÇÃO</button>
     </p>
-    <p id="preservacaoInformada"><input type="checkbox" name="tUsarPreserInformada" id="usarPreserInformada" hidden="true" /></p>
-
-    <!-- POLICIAL MILITAR 1 -->
-    <p><label><input type="checkbox" name="tFlagPM1" id="cFlagPM1"
-        onclick="dEsconde('cFlagPM1','fieldsetPM1')"/>
-        Policial Militar 1:</label></p>
-    <fieldset id="fieldsetPM1">
-        <label>Nome:<input type="text" name="tNomePM1" id="cNomePM1" size="15" maxlength="20" placeholder="Nome"/></label>
-        <label>RE:<input type="text" name="tREPM1" id="cREPM1" size="10" maxlength="15" placeholder="RE"/></label>
-        <label>VTR:<input type="text" name="tVTRPM" id="cVTRPM" size="8" maxlength="15" placeholder="VTR"/></label>
+    <fieldset id="fieldPreservacao" disabled="true">
+        <legend><label><input type="checkbox" name="tPreservacao" id="cPreservacao"
+        onclick="document.getElementById('fieldPreservacao').disabled = !document.getElementById('cPreservacao').checked"/>Preservação: </label></legend>
+        <textarea id="taPreservacao" name="ctaPreservacao" rows="4" cols="50">Estado de preservação.</textarea>
     </fieldset>
 
-    <!--POLICIAL MILITAR 2-->
-    <p><label><input type="checkbox" name="tFlagPM2" id="cFlagPM2"
-        onclick="dEsconde('cFlagPM2','fieldsetPM2')"/>
-        Policial Militar 2:</label></p>
-    <fieldset id="fieldsetPM2">
-        <label>Nome:<input type="text" name="tNomePM2" id="cNomePM2" size="15" maxlength="20" placeholder="Nome"/></label>
-        <label>RE:<input type="text" name="tREPM2" id="cREPM2" size="10" maxlength="15" placeholder="RE"/></label>
-    </fieldset>
-
-    <!--POLICIAL CIVIL 1-->
-    <p><label><input type="checkbox" name="tFlagPC1" id="cFlagPC1"
-        onclick="dEsconde('cFlagPC1','fieldsetPC1')"/>
-        Policial Civil 1:</label></p>
-    <fieldset id="fieldsetPC1">
-        <label>Nome:<input type="text" name="tNomePC1" id="cNomePC1" size="15" maxlength="20" placeholder="Nome"/></label>
-        <label>RG:<input type="text" name="tRGPC1" id="cRGPC1" size="10" maxlength="15" placeholder="RG"/></label>
-        <label>VTR:<input type="text" name="tVTRPC" id="cVTRPC" size="8" maxlength="15" placeholder="VTR"/></label>
-    </fieldset>
-
-    <!--POLICIAL CIVIL 2-->
-    <p><label><input type="checkbox" name="tFlagPC2" id="cFlagPC2"
-        onclick="dEsconde('cFlagPC2','fieldsetPC2')"/>
-        Policial Civil 2:</label></p>
-    <fieldset id="fieldsetPC2">
-        <label>Nome:<input type="text" name="tNomePC2" id="cNomePC2" size="15" maxlength="20" placeholder="Nome"/></label>
-        <label>RG:<input type="text" name="tRGPC2" id="cRGPC2" size="10" maxlength="15" placeholder="RG"/></label>
-    </fieldset>
-
-    <!-- GUARDA MUNICIPAL 1-->
-    <p><label><input type="checkbox" name="tFlagGM1" id="cFlagGM1"
-        onclick="dEsconde('cFlagGM1','fieldsetGM1')"/>
-        Guarda Municipal 1:</label></p>
-    <fieldset id="fieldsetGM1">
-        <label>Nome:<input type="text" name="tNomeGM1" id="cNomeGM1" size="15" maxlength="20" placeholder="Nome"/></label>
-        <label>RG:<input type="text" name="tRGGM1" id="cRGGM1" size="10" maxlength="15" placeholder="RG"/></label>
-        <label>VTR:<input type="text" name="tVTRGM" id="cVTRGM" size="8" maxlength="15" placeholder="VTR"/></label>
-    </fieldset>
-
-    <!-- GUARDA MUNICIPAL 2-->
-    <p><label><input type="checkbox" name="tFlagGM2" id="cFlagGM2"
-        onclick="dEsconde('cFlagGM2','fieldsetGM2')"/>
-        Guarda Municipal 2:</label></p>
-    <fieldset id="fieldsetGM2">
-        <label>Nome:<input type="text" name="tNomeGM2" id="cNomeGM2" size="15" maxlength="20" placeholder="Nome"/></label>
-        <label>RG:<input type="text" name="tRGGM2" id="cRGGM2" size="10" maxlength="15" placeholder="RG"/></label>
-    </fieldset>
-
-    <fieldset id="fieldsetVitima" disabled="true">
-        <legend><label><input type="checkbox" name="tFlagVitima" id="cFlagVitima"
-        onclick="document.getElementById('fieldsetVitima').disabled = !document.getElementById('cFlagVitima').checked"/>
-        Vítima/Representante:</label></legend>
-        <label>Nome:<input type="text" name="tNomeVit" id="cNomeVit" size="32" maxlength="32" placeholder="Nome"/></label>
-        <label>RG:<input type="text" name="tRGVit" id="cRGVit" size="12" maxlength="15" placeholder="RG"/></label>
-    </fieldset>
 </fieldset>
 
 <script>

@@ -90,7 +90,7 @@ function handlePaste(e) {
   
     // Do whatever with pasteddata
     document.getElementById('cCampodeColagem').textContent = pastedData;
-    //console.log(pastedData);
+
     fProcessaEmail();
 }
 
@@ -110,7 +110,7 @@ function fProcessaEmail(){
 
     if(posProtSAEP != -1){
        document.getElementById('cProtSAEP').value = "L"+conteudoEmail.substring(posProtSAEP + 19, posProtSAEP + 29);
-       console.log(conteudoEmail.substring(posProtSAEP, posProtSAEP + 29));
+       
     }
    
     var posNumLaudo = conteudoEmail.search   ("Laudo:");
@@ -151,11 +151,13 @@ function fProcessaEmail(){
 
     var posEndereco = conteudoEmail.search("Endereço:");
     if(posEndereco != -1){
-        let fimString = conteudoEmail.indexOf('\r\n', posEndereco + 9);
+        let fimString = conteudoEmail.indexOf('\r\n', posEndereco + 13);
         if (fimString === -1) {
             fimString = conteudoEmail.length;
         }
-      
+
+        document.getElementById('cRua').value = conteudoEmail.substring(posEndereco + 13, fimString).toUpperCase();
+        
     }
 
     var posNaturezaExame = conteudoEmail.search("Natureza:");
@@ -165,7 +167,7 @@ function fProcessaEmail(){
             fimString = conteudoEmail.length;
         }
         document.getElementById('cNaturezaExame').value = conteudoEmail.substring(posNaturezaExame + 10, fimString);
-    }   
+    }
 
     var posNaturezaCrime = conteudoEmail.search("Naturezas Criminais da Ocorrência:\r\n");
     if(posNaturezaCrime != -1){
@@ -202,24 +204,66 @@ function fProcessaEmail(){
         if (fimString === -1) {
             fimString = conteudoEmail.length;
         }
-        let dataFato = conteudoEmail.substring(posDataFatoInfo + 19, fimString-6);
-        let horaFato = conteudoEmail.substring(fimString-5, fimString);
-
-        var montaData = dataFato.substring(6,10)+"-"+dataFato.substring(3,5)+"-"+dataFato.substring(0,2);
         
-        document.getElementById('cDataFatos').value = montaData;
-        document.getElementById('cHoraFatos').value = horaFato;
+        let datanInfo = conteudoEmail.substring(posDataFatoInfo + 19, fimString);
+
+        if (datanInfo != "Não Informado") {
+            let dataFato = datanInfo.substring(0,10);
+            let horaFato = datanInfo.substring(11,16);
+
+            var montaData = dataFato.substring(6,10)+"-"+dataFato.substring(3,5)+"-"+dataFato.substring(0,2);
+
+            document.getElementById('cDataFatos').value = montaData;
+            document.getElementById('cHoraFatos').value = horaFato;
+        }
     }
 
-//parei aqui
+    var posDataAcionamento = conteudoEmail.search("Protocolo Aberto");
+    if(posDataAcionamento != -1){
+        
+        var dataAcionamento = conteudoEmail.substring(posDataAcionamento - 22, posDataAcionamento-6);
+        
+        let dataFato = dataAcionamento.substring(0,10);
+        let horaFato = dataAcionamento.substring(11,16);
+        
+        var montaData = dataFato.substring(6,10)+"-"+dataFato.substring(3,5)+"-"+dataFato.substring(0,2);
+
+        document.getElementById('cDataAciona').value = montaData;
+        document.getElementById('cHoraAciona').value = horaFato;
+    }
+
+    var posDataExame = conteudoEmail.search("Protocolo em Atendimento");
+    if(posDataExame != -1){
+        var dataExame = conteudoEmail.substring(posDataExame - 22, posDataExame-6);
+
+        let dataFato = dataExame.substring(0,10);
+        let horaFato = dataExame.substring(11,16);
+        
+        var montaData = dataFato.substring(6,10)+"-"+dataFato.substring(3,5)+"-"+dataFato.substring(0,2);
+
+        document.getElementById('cDataExame').value = montaData;
+        document.getElementById('cHoraExame').value = horaFato;
+    }
 
     var posCidadeOrigem = conteudoEmail.search("Cidade de Origem:");
+
+    if(posCidadeOrigem != -1){
+        // Busca por "|" para separar a cidade
+        let dpInfo = conteudoEmail.substring(posCidadeOrigem + 17).split("|");
+        if (dpInfo.length > 1) {
+            document.getElementById('cCidade').value = dpInfo[0].trim();
+        } else {
+            document.getElementById('cCidade').value = "Cidade não informada.";
+        }
+    }
+
+
     var posOrgaoCircunscricao = conteudoEmail.search("Órgão Circunscrição:");
     var posDataFatoInfo = conteudoEmail.search("Data/Hora do Fato:");
-    var posDataAcionamento = conteudoEmail.search("Protocolo Aberto");
-    var posDataExame = conteudoEmail.search("Protocolo em Atendimento");
+
+
     var posPessoasEnvolvidas = conteudoEmail.search("Pessoas Envolvidas:");
-    var posPreservaInfo = conteudoEmail.search("Estado de Preservação:");
+  
 
 
     var posVeiculoInfo = conteudoEmail.search("Veículos Relacionados:");
