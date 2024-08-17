@@ -117,6 +117,8 @@ function montaLaudo(e){
     '\tEquipe pericial acionada para local de '+ (!document.getElementById('cNaturezaExame').value ? "natureza não informada, " : document.getElementById('cNaturezaExame').value).toUpperCase() + ' endereço '+
     (!document.getElementById('cRua').value ? "não informado" : document.getElementById('cRua').value)+ ", " + document.getElementById('cCidade').value + '/SP. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
+
+    
     data =
     '\tQuando dos exames o estado da preservação era ' + (!document.getElementById('cPreservacao').checked ? "ausente" : document.getElementById('taPreservacao').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
