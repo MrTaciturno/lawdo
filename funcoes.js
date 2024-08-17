@@ -100,7 +100,9 @@ function montaLaudo(e){
 
     arrayLaudo[0] = data;
 
-    arrayLaudo.push("Titulo");
+    let indiceTitulo = 1;
+    arrayLaudo.push(indiceTitulo + " - Disposições Preliminares");
+    indiceTitulo++;
     numFormatacao[arrayLaudo.length-1]=1;
 
     
@@ -117,7 +119,7 @@ function montaLaudo(e){
     var sFileName = today + "_" + hora;
 
     if (document.getElementById('cProtSAEP').value) sFileName = document.getElementById('cProtSAEP').value;
-    if (document.getElementById('cREP').value) sFileName = document.getElementById('cREP').value;
+    if (document.getElementById('cREP').value) sFileName = document.getElementById('cREP').value+'$'+document.getElementById('cNaturezaExame').value;
     criaTesteDOCX(arrayLaudo,numFormatacao,sFileName);
 }
 
