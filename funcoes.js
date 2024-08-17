@@ -140,13 +140,11 @@ function fProcessaEmail(){
         }
     }
 
+    var posEndereco = conteudoEmail.search("Endereço:");
     var posAutoridade = conteudoEmail.search("Nome do Requisitante:");
     if(posAutoridade != -1){
-        let fimString = conteudoEmail.indexOf('\r\n', posAutoridade + 17);
-        if (fimString === -1) {
-            fimString = conteudoEmail.length;
-        }
-        document.getElementById('cAutoridade').value = "Dr(a). " + conteudoEmail.substring(posAutoridade + 22, fimString);
+        
+        document.getElementById('cAutoridade').value = "Dr(a). " + conteudoEmail.substring(posAutoridade + 22, posEndereco);
     }
 
     var posEndereco = conteudoEmail.search("Endereço:");
@@ -257,24 +255,22 @@ function fProcessaEmail(){
         }
     }
 
+    //adicionar campo de texto livre para complementar as preliminares
 
+
+    //trecho abaixo - apenas teste, usar e/ou deletar quando pronto
     var posOrgaoCircunscricao = conteudoEmail.search("Órgão Circunscrição:");
     var posDataFatoInfo = conteudoEmail.search("Data/Hora do Fato:");
-
-
     var posPessoasEnvolvidas = conteudoEmail.search("Pessoas Envolvidas:");
-  
-
-
     var posVeiculoInfo = conteudoEmail.search("Veículos Relacionados:");
-
+    var posPreservaInfo = conteudoEmail.search("Estado de preservação:");
+    
     var fullText = "Protocolo:"+posProtSAEP+" Laudo:"+posNumLaudo+" Tipo de Origem:"+posTipoOrigem+" Cidade:"+posCidadeOrigem+" Origem:"+posOrigem+" Órgão Circunscrição: "+posOrgaoCircunscricao+" DP Requisitante:"+posDPRequisitante+" Autoridade:"+posAutoridade+" Endereço:"+posEndereco+" Natureza:"+posNaturezaExame+" Natureza Criminal:"+posNaturezaCrime+" Data/Hora do Fato:"+posDataFatoInfo+" Data/Hora do Acionamento:"+posDataAcionamento+" Data/Hora do Exame:"+posDataExame+" Estado da Preservação:"+posPreservaInfo+" Histórico:"+posHistoricoInfo+" Quesitos:"+posQuesitos+" Pessoas Envolvidas:"+posPessoasEnvolvidas+" Veículos Relacionados:"+posVeiculoInfo; 
-
-    //criaDOCX(fullText,"textinho");
+    
     document.getElementById('output').textContent = fullText;
     return fullText;
 
-    //revela();
+
 }
 
 function convertePDF(){
