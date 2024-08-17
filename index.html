@@ -154,8 +154,16 @@
     
     //botão para criar o DOCX
     document.getElementById('criaDOCX').addEventListener('click', function() {
-        var aaa = document.getElementById('output').textContent;
-        criaDOCX(aaa,"textinho");
+        //var aaa = document.getElementById('output').textContent;
+        var arrayLaudo = [""];
+        var flagTituloPara = [false];
+		var numFormatacao = [0];
+
+        arrayLaudo[0] = "teste";
+        arrayLaudo.push(" data");
+        numFormatacao[arrayLaudo.length-1]=1;
+
+        criaTesteDOCX(arrayLaudo,numFormatacao,"textinho");
     });
 
 </script>

@@ -1,3 +1,145 @@
+function criaTesteDOCX(textoLaudo, formatacao, nome){
+    fetch('cabecalho.png')
+    .then(res => res.arrayBuffer())
+    .then(buffer => {
+        // Criar o documento DOCX com cabeçalho
+        var arrParagraf = [];
+        for (var i=0; i< textoLaudo.length; i++){
+            var alinhamentoDX = docx.AlignmentType.JUSTIFIED;
+            var linhaDX = 250;
+            var antesDX = 20 * 72 * 0.01;
+            var depoisDX = 20 * 72 * 0.01;
+            var tamanhoDX = 24;
+            var negritoDX = false;
+
+            switch(formatacao[i]){
+                case 1: //titulo
+                    alinhamentoDX = docx.AlignmentType.LEFT;
+                    linhaDX = 276;
+                    antesDX = 20 * 72 * 0.1;
+                    depoisDX = 20 * 72 * 0.05;
+                    tamanhoDX = 26;
+                    negritoDX = true;
+                break;
+                case 2: //assinatura
+                    alinhamentoDX = docx.AlignmentType.CENTER;
+                    linhaDX = 250;
+                    antesDX = 20 * 72 * 0.01;
+                    depoisDX = 20 * 72 * 0.01;
+                    tamanhoDX = 24;
+                    negritoDX = false;
+                break;
+            }
+            
+            var propositoGeral = new docx.Paragraph({
+                alignment: alinhamentoDX,
+                spacing:{
+                    line: linhaDX,
+                    before: antesDX,
+                    after: depoisDX
+                },
+                children: [
+                    new docx.TextRun({
+                        text: textoLaudo[i],
+                        font:'Arial',
+                        size: tamanhoDX,
+                        bold: negritoDX,
+                    }),
+                ],
+            });
+            arrParagraf.push(propositoGeral);
+        }
+
+        const doc = new docx.Document({
+            sections: [{
+                properties: {
+                    page: {
+                        margin: {
+                            top: 1000, // Ajuste conforme necessário
+                        },
+                    },
+                },
+                headers: {
+                    default: new docx.Header({
+                        children: [
+                            new docx.Paragraph({
+                                children: [
+                                    new docx.ImageRun({
+                                        data: buffer,
+                                        transformation: {
+                                            width: 600,
+                                            height: 75,
+                                        },
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                },
+                children: 
+                    arrParagraf
+            }],
+        });
+
+        // Gerar e baixar o arquivo DOCX
+        docx.Packer.toBlob(doc).then(blob => {
+            saveAs(blob, nome+".docx");
+        });
+    });
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        document.getElementById("cLatitute").innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function dataCerta() {
+    var currentDate= new Date();
+    var day = ("0" + currentDate.getDate()).slice(-2);
+    var month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+    var today = currentDate.getFullYear()+"-"+(month)+"-"+(day) ;
+
+    var hour = ("0" + currentDate.getHours()).slice(-2);
+    var minute = ("0" + currentDate.getMinutes()).slice(-2);
+
+    pacoteData = [day, month, currentDate.getFullYear(), today, hour, minute];
+    return pacoteData;
+
+}
+
+function transfereData(prOndeData,prOndeHora) {
+    var data = dataCerta();
+    document.getElementById(prOndeData).value = data[3];
+    document.getElementById(prOndeHora).value = data[4] + ":" + data[5];
+}
+
+function showPosition(position) {
+    document.getElementById("cLatitute").innerHTML = "Latitude: " + position.coords.latitude;
+    document.getElementById("cLongitude").innerHTML = "; Longitude: " + position.coords.longitude;
+}
+
+function handlePaste(e) {
+    var clipboardData, pastedData;
+  
+    // Stop data actually being pasted into div
+    e.stopPropagation();
+    e.preventDefault();
+  
+    // Get pasted data via clipboard API
+    clipboardData = e.clipboardData || window.clipboardData;
+    pastedData = clipboardData.getData('Text');
+  
+    // Do whatever with pasteddata
+    document.getElementById('cCampodeColagem').textContent = pastedData;
+
+    fProcessaEmail();
+}
+
+
+
 function criaDOCX(fullText,nome){
     fetch('cabecalho.png')
     .then(res => res.arrayBuffer())
