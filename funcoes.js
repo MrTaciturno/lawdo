@@ -118,10 +118,10 @@ function montaLaudo(e){
     (!document.getElementById('cRua').value ? "não informado" : document.getElementById('cRua').value)+ ", " + document.getElementById('cCidade').value + '/SP. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
     data =
-    '\tQuando dos exames o estado da preservação era' + (!document.getElementById('cEstadoPreservacao').value ? "ausente" : document.getElementById('cEstadoPreservacao').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
+    '\tQuando dos exames o estado da preservação era ' + (!document.getElementById('cPreservacao').checked ? "ausente" : document.getElementById('taPreservacao').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
     data =
-    '\tExames iniciados em '+document.getElementById('cDataExame').value+' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0;
+    '\tExames iniciados em '+ document.getElementById("cDataExame").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataExame").value.substring(5,7)-1]+" de "+document.getElementById("cDataExame").value.slice(0,4) +' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
 
 
