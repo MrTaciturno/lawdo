@@ -147,7 +147,6 @@ function fProcessaEmail(){
         document.getElementById('cAutoridade').value = "Dr(a). " + conteudoEmail.substring(posAutoridade + 22, posEndereco);
     }
 
-    var posEndereco = conteudoEmail.search("Endereço:");
     if(posEndereco != -1){
         let fimString = conteudoEmail.indexOf('\r\n', posEndereco + 13);
         if (fimString === -1) {
@@ -159,24 +158,16 @@ function fProcessaEmail(){
     }
 
     var posNaturezaExame = conteudoEmail.search("Natureza:");
+    var posNaturezaCrime = conteudoEmail.search("Naturezas Criminais da Ocorrência:");
     if(posNaturezaExame != -1){
-        let fimString = conteudoEmail.indexOf('\r\n', posNaturezaExame + 9);
-        if (fimString === -1) {
-            fimString = conteudoEmail.length;
-        }
-        document.getElementById('cNaturezaExame').value = conteudoEmail.substring(posNaturezaExame + 10, fimString);
-    }
-
-    var posNaturezaCrime = conteudoEmail.search("Naturezas Criminais da Ocorrência:\r\n");
-    if(posNaturezaCrime != -1){
-        let fimString = conteudoEmail.indexOf('\r\n', posNaturezaCrime + 38);
-        if (fimString === -1) {
-            fimString = conteudoEmail.length;
-        }
-        document.getElementById('cNaturezaCrime').value = conteudoEmail.substring(posNaturezaCrime + 34, fimString);
+        document.getElementById('cNaturezaExame').value = conteudoEmail.substring(posNaturezaExame + 10, posNaturezaCrime);
     }
 
     var posQuesitos = conteudoEmail.search("Quesitos:");
+    if(posNaturezaCrime != -1){
+        document.getElementById('cNaturezaCrime').value = conteudoEmail.substring(posNaturezaCrime + 34, posQuesitos);
+    }
+ 
     if(posQuesitos != -1){
         let dpInfo = conteudoEmail.substring(posQuesitos + 13).split("Unidade(s)/Time(s) Designado(s):");
         if (dpInfo.length > 1) {
