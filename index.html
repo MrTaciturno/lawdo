@@ -138,10 +138,19 @@
         onclick="document.getElementById('fieldDoLocal').disabled = !document.getElementById('cDoLocal').checked"/>Do Local: </label></legend>
         <textarea id="taDoLocal" name="ctaDoLocal" rows="4" cols="50">Do Local.</textarea>
     </fieldset>
+    <fieldset id="fieldDosVeiculos" disabled="true">
+        <legend><label><input type="checkbox" name="tDosVeiculos" id="cDosVeiculos"
+        onclick="document.getElementById('fieldDosVeiculos').disabled = !document.getElementById('cDosVeiculos').checked"/>Dos Veículos: </label></legend>
+        <textarea id="taDosVeiculos" name="ctaDosVeiculos" rows="4" cols="50">Dos Veículos.</textarea>
+    </fieldset>
+    <fieldset id="fieldDoCadaveres" disabled="true">
+        <legend><label><input type="checkbox" name="tDoCadaveres" id="cDoCadaveres"
+        onclick="document.getElementById('fieldDoCadaveres').disabled = !document.getElementById('cDoCadaveres').checked"/>Do Cadáveres: </label></legend>
+        <textarea id="taDoCadaveres" name="ctaDoCadaveres" rows="4" cols="50">Dos Cadáveres.</textarea>
+    </fieldset>
 </fieldset>
 
 <script>
-    
     
     //botão para criar o DOCX
     document.getElementById('criaDOCX').addEventListener('click', function() {

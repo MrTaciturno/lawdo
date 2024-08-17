@@ -147,14 +147,9 @@ function fProcessaEmail(){
         document.getElementById('cAutoridade').value = "Dr(a). " + conteudoEmail.substring(posAutoridade + 22, posEndereco);
     }
 
+    var posDataFatoInfo = conteudoEmail.search("Data/Hora do Fato:");
     if(posEndereco != -1){
-        let fimString = conteudoEmail.indexOf('\r\n', posEndereco + 13);
-        if (fimString === -1) {
-            fimString = conteudoEmail.length;
-        }
-
-        document.getElementById('cRua').value = conteudoEmail.substring(posEndereco + 13, fimString).toUpperCase();
-        
+        document.getElementById('cRua').value = conteudoEmail.substring(posEndereco + 11, posDataFatoInfo).toUpperCase();
     }
 
     var posNaturezaExame = conteudoEmail.search("Natureza:");
@@ -187,7 +182,7 @@ function fProcessaEmail(){
         }
     }
 
-    var posDataFatoInfo = conteudoEmail.search("Data/Hora do Fato:");
+
     if(posDataFatoInfo != -1){
         let fimString = conteudoEmail.indexOf('\r\n', posDataFatoInfo + 18);
         if (fimString === -1) {
