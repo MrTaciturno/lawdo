@@ -89,7 +89,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
     });
 }
 
-function montaLaudo(){
+function montaLaudo(e){
     var mesExtenso = ["janeiro", "fevereiro", "março", "abril", "maio","junho","julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
     
     let data =	
