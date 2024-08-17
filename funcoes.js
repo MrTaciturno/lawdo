@@ -132,7 +132,7 @@ function montaLaudo(e){
 
     if (document.getElementById('cProtSAEP').value) sFileName = document.getElementById('cProtSAEP').value;
     if (document.getElementById('cREP').value) {sFileName = document.getElementById('cREP').value+document.getElementById('cNaturezaExame').value;}
-    criaTesteDOCX(arrayLaudo,numFormatacao,sFileName);
+    criaTesteDOCX(aL,nF,sFileName);
 }
 
 
