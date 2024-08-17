@@ -106,10 +106,10 @@ function fProcessaEmail(){
 
     console.log(conteudoEmail);
 
-    var posProtSAEP = conteudoEmail.search   ("Local Liberado\r\nNº ");
+    var posProtSAEP = conteudoEmail.search   ("Nº ");
 
     if(posProtSAEP != -1){
-       document.getElementById('cProtSAEP').value = "L"+conteudoEmail.substring(posProtSAEP + 19, posProtSAEP + 29);
+       document.getElementById('cProtSAEP').value = "L"+conteudoEmail.substring(posProtSAEP + 3, posProtSAEP + 13);
        
     }
    
