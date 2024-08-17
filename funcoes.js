@@ -169,7 +169,7 @@ function fProcessaEmail(){
     }
  
     if(posQuesitos != -1){
-        let dpInfo = conteudoEmail.substring(posQuesitos + 13).split("Unidade(s)/Time(s) Designado(s):");
+        let dpInfo = conteudoEmail.substring(posQuesitos + 11).split("Unidade(s)/Time(s) Designado(s):");
         if (dpInfo.length > 1) {
             document.getElementById('taQuesitos').value = dpInfo[0].trim();
         } else {
@@ -179,7 +179,7 @@ function fProcessaEmail(){
 
     var posHistoricoInfo = conteudoEmail.search("Histórico:");
     if(posHistoricoInfo != -1){
-        let dpInfo = conteudoEmail.substring(posHistoricoInfo + 13).split("Pessoas Envolvidas:");
+        let dpInfo = conteudoEmail.substring(posHistoricoInfo + 11).split("Pessoas Envolvidas:");
         if (dpInfo.length > 1) {
             document.getElementById('taHistorico').value = dpInfo[0].trim();
         } else {
