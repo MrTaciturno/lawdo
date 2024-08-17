@@ -1,24 +1,3 @@
-function montaLaudo(){
-    var mesExtenso = ["janeiro", "fevereiro", "março", "abril", "maio","junho","julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
-    
-    let data =	
-				'\tEm '+ document.getElementById("cDataAciona").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataAciona").value.substring(5,7)-1]+" de "+document.getElementById("cDataAciona").value.slice(0,4) +' no Núcleo de Perícias Criminalística de Americana, do Instituto de Criminalística, da Superintendência da Polícia Técnico-Científica, da Secretaria de Segurança Pública do Estado de São Paulo, em conformidade com o disposto no Decreto-Lei n.º 3.689/41, o Diretor deste instituto designou o Perito Criminal '+document.getElementById('cPerito').value+' para proceder a este exame pericial, em atendimento à requisição da autoridade de polícia judiciária da '+ document.getElementById('cDelegacia').value + ', '
-				+document.getElementById('cAutoridade').value+ '.';
-
-
-
-    var arrayLaudo = [""];
-	var numFormatacao = [0];
-
-    arrayLaudo[0] = data;
-
-    arrayLaudo.push("Titulo");
-    numFormatacao[arrayLaudo.length-1]=1;
-    
-    criaTesteDOCX(arrayLaudo,numFormatacao,"textinho");
-
-}
-
 function criaTesteDOCX(textoLaudo, formatacao, nome){
     fetch('cabecalho.png')
     .then(res => res.arrayBuffer())
@@ -109,6 +88,28 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
         });
     });
 }
+
+function montaLaudo(){
+    var mesExtenso = ["janeiro", "fevereiro", "março", "abril", "maio","junho","julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    
+    let data =	
+				'\tEm '+ document.getElementById("cDataAciona").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataAciona").value.substring(5,7)-1]+" de "+document.getElementById("cDataAciona").value.slice(0,4) +' no Núcleo de Perícias Criminalística de Americana, do Instituto de Criminalística, da Superintendência da Polícia Técnico-Científica, da Secretaria de Segurança Pública do Estado de São Paulo, em conformidade com o disposto no Decreto-Lei n.º 3.689/41, o Diretor deste instituto designou o Perito Criminal '+document.getElementById('cPerito').value+' para proceder a este exame pericial, em atendimento à requisição da autoridade de polícia judiciária da '+ document.getElementById('cDelegacia').value + ', '
+				+document.getElementById('cAutoridade').value+ '.';
+
+
+
+    var arrayLaudo = [""];
+	var numFormatacao = [0];
+
+    arrayLaudo[0] = data;
+
+    arrayLaudo.push("Titulo");
+    numFormatacao[arrayLaudo.length-1]=1;
+    
+    criaTesteDOCX(arrayLaudo,numFormatacao,"textinho");
+
+}
+
 
 function getLocation() {
     if (navigator.geolocation) {
