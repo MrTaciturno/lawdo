@@ -93,33 +93,45 @@ function montaLaudo(e){
     var mesExtenso = ["janeiro", "fevereiro", "março", "abril", "maio","junho","julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
     
     let data =	
-	'\tEm '+ document.getElementById("cDataAciona").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataAciona").value.substring(5,7)-1]+" de "+document.getElementById("cDataAciona").value.slice(0,4) +' no Núcleo de Perícias Criminalística de Americana, do Instituto de Criminalística, da Superintendência da Polícia Técnico-Científica, da Secretaria de Segurança Pública do Estado de São Paulo, em conformidade com o disposto no Decreto-Lei n.º 3.689/41, o Diretor deste instituto designou o Perito Criminal '+document.getElementById('cPerito').value+' para proceder a este exame pericial, em atendimento à requisição da autoridade de polícia judiciária da '+ document.getElementById('cDelegacia').value + ', ' +document.getElementById('cAutoridade').value+ '.';
+	'\r\n\tEm '+ document.getElementById("cDataAciona").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataAciona").value.substring(5,7)-1]+" de "+document.getElementById("cDataAciona").value.slice(0,4) +' no Núcleo de Perícias Criminalística de Americana, do Instituto de Criminalística, da Superintendência da Polícia Técnico-Científica, da Secretaria de Segurança Pública do Estado de São Paulo, em conformidade com o disposto no Decreto-Lei n.º 3.689/41, o Diretor deste instituto designou o Perito Criminal '+document.getElementById('cPerito').value+' para proceder a este exame pericial, em atendimento à requisição da autoridade de polícia judiciária da '+ document.getElementById('cDelegacia').value + ', ' +document.getElementById('cAutoridade').value+ '.';
 
-    var arrayLaudo = [""];
-	var numFormatacao = [0];
+    var aL = [""]; // array de laudo
+	var nF = [0]; // array de formatacao
+    let iT = 1; // indice do titulo
 
-    arrayLaudo[0] = data;
+    aL[0] = data; aL.push(iT + " - Disposições Preliminares"); iT++; nF[aL.length-1]=1;
 
-    let indiceTitulo = 1;
-    arrayLaudo.push(indiceTitulo + " - Disposições Preliminares");
-    indiceTitulo++;
-    numFormatacao[arrayLaudo.length-1]=1;
+    data = (document.getElementById('cProtSAEP').value ? "Protocolo: "+document.getElementById('cProtSAEP').value+"." : ""); if(data != ""){ aL.push(data); nF[aL.length-1]=1;}
 
-    
+    data = (document.getElementById('cREP').value ? "Laudo Número: "+document.getElementById('cREP').value+"." : ""); if(data != ""){ aL.push(data); nF[aL.length-1]=1;}
 
+    if (document.getElementById('cBO').value){
+        data = "Boletim de Ocorrência: "+document.getElementById('cBO').value.toUpperCase()+".";
+        aL.push(data); nF[aL.length-1]=1;
+    }else{
+        data = "\tBoletim de Ocorrência não informado, em descumprimento à Resolução SSP-26 de 17/04/2019.";
+        aL.push(data); nF[aL.length-1]=0;
+    }
+    data =
+    '\tEquipe pericial acionada para local de '+ (!document.getElementById('cNaturezaExame').value ? "natureza não informada, " : document.getElementById('cNaturezaExame').value) + 'endereço '+
+    (!document.getElementById('cRua').value ? "não informado" : document.getElementById('cRua').value)+ ", " + document.getElementById('cCidade').value + '/SP. \r\n'; aL.push(data); nF[aL.length-1]=0;
+
+
+
+
+
+//  finalização do documento
     var currentDate= new Date();
     var day = ("0" + currentDate.getDate()).slice(-2);
     var month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
     var today = (day)+"-"+(month)+"-"+currentDate.getFullYear();
-
     var hour = ("0" + currentDate.getHours()).slice(-2);
     var minute = ("0" + currentDate.getMinutes()).slice(-2);
     var hora = hour + "h" + minute+"m";
-
     var sFileName = today + "_" + hora;
 
     if (document.getElementById('cProtSAEP').value) sFileName = document.getElementById('cProtSAEP').value;
-    if (document.getElementById('cREP').value) sFileName = document.getElementById('cREP').value+'$'+document.getElementById('cNaturezaExame').value;
+    if (document.getElementById('cREP').value) {sFileName = document.getElementById('cREP').value+document.getElementById('cNaturezaExame').value;}
     criaTesteDOCX(arrayLaudo,numFormatacao,sFileName);
 }
 
