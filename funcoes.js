@@ -498,12 +498,12 @@ function convertePDF(){
 }
 
 
-function abrirMenuOpcoes() {
-    var menu = document.getElementById('menuOpcoes');
+function abrirMenuOpcoes(onde) {
+    var menu = document.getElementById(onde);
     menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
 }
 
-function preencherTextarea(texto) {
-    document.getElementById('taDoLocal').value = document.getElementById('taDoLocal').value+"\r\n"+texto;
-    document.getElementById('menuOpcoes').style.display = 'none';
+function preencherTextarea(onde,ondeTA, texto) {
+    document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+"\r\n"+texto;
+    document.getElementById(onde).style.display = 'none';
 }

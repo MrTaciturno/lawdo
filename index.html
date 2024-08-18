@@ -144,25 +144,27 @@
     <div style="display: flex; align-items: stretch;">
         <textarea id="taDoLocal" name="ctaDoLocal" rows="4" cols="50">Do Local.</textarea>
         
-        <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes()">+</button>
+        <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDoLocal')">+</button>
     </div>
     
-    <div id="menuOpcoes" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
-        <button onclick="preencherTextarea('Opção 1')">Opção 1</button>
-        <button onclick="preencherTextarea('Opção 2')">Opção 2</button>
-        <button onclick="preencherTextarea('Opção 3')">Opção 3</button>
-    </div>
+    <div id="menuOpcoesDoLocal" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
+        <button onclick="preencherTextarea('menuOpcoesDoLocal','taDoLocal','Via pública.')">Via pública.</button>
+        <button onclick="preencherTextarea('menuOpcoesDoLocal','taDoLocal','Estabelecimento Comercial.')">Bar.</button>
+        <button onclick="preencherTextarea('menuOpcoesDoLocal','taDoLocal','Residência.')">Casa.</button>
+    </div> 
 
     </fieldset>
     <fieldset id="fieldDosVeiculos" disabled="true">
         <legend><label><input type="checkbox" name="tDosVeiculos" id="cDosVeiculos"
         onclick="document.getElementById('fieldDosVeiculos').disabled = !document.getElementById('cDosVeiculos').checked"/>Dos Veículos: </label></legend>
         <textarea id="taDosVeiculos" name="ctaDosVeiculos" rows="4" cols="50">Dos Veículos.</textarea>
+    
     </fieldset>
+
     <fieldset id="fieldDoCadaveres" disabled="true">
         <legend><label><input type="checkbox" name="tDoCadaveres" id="cDoCadaveres"
-        onclick="document.getElementById('fieldDoCadaveres').disabled = !document.getElementById('cDoCadaveres').checked"/>Do Cadáveres: </label></legend>
-        <textarea id="taDoCadaveres" name="ctaDoCadaveres" rows="4" cols="50">Dos Cadáveres.</textarea>
+        onclick="document.getElementById('fieldDoCadaveres').disabled = !document.getElementById('cDoCadaveres').checked"/>Do Cadáver: </label></legend>
+        <textarea id="taDoCadaveres" name="ctaDoCadaveres" rows="4" cols="50">Do Cadáver.</textarea>
     </fieldset>
 </fieldset>
 
