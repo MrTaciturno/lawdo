@@ -497,6 +497,7 @@ function convertePDF(){
     }
 }
 
+
 function abrirMenuOpcoes() {
     var menu = document.getElementById('menuOpcoes');
     menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
