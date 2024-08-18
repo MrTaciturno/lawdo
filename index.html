@@ -135,52 +135,62 @@
     </fieldset>
 
 </fieldset>
-<fieldset id="fieldDosExames">
-    <legend>Exames</legend>
-    <fieldset id="fieldDoLocal" disabled="true">
-        <legend><label><input type="checkbox" name="tDoLocal" id="cDoLocal"
-        onclick="document.getElementById('fieldDoLocal').disabled = !document.getElementById('cDoLocal').checked"/>Do Local: </label></legend>
+<fieldset id="fieldDoLocal">
+    <legend><label><input type="checkbox" checked="true" name="tDoLocal" id="cDoLocal"
+    onclick="document.getElementById('fieldDoLocal').disabled = !document.getElementById('cDoLocal').checked"/>Do Local: </label></legend>
+
+<div style="display: flex; align-items: stretch;">
+    <textarea id="taDoLocal" name="ctaDoLocal" rows="4" cols="50"></textarea>
     
-    <div style="display: flex; align-items: stretch;">
-        <textarea id="taDoLocal" name="ctaDoLocal" rows="4" cols="50"></textarea>
-        
-        <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDoLocal')">+</button>
-    </div>
+    <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDoLocal')">+</button>
+</div>
+
+<div id="menuOpcoesDoLocal" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
     
-    <div id="menuOpcoesDoLocal" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
-        
 <script>
-        function criarBotao(texto, acao) {
-            var botao = document.createElement('button');
-            botao.textContent = texto;
-            botao.onclick = function() {
-                preencherTextarea('menuOpcoesDoLocal', 'taDoLocal', acao);
-            };
-            return botao;
-        }
+    function criarBotao(texto, acao) {
+        var botao = document.createElement('button');
+        botao.textContent = texto;
+        botao.onclick = function() {
+            preencherTextarea('menuOpcoesDoLocal', 'taDoLocal', acao);
+        };
+        return botao;
+    }
 
-        var opcoes = [
-            { texto: 'Via pública', acao: 'Via pública.' },
-            { texto: 'Bar', acao: 'Tratava-se de edificação do tipo estabelecimento comercial, sito à isolado de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
-            { texto: 'Casa', acao: 'Residência.' },
-            { texto: 'Casa de fundos', acao: 'Residência.' },
-            { texto: 'Casa de frente', acao: 'Residência.' },
-            { texto: 'Casa de lado', acao: 'Residência.' },
-            { texto: 'Casa de lado e fundos', acao: 'Residência.' },
-            { texto: 'Casa de lado e frente', acao: 'Residência.' },
-            { texto: 'Casa de lado, frente e fundos', acao: 'Residência.' }
+    var opcoes = [
+        { texto: 'Via pública', acao: 'Via pública.' },
+        { texto: 'Bar', acao: 'Tratava-se de edificação do tipo estabelecimento comercial, sito à isolado de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
+        { texto: 'Casa', acao: 'Residência.' },
+        { texto: 'C1', acao: 'Residência.' },
+        { texto: 'C2', acao: 'Residência.' },
+        { texto: 'C3', acao: 'Residência.' },
+        { texto: 'C4', acao: 'Residência.' },
+        { texto: 'C5', acao: 'Residência.' },
+        { texto: 'C6', acao: 'Residência.' },
+        { texto: 'C7', acao: 'Residência.' },
+        { texto: 'C8', acao: 'Residência.' },
+        { texto: 'C9', acao: 'Residência.' },
+        { texto: 'C10', acao: 'Residência.' },
+        { texto: 'C11', acao: 'Residência.' },
+        { texto: 'C12', acao: 'Residência.' },
+        { texto: 'C13', acao: 'Residência.' }
 
-        ];
+    ];
 
-        opcoes.forEach(function(opcao) {
-            document.getElementById('menuOpcoesDoLocal').appendChild(criarBotao(opcao.texto, opcao.acao));
-        });
+    opcoes.forEach(function(opcao) {
+        document.getElementById('menuOpcoesDoLocal').appendChild(criarBotao(opcao.texto, opcao.acao));
+    });
 </script>
 
-       
-    </div> 
+   
+</div> 
 
-    </fieldset>
+</fieldset>
+
+
+<fieldset id="fieldDosExames">
+    <legend>Exames</legend>
+    
     <fieldset id="fieldDosVeiculos" disabled="true">
         <legend><label><input type="checkbox" name="tDosVeiculos" id="cDosVeiculos"
         onclick="document.getElementById('fieldDosVeiculos').disabled = !document.getElementById('cDosVeiculos').checked"/>Dos Veículos: </label></legend>
