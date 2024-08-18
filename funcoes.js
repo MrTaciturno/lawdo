@@ -508,3 +508,36 @@ function preencherTextarea(onde,ondeTA, texto) {
     document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+"\r\n"+texto;
     document.getElementById(onde).style.display = 'none';
 }
+
+function criarBotao(texto, acao) {
+    var botao = document.createElement('button');
+    botao.textContent = texto;
+    botao.onclick = function() {
+        preencherTextarea('menuOpcoesDoLocal', 'taDoLocal', acao);
+    };
+    return botao;
+}
+
+var opcoes = [
+    { texto: 'Via pública', acao: 'Via pública.' },
+    { texto: 'Bar', acao: 'Tratava-se de edificação do tipo estabelecimento comercial, sito à isolado de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
+    { texto: 'Casa', acao: 'Residência.' },
+    { texto: 'C1', acao: 'Residência.' },
+    { texto: 'C2', acao: 'Residência.' },
+    { texto: 'C3', acao: 'Residência.' },
+    { texto: 'C4', acao: 'Residência.' },
+    { texto: 'C5', acao: 'Residência.' },
+    { texto: 'C6', acao: 'Residência.' },
+    { texto: 'C7', acao: 'Residência.' },
+    { texto: 'C8', acao: 'Residência.' },
+    { texto: 'C9', acao: 'Residência.' },
+    { texto: 'C10', acao: 'Residência.' },
+    { texto: 'C11', acao: 'Residência.' },
+    { texto: 'C12', acao: 'Residência.' },
+    { texto: 'C13', acao: 'Residência.' }
+
+];
+
+opcoes.forEach(function(opcao) {
+    document.getElementById('menuOpcoesDoLocal').appendChild(criarBotao(opcao.texto, opcao.acao));
+});
