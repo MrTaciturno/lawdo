@@ -114,26 +114,23 @@ function montaLaudo(e){
     }
 
     data =
-    '\tEquipe pericial acionada para local de '+ (!document.getElementById('cNaturezaExame').value ? "natureza não informada, " : document.getElementById('cNaturezaExame').value).toUpperCase() + ' endereço '+
+    '\tEquipe pericial acionada para local de '+ (!document.getElementById('cNaturezaExame').value ? "natureza não informada, " : document.getElementById('cNaturezaExame').value).toUpperCase() + ', endereço '+
     (!document.getElementById('cRua').value ? "não informado" : document.getElementById('cRua').value)+ ", " + document.getElementById('cCidade').value + '/SP. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
+    //inserir Geolocalizacao
 
-    
     data =
     '\tQuando dos exames o estado da preservação era ' + (!document.getElementById('cPreservacao').checked ? "ausente" : document.getElementById('taPreservacao').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
-    data =
-    '\tExames iniciados em '+ document.getElementById("cDataExame").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataExame").value.substring(5,7)-1]+" de "+document.getElementById("cDataExame").value.slice(0,4) +' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0;
+    //melhorar texto da preservação
 
-    aL.push(iT + " - Do Local"); iT++; nF[aL.length-1]=1;
+    data =
+    '\tExames iniciados em '+ document.getElementById("cDataExame").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataExame").value.substring(5,7)-1]+" de "+document.getElementById("cDataExame").value.slice(0,4) +' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0; aL.push(iT + " - Do Local"); iT++; nF[aL.length-1]=1;
+
+    //Quesitos e Histórico
 
     data=
-    '\t' + (!document.getElementById('cDoLocal').checked ? "ausente" : document.getElementById('taDoLocal').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
-
-
-
-
-
+    '\t' + (!document.getElementById('cDoLocal').checked ? "Tratava-se de edificação em alvenaria, do tipo residencial, vedada do passeio público por muro de alvenaria, isolado de vizinhos de ambos os lados, cujo acesso principal se dava por portão metálico, dotado de fechadura do tipo YALE, desprovido de cerca elétrica." : document.getElementById('taDoLocal').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
 //  finalização do documento
     var currentDate= new Date();
@@ -498,4 +495,14 @@ function convertePDF(){
     } else {
         alert('Por favor, selecione um arquivo PDF.');
     }
+}
+
+function abrirMenuOpcoes() {
+    var menu = document.getElementById('menuOpcoes');
+    menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+}
+
+function preencherTextarea(texto) {
+    document.getElementById('taDoLocal').value = texto;
+    document.getElementById('menuOpcoes').style.display = 'none';
 }
