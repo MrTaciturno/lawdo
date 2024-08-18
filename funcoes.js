@@ -503,6 +503,7 @@ function abrirMenuOpcoes(onde) {
     menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
 }
 
+
 function preencherTextarea(onde,ondeTA, texto) {
     document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+"\r\n"+texto;
     document.getElementById(onde).style.display = 'none';

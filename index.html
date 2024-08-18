@@ -142,15 +142,35 @@
         onclick="document.getElementById('fieldDoLocal').disabled = !document.getElementById('cDoLocal').checked"/>Do Local: </label></legend>
     
     <div style="display: flex; align-items: stretch;">
-        <textarea id="taDoLocal" name="ctaDoLocal" rows="4" cols="50">Do Local.</textarea>
+        <textarea id="taDoLocal" name="ctaDoLocal" rows="4" cols="50"></textarea>
         
         <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDoLocal')">+</button>
     </div>
     
     <div id="menuOpcoesDoLocal" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
-        <button onclick="preencherTextarea('menuOpcoesDoLocal','taDoLocal','Via pública.')">Via pública.</button>
-        <button onclick="preencherTextarea('menuOpcoesDoLocal','taDoLocal','Estabelecimento Comercial.')">Bar.</button>
-        <button onclick="preencherTextarea('menuOpcoesDoLocal','taDoLocal','Residência.')">Casa.</button>
+        
+<script>
+        function criarBotao(texto, acao) {
+            var botao = document.createElement('button');
+            botao.textContent = texto;
+            botao.onclick = function() {
+                preencherTextarea('menuOpcoesDoLocal', 'taDoLocal', acao);
+            };
+            return botao;
+        }
+
+        var opcoes = [
+            { texto: 'Via pública', acao: 'Via pública.' },
+            { texto: 'Bar', acao: 'Tratava-se de edificação do tipo estabelecimento comercial, sito à isolado de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
+            { texto: 'Casa', acao: 'Residência.' }
+        ];
+
+        opcoes.forEach(function(opcao) {
+            document.getElementById('menuOpcoesDoLocal').appendChild(criarBotao(opcao.texto, opcao.acao));
+        });
+</script>
+
+       
     </div> 
 
     </fieldset>
