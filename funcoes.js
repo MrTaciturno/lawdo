@@ -127,6 +127,11 @@ function montaLaudo(e){
     data =
     '\tExames iniciados em '+ document.getElementById("cDataExame").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataExame").value.substring(5,7)-1]+" de "+document.getElementById("cDataExame").value.slice(0,4) +' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0; aL.push(iT + " - Do Local"); iT++; nF[aL.length-1]=1;
 
+    data = 
+    '\tForam ofertados os seguintes quesitos: '+document.getElementById('taQuesitos').value+'. \r\n'; aL.push(data); nF[aL.length-1]=0;
+
+    data =
+    '\tQuando do acionamento foi informado o seguinte histórico: '+document.getElementById('taHistorico').value+'. \r\n'; aL.push(data); nF[aL.length-1]=0;
     //Quesitos e Histórico
 
     data=
