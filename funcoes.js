@@ -504,6 +504,6 @@ function abrirMenuOpcoes() {
 }
 
 function preencherTextarea(texto) {
-    document.getElementById('taDoLocal').value = texto;
+    document.getElementById('taDoLocal').value = document.getElementById('taDoLocal').value+"\r\n"+texto;
     document.getElementById('menuOpcoes').style.display = 'none';
 }
