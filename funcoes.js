@@ -122,19 +122,17 @@ function montaLaudo(e){
     //inserir Geolocalizacao
 
     data =
-    '\tQuando dos exames o estado da preservação era ' + (!document.getElementById('cPreservacao').checked ? "ausente" : document.getElementById('taPreservacao').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
-
-    //melhorar texto da preservação
+    '\t' + (!document.getElementById('cPreservacao').checked ? "Quando dos exames o local não se encontrava preservado por equipe oficial." : 'Quando dos exames o local estava preservado por equipe oficial, a saber: "'+document.getElementById('taPreservacao').value+'"') + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
     data =
     '\tExames iniciados em '+ document.getElementById("cDataExame").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataExame").value.substring(5,7)-1]+" de "+document.getElementById("cDataExame").value.slice(0,4) +' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
     data = 
-    '\tForam ofertados os seguintes quesitos: '+document.getElementById('taQuesitos').value+'. \r\n'; aL.push(data); nF[aL.length-1]=0;
+    '\tForam ofertados os seguintes quesitos: "'+document.getElementById('taQuesitos').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
 
     data =
-    '\tQuando do acionamento foi informado o seguinte histórico: '+document.getElementById('taHistorico').value+'. \r\n'; aL.push(data); nF[aL.length-1]=0;
-    //Quesitos e Histórico
+    '\tQuando do acionamento foi informado o seguinte histórico: "'+document.getElementById('taHistorico').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
+    
 
     aL.push(iT + " - Do Local"); iT++; nF[aL.length-1]=1;//título do local
 
