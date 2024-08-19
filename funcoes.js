@@ -128,7 +128,7 @@ function montaLaudo(e){
     '\tExames iniciados em '+ document.getElementById("cDataExame").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataExame").value.substring(5,7)-1]+" de "+document.getElementById("cDataExame").value.slice(0,4) +' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
     data = 
-    '\tForam ofertados os seguintes quesitos: "'+document.getElementById('taQuesitos').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
+    '\tForam ofertados os seguintes quesitos quando da solicitação do exame: "'+document.getElementById('taQuesitos').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
 
     data =
     '\tQuando do acionamento foi informado o seguinte histórico: "'+document.getElementById('taHistorico').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
@@ -140,8 +140,20 @@ function montaLaudo(e){
     '\t' + (!document.getElementById('cDoLocal').checked ? "Tratava-se de edificação em alvenaria, do tipo residencial, vedada do passeio público por muro de alvenaria, isolado de vizinhos de ambos os lados, cujo acesso principal se dava por portão metálico, dotado de fechadura do tipo YALE, desprovido de cerca elétrica." : document.getElementById('taDoLocal').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
     if (document.getElementById('cDoMaquinas').checked){
-        data = document.getElementById('taDoMaquinas').value;
-        aL.push(data); nF[aL.length-1]=0;
+
+        aL.push(iT + " - Das Máquinas"); iT++; nF[aL.length-1]=1; // título das máquinas
+        
+        let maquinasTexto = document.getElementById('taDoMaquinas').value.split('\r\n');
+        for (let i = 0; i < maquinasTexto.length; i++) {
+            if (maquinasTexto[i].trim() !== '') {
+                data = '\t' + maquinasTexto[i] + '\r\n';
+                aL.push(data);
+                nF[aL.length-1] = 0;
+            }
+        }
+        //data = '\t' + document.getElementById('taDoMaquinas').value + '. \r\n';
+
+        //aL.push(data); nF[aL.length-1]=0;
     }
 
 
@@ -538,7 +550,8 @@ function criarBotao(onde,ondeTA, texto, acao) {
                     novaAcao = novaAcao.replace(/as\b/g, "a");
                     novaAcao = novaAcao.replace("Senha", "Senhas");
                     novaAcao = novaAcao.replace("As ", "A ");
-
+                    novaAcao = novaAcao.replace("continham", "continha");
+                    novaAcao = novaAcao.replace("noteiros", "noteiros");
                     novaAcao = novaAcao.replace("cédula", "cédulas");
                     novaAcao = novaAcao.replace("foram", "foi");
                     novaAcao = novaAcao.replace("eram", "era");
@@ -562,7 +575,7 @@ var opcoesDeLocal = [
 ];
 var opcoesDeMaquinas = [
     { texto: 'Máquinas Antigas', acao: 'Máquinas Antigas.' },
-    { texto: 'Totem Brasil 1', acao: 'No salão principal, ocultas da vista externa, acostadas junto à parede frontal da edificação, foram localizadas XXXXX máquinas computadorizadas, de nominação aparente Totem Brasil I montadas em gabinetes em madeira, da cor predominante azul. A partir do exame visual externo, foi possível observar que as máquinas eram dotadas de noteiros (destinado à inserção de cédulas em Reais), teclado, monitor de vídeo “touch screen” e conexão para internet. \r\n As referidas máquinas ainda continham uma plaqueta frontal portando as seguintes inscrições “Proibido o acesso a sites que contenham: 1º Conteúdo pornográfico ou relacionado com pedofilia; 2º Que violem direitos de terceiros ou violem a lei vigente; 3º Jogos de azar que tenham ou envolvam prêmios em dinheiro.”.\r\nDurante os exames, esse relator acessou uma tela que solicitava a inserção de uma senha para prosseguimento, no entanto, a mesma não foi fornecida pelo responsável e a continuação dos exames in loco ficou prejudicada. Senhas que funcionaram em exames pretéritos não apresentaram funcionamento.' },
+    { texto: 'Totem Brasil 1', acao: 'No salão principal, ocultas da vista externa, acostadas junto à parede da edificação, foram localizadas XXXXX máquinas computadorizadas, de nominação aparente Totem Brasil I montadas em gabinetes em madeira, da cor predominante azul. A partir do exame visual externo, foi possível observar que as máquinas eram dotadas de noteiros (destinado à inserção de cédulas em Reais), teclado, monitor de vídeo “touch screen” e conexão para internet. \r\n As referidas máquinas ainda continham uma plaqueta frontal portando as seguintes inscrições “Proibido o acesso a sites que contenham: 1º Conteúdo pornográfico ou relacionado com pedofilia; 2º Que violem direitos de terceiros ou violem a lei vigente; 3º Jogos de azar que tenham ou envolvam prêmios em dinheiro.”.\r\nDurante os exames, esse relator acessou uma tela que solicitava a inserção de senha para prosseguimento, no entanto, a mesma não foi fornecida pelo responsável e a continuação dos exames in loco ficou prejudicada. Senhas que funcionaram em exames pretéritos não apresentaram funcionamento.' },
     { texto: 'Totem Brasil 2', acao: 'Totem Brasil 2.' },
     { texto: 'Positivo', acao: 'Positivo' },
     { texto: 'Negativo', acao: 'Negativo' }
