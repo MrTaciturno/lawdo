@@ -22,6 +22,7 @@
         //botão para criar o DOCX
         
         document.getElementById('criaDOCX').addEventListener('click', montaLaudo);
+        document.getElementById('contadorMaquinas').textContent = 1;
 	}
 
 </script>
@@ -143,8 +144,6 @@
     <textarea id="taDoLocal" name="ctaDoLocal" rows="4" cols="50"></textarea>
     
     <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDoLocal')">+</button>
-
-
     
 </div>
 
@@ -156,7 +155,34 @@
 
 <fieldset id="fieldDosExames">
     <legend>Exames</legend>
-    
+    <fieldset id="fieldDoMaquinas" disabled="true">
+        <legend><label><input type="checkbox" name="tDoMaquinas" id="cDoMaquinas"
+        onclick="document.getElementById('fieldDoMaquinas').disabled = !document.getElementById('cDoMaquinas').checked"/>Máquinas:</label></legend>
+        <div style="display: flex; align-items: stretch;">
+        <textarea id="taDoMaquinas" name="ctaDoMaquinas" rows="4" cols="50"></textarea>
+        <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDoMaquinas')">+</button>
+        </div>
+        <div id="menuOpcoesDoMaquinas" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
+            <p>Número de Máquinas: <span id="contadorMaquinas"></span></p>
+            <button type="button" onclick="adicionarMaquina()">Adicionar Máquina</button>
+            <button type="button" onclick="removerMaquina()">Remover Máquina</button>
+        </div>
+        <script>
+            var numMaquinas = 1;
+            function adicionarMaquina() {
+                numMaquinas++;
+                document.getElementById('contadorMaquinas').textContent = numMaquinas;
+            }
+            function removerMaquina() {
+                if (numMaquinas > 1) {
+                    numMaquinas--;
+                    document.getElementById('contadorMaquinas').textContent = numMaquinas;
+                }
+            }
+
+        </script>
+    </fieldset>
+
     <fieldset id="fieldDosVeiculos" disabled="true">
         <legend><label><input type="checkbox" name="tDosVeiculos" id="cDosVeiculos"
         onclick="document.getElementById('fieldDosVeiculos').disabled = !document.getElementById('cDosVeiculos').checked"/>Dos Veículos: </label></legend>

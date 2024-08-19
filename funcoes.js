@@ -512,36 +512,64 @@ function abrirMenuOpcoes(onde) {
 
 
 function preencherTextarea(onde,ondeTA, texto) {
-    document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+"\r\n"+texto;
+    document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto+"\r\n";
     document.getElementById(onde).style.display = 'none';
 }
 
-function criarBotao(texto, acao) {
+function criarBotao(onde,ondeTA, texto, acao) {
     var botao = document.createElement('button');
     botao.textContent = texto;
+    var novaAcao = acao;
+
     botao.onclick = function() {
-        preencherTextarea('menuOpcoesDoLocal', 'taDoLocal', acao);
+        if (ondeTA == 'taDoMaquinas') {
+            if ((texto != 'Positivo') && (texto != 'Negativo')) {
+                novaAcao = acao.replace("XXXXX", document.getElementById('contadorMaquinas').textContent);
+                if (document.getElementById('contadorMaquinas').textContent == 1) {
+                    
+                    novaAcao = novaAcao.replace("as ", "a ");
+                                       
+                }
+            }
+        }
+        preencherTextarea(onde,ondeTA, novaAcao);
     };
     return botao;
 }
 
-var opcoes = [
+var opcoesDeLocal = [
     { texto: 'Via pública', acao: 'Via pública.' },
-    { texto: 'Bar', acao: 'Tratava-se de edificação do tipo estabelecimento comercial, sito à isolado de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
+    { texto: 'Bar', acao: 'Tratava-se de edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
     { texto: 'Casa', acao: 'Residência.' },
     { texto: 'C1', acao: 'Residência.' },
     { texto: 'C2', acao: 'Residência.' },
     { texto: 'C3', acao: 'Residência.' }
 
 ];
+var opcoesDeMaquinas = [
+    { texto: 'Máquinas Antigas', acao: 'Máquinas Antigas.' },
+    { texto: 'Totem Brasil 1', acao: 'No salão principal, ocultas da vista externa, acostadas junto à parede frontal da edificação, foram localizadas XXXXX máquinas computadorizadas, de nominação aparente Totem Brasil I montadas em gabinetes em madeira, da cor predominante azul. A partir do exame visual externo, foi possível observar que as máquinas eram dotadas de noteiros (destinado à inserção de cédulas em Reais), teclado, monitor de vídeo “touch screen” e conexão para internet. \r\n As referidas máquinas ainda continham uma plaqueta frontal portando as seguintes inscrições “Proibido o acesso a sites que contenham: 1º Conteúdo pornográfico ou relacionado com pedofilia; 2º Que violem direitos de terceiros ou violem a lei vigente; 3º Jogos de azar que tenham ou envolvam prêmios em dinheiro.”.\r\nDurante os exames, esse relator acessou uma tela que solicitava a inserção de uma senha para prosseguimento, no entanto, a mesma não foi fornecida pelo responsável e a continuação dos exames in loco ficou prejudicada. Senhas que funcionaram em exames pretéritos não apresentaram funcionamento.' },
+    { texto: 'Totem Brasil 2', acao: 'Totem Brasil 2.' },
+    { texto: 'Positivo', acao: 'Positivo' },
+    { texto: 'Negativo', acao: 'Negativo' }
+    
+];
 
 document.addEventListener('DOMContentLoaded', function() {
-    opcoes.forEach(function(opcao) {
+    opcoesDeLocal.forEach(function(opcao) {
         const menuOpcoesDoLocal = document.getElementById('menuOpcoesDoLocal');
         if (menuOpcoesDoLocal) {
-            menuOpcoesDoLocal.appendChild(criarBotao(opcao.texto,opcao.acao)); // Or use appendChild as needed
+            menuOpcoesDoLocal.appendChild(criarBotao('menuOpcoesDoLocal','taDoLocal',opcao.texto,opcao.acao)); // Or use appendChild as needed
         } else {
             console.error("Element with ID 'menuOpcoesDoLocal' not found.");
+        }
+    });
+    opcoesDeMaquinas.forEach(function(opcao) {
+        const menuOpcoesDoMaquinas = document.getElementById('menuOpcoesDoMaquinas');
+        if (menuOpcoesDoMaquinas) {
+            menuOpcoesDoMaquinas.appendChild(criarBotao('menuOpcoesDoMaquinas','taDoMaquinas',opcao.texto, opcao.acao)); // Or use appendChild as needed
+        } else {
+            console.error("Element with ID 'menuOpcoesDoMaquinas' not found.");
         }
     });
 });
