@@ -94,12 +94,14 @@ function montaLaudo(e){
     
     let data =	
 	'\r\n\tEm '+ document.getElementById("cDataAciona").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataAciona").value.substring(5,7)-1]+" de "+document.getElementById("cDataAciona").value.slice(0,4) +' no Núcleo de Perícias Criminalística de Americana, do Instituto de Criminalística, da Superintendência da Polícia Técnico-Científica, da Secretaria de Segurança Pública do Estado de São Paulo, em conformidade com o disposto no Decreto-Lei n.º 3.689/41, o Diretor deste instituto designou o Perito Criminal '+document.getElementById('cPerito').value+' para proceder a este exame pericial, em atendimento à requisição da autoridade de polícia judiciária da '+ document.getElementById('cDelegacia').value + ', ' +document.getElementById('cAutoridade').value+ '.';
+    //incluir o nome do diretor?
+
 
     var aL = [""]; // array de laudo
 	var nF = [0]; // array de formatacao
     let iT = 1; // indice do titulo
 
-    aL[0] = data; aL.push(iT + " - Disposições Preliminares"); iT++; nF[aL.length-1]=1;
+    aL[0] = data; aL.push(iT + " - Disposições Preliminares"); iT++; nF[aL.length-1]=1; //título de disposições preliminares
 
     data = (document.getElementById('cProtSAEP').value ? "Protocolo: "+document.getElementById('cProtSAEP').value+"." : ""); if(data != ""){ aL.push(data); nF[aL.length-1]=1;}
 
@@ -125,7 +127,7 @@ function montaLaudo(e){
     //melhorar texto da preservação
 
     data =
-    '\tExames iniciados em '+ document.getElementById("cDataExame").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataExame").value.substring(5,7)-1]+" de "+document.getElementById("cDataExame").value.slice(0,4) +' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0; aL.push(iT + " - Do Local"); iT++; nF[aL.length-1]=1;
+    '\tExames iniciados em '+ document.getElementById("cDataExame").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataExame").value.substring(5,7)-1]+" de "+document.getElementById("cDataExame").value.slice(0,4) +' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
     data = 
     '\tForam ofertados os seguintes quesitos: '+document.getElementById('taQuesitos').value+'. \r\n'; aL.push(data); nF[aL.length-1]=0;
@@ -133,6 +135,8 @@ function montaLaudo(e){
     data =
     '\tQuando do acionamento foi informado o seguinte histórico: '+document.getElementById('taHistorico').value+'. \r\n'; aL.push(data); nF[aL.length-1]=0;
     //Quesitos e Histórico
+
+    aL.push(iT + " - Do Local"); iT++; nF[aL.length-1]=1;//título do local
 
     data=
     '\t' + (!document.getElementById('cDoLocal').checked ? "Tratava-se de edificação em alvenaria, do tipo residencial, vedada do passeio público por muro de alvenaria, isolado de vizinhos de ambos os lados, cujo acesso principal se dava por portão metálico, dotado de fechadura do tipo YALE, desprovido de cerca elétrica." : document.getElementById('taDoLocal').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
@@ -532,6 +536,7 @@ var opcoes = [
     { texto: 'C3', acao: 'Residência.' }
 
 ];
+
 document.addEventListener('DOMContentLoaded', function() {
     opcoes.forEach(function(opcao) {
         const menuOpcoesDoLocal = document.getElementById('menuOpcoesDoLocal');
@@ -542,9 +547,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-
-
-// opcoes.forEach(function(opcao) {
-//     document.getElementById('menuOpcoesDoLocal').appendChild(criarBotao('a1', 'b2'));
-// });
