@@ -139,10 +139,12 @@ function montaLaudo(e){
     data=
     '\t' + (!document.getElementById('cDoLocal').checked ? "Tratava-se de edificação em alvenaria, do tipo residencial, vedada do passeio público por muro de alvenaria, isolado de vizinhos de ambos os lados, cujo acesso principal se dava por portão metálico, dotado de fechadura do tipo YALE, desprovido de cerca elétrica." : document.getElementById('taDoLocal').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
+    aL.push(iT + " - Dos Exames"); iT++; nF[aL.length-1]=1;//título dos exames
+    var iTt = 1
     if (document.getElementById('cDoMaquinas').checked){
 
-        aL.push(iT + " - Das Máquinas"); iT++; nF[aL.length-1]=1; // título das máquinas
-        
+        aL.push(iT+'.'+iTt + " - Das Máquinas"); iTt++; nF[aL.length-1]=1; // título das máquinas
+            
         let maquinasTexto = document.getElementById('taDoMaquinas').value.split('\r\n');
         for (let i = 0; i < maquinasTexto.length; i++) {
             if (maquinasTexto[i].trim() !== '') {
