@@ -529,20 +529,22 @@ var opcoes = [
     { texto: 'Casa', acao: 'Residência.' },
     { texto: 'C1', acao: 'Residência.' },
     { texto: 'C2', acao: 'Residência.' },
-    { texto: 'C3', acao: 'Residência.' },
-    { texto: 'C4', acao: 'Residência.' },
-    { texto: 'C5', acao: 'Residência.' },
-    { texto: 'C6', acao: 'Residência.' },
-    { texto: 'C7', acao: 'Residência.' },
-    { texto: 'C8', acao: 'Residência.' },
-    { texto: 'C9', acao: 'Residência.' },
-    { texto: 'C10', acao: 'Residência.' },
-    { texto: 'C11', acao: 'Residência.' },
-    { texto: 'C12', acao: 'Residência.' },
-    { texto: 'C13', acao: 'Residência.' }
+    { texto: 'C3', acao: 'Residência.' }
 
 ];
-
-opcoes.forEach(function(opcao) {
-    document.getElementById('menuOpcoesDoLocal').appendChild(criarBotao(opcao.texto, opcao.acao));
+document.addEventListener('DOMContentLoaded', function() {
+    opcoes.forEach(function(opcao) {
+        const menuOpcoesDoLocal = document.getElementById('menuOpcoesDoLocal');
+        if (menuOpcoesDoLocal) {
+            menuOpcoesDoLocal.appendChild(criarBotao(opcao.texto,opcao.acao)); // Or use appendChild as needed
+        } else {
+            console.error("Element with ID 'menuOpcoesDoLocal' not found.");
+        }
+    });
 });
+
+
+
+// opcoes.forEach(function(opcao) {
+//     document.getElementById('menuOpcoesDoLocal').appendChild(criarBotao('a1', 'b2'));
+// });
