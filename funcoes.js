@@ -147,7 +147,7 @@ function montaLaudo(e){
 
         aL.push('\t'+iT+'.'+iTt + " - Das Máquinas"); iTt++; nF[aL.length-1]=1; // título das máquinas
 
-        let maquinasTexto = document.getElementById('taDoMaquinas').value.split('\r\n');
+        let maquinasTexto = document.getElementById('taDoMaquinas').value.split('\n');
         console.log(maquinasTexto);
         for (let i = 0; i < maquinasTexto.length; i++) {
             if (maquinasTexto[i].trim() !== '') {
