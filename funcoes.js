@@ -56,7 +56,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 properties: {
                     page: {
                         margin: {
-                            top: 1000, // Ajuste conforme necessário
+                            top: 2000, // Ajuste conforme necessário
                         },
                     },
                 },
@@ -99,9 +99,9 @@ function montaLaudo(e){
 
     var aL = [""]; // array de laudo
 	var nF = [0]; // array de formatacao
-    let iT = 1; // indice do titulo
+    let iT = 0; // indice do titulo
 
-    aL[0] = data; aL.push(iT + " - Disposições Preliminares"); iT++; nF[aL.length-1]=1; //título de disposições preliminares
+    aL[0] = data; iT++; aL.push(iT + " - Disposições Preliminares"); nF[aL.length-1]=1; //título de disposições preliminares
 
     data = (document.getElementById('cProtSAEP').value ? "Protocolo: "+document.getElementById('cProtSAEP').value+"." : ""); if(data != ""){ aL.push(data); nF[aL.length-1]=1;}
 
@@ -134,18 +134,18 @@ function montaLaudo(e){
     '\tQuando do acionamento foi informado o seguinte histórico: "'+document.getElementById('taHistorico').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
     
 
-    aL.push(iT + " - Do Local"); iT++; nF[aL.length-1]=1;//título do local
+    iT++;aL.push(iT + " - Do Local");  nF[aL.length-1]=1;//título do local
 
     data=
     '\t' + (!document.getElementById('cDoLocal').checked ? "Tratava-se de edificação em alvenaria, do tipo residencial, vedada do passeio público por muro de alvenaria, isolado de vizinhos de ambos os lados, cujo acesso principal se dava por portão metálico, dotado de fechadura do tipo YALE, desprovido de cerca elétrica." : document.getElementById('taDoLocal').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
-    aL.push(iT + " - Dos Exames"); iT++; nF[aL.length-1]=1;//título dos exames
+    iT++; aL.push(iT + " - Dos Exames"); nF[aL.length-1]=1;//título dos exames
     
-    var iTt = 1;
+    var iTt = 0;
     
     if (document.getElementById('cDoMaquinas').checked){
 
-        aL.push('\t'+iT+'.'+iTt + " - Das Máquinas"); iTt++; nF[aL.length-1]=1; // título das máquinas
+        iTt++;aL.push('\t'+iT+'.'+iTt + " - Das Máquinas");  nF[aL.length-1]=1; // título das máquinas
 
         let maquinasTexto = document.getElementById('taDoMaquinas').value.split('\n');
         console.log(maquinasTexto);
