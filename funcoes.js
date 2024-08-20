@@ -152,6 +152,10 @@ function montaLaudo(e){
         for (let i = 0; i < maquinasTexto.length; i++) {
             if (maquinasTexto[i].trim() !== '') {
                 console.log(maquinasTexto[i]);
+                
+                if(maquinasTexto[i].includes("Das Considerações Finais")){
+                    console.log("OK")    
+                }
                 data = '\t' + maquinasTexto[i] + '\r\n';
                 aL.push(data);
                 nF[aL.length-1] = 0;
@@ -575,6 +579,8 @@ function criarBotao(onde,ondeTA, texto, acao) {
                     novaAcao = novaAcao.replace(" pendrives ", " pendrive ");
                     novaAcao = novaAcao.replace(" placas ", " placa ");
                     novaAcao = novaAcao.replace(" acondicionados ", " acondicionado ");
+                    novaAcao = novaAcao.replace(" possuíam ", " possuía ");
+                    novaAcao = novaAcao.replace(" possuem ", " possui ");
                 }
 
         }
@@ -594,13 +600,13 @@ var opcoesDeLocal = [
 ];
 var opcoesDeMaquinas = [
     { texto: 'Máquinas Antigas', acao: 'Máquinas Antigas.' },
-    { texto: 'Totem Brasil 1', acao: 'No salão principal, ocultas da vista externa, acostadas junto à parede da edificação, foram localizadas XXXXX máquinas computadorizadas, de denominação aparente Totem Brasil I montadas em gabinetes em madeira, da cor predominante azul. A partir do exame visual externo, foi possível observar que as máquinas eram dotadas de noteiros (destinado à inserção de cédulas em Reais), teclado, monitor de vídeo “touch screen” e conexão para internet. \r\n As referidas máquinas ainda continham plaqueta frontal com as seguintes inscrições “Proibido o acesso a sites que contenham: 1º Conteúdo pornográfico ou relacionado com pedofilia; 2º Que violem direitos de terceiros ou violem a lei vigente; 3º Jogos de azar que tenham ou envolvam prêmios em dinheiro.”' },
+    { texto: 'Totem Brasil 1', acao: 'No salão principal, ocultas da vista externa, acostadas junto à parede da edificação, foram localizadas XXXXX máquinas computadorizadas, de denominação aparente Totem Brasil I montadas em gabinetes em madeira, da cor predominante azul. A partir do exame visual externo, foi possível observar que as máquinas eram dotadas de noteiros (destinado à inserção de cédulas em Reais), teclado, monitor de vídeo “touch screen” e conexão para internet. \r\n As referidas máquinas ainda continham plaqueta frontal com a seguinte inscrição “Proibido o acesso a sites que contenham: 1º Conteúdo pornográfico ou relacionado com pedofilia; 2º Que violem direitos de terceiros ou violem a lei vigente; 3º Jogos de azar que tenham ou envolvam prêmios em dinheiro.”' },
     { texto: 'Totem Brasil 2', acao: 'Totem Brasil 2.' },
     { texto: 'World Link', acao: 'World Link.' },
     { texto: 'Kiosk Net', acao: 'Kiosk Net.' },
     { texto: 'Real Web', acao: 'Real Web.' },
-    { texto: 'Positivo', acao: 'Quando da chegada desta equipe pericial, os noteiros encontravam-se fechados e as máquinas desligadas. Quando solicitado o funcionamento destas, as máquinas exibiram em suas telas jogo eletrônico. As máquinas foram abertas, encontrando-se a quantia total de R$XXX,00, a qual foi entregue em mãos ao representante da Polícia Civil. Os noteiros foram removidos de seus gabinetes e inutilizados no próprio local. Os dispositivos de armazenamento, a saber, XXXXX cartões de memória, XXXXX discos rígidos, XXXXX pendrives, XXXXX placas contendo memória programável (EPROM) foram removidos e acondicionados em embalagem plástica lacrada sob o número SPTC LACRE.' },
-    { texto: 'Negativo', acao: 'Durante os exames, esse relator acessou uma tela que solicitava a inserção de senha para prosseguimento, no entanto, a mesma não foi fornecida pelo responsável e a continuação dos exames in loco ficou prejudicada. Não foi possível acessar os históricos de acesso dos navegadores das máquinas, uma vez que os mesmos se encontravam sem registros.' }
+    { texto: 'Positivo', acao: 'Quando da chegada desta equipe pericial, os noteiros encontravam-se fechados e as máquinas desligadas. Quando solicitado o funcionamento destas, as máquinas exibiram em suas telas jogo eletrônico. As máquinas foram abertas, encontrando-se a quantia total de R$XXX,00, a qual foi entregue em mãos ao representante da Polícia Civil. Os noteiros foram removidos de seus gabinetes e inutilizados no próprio local. Os dispositivos de armazenamento, a saber, XXXXX cartões de memória, XXXXX discos rígidos, XXXXX pendrives, XXXXX placas contendo memória programável (EPROM) foram removidos e acondicionados em embalagem plástica lacrada sob o número SPTC LACRE.\r\nDas Considerações Finais\r\nFoi realizado o exame de funcionamento das referidas máquinas no local, sendo que XXXXX máquinas possuíam jogo eletrônico sorteador de resultados, nos quais, o ganho ou perda, independe da habilidade física ou mental do agente, ou seja, depende exclusivamente da sorte (“Jogo de Azar”).'},
+    { texto: 'Negativo', acao: 'Durante o exame, esse relator acessou tela que solicitava a inserção de senha para prosseguimento, no entanto, a mesma não foi fornecida pelo responsável e a continuação do exame in loco ficou prejudicada. Não foi possível acessar o histórico de acesso dos navegadores das máquinas.\r\nDas Considerações Finais\r\nPor último, cumpre-se consignar que as 2 (dois) máquinas World Link/Totem Brasil possuíam, no momento dos exames periciais, acesso à internet. Dessa forma, não foi possível descartar a hipótese que outrora as máquinas poderiam estar sendo usadas para acessar sites/servidores contendo jogos sorteadores de resultado envolvendo a perda e ganho de dinheiro.\r\nApesar de não ter sido possível constatar o jogo de azar, essas máquinas possuem semelhanças e componentes eletrônicos de mesmas características de outras máquinas que apresentaram esse tipo de jogo em outras ocasiões.\r\nAtendendo a OS-03/2022 - NPC Americana, que revogou a OS-01/2022, os dispositivos de armazenamento de memória, os noteiros e valores porventura existentes nas máquinas não foram retirados ou apreendidos.' }
     
 ];
 
