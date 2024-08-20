@@ -137,7 +137,7 @@ function montaLaudo(e){
     iT++;aL.push(iT + " - Do Local");  nF[aL.length-1]=1;//título do local
 
     data=
-    '\t' + (!document.getElementById('cDoLocal').checked ? "Tratava-se de edificação em alvenaria, do tipo residencial, vedada do passeio público por muro de alvenaria, isolado de vizinhos de ambos os lados, cujo acesso principal se dava por portão metálico, dotado de fechadura do tipo YALE, desprovido de cerca elétrica." : document.getElementById('taDoLocal').value) + '. \r\n'; aL.push(data); nF[aL.length-1]=0;
+    '\t' + (!document.getElementById('cDoLocal').checked ? "Detalhes do local não informados. \r\n" : document.getElementById('taDoLocal').value) + '\r\n'; aL.push(data); nF[aL.length-1]=0;
 
     iT++; aL.push(iT + " - Dos Exames"); nF[aL.length-1]=1;//título dos exames
     
@@ -157,9 +157,7 @@ function montaLaudo(e){
                 nF[aL.length-1] = 0;
             }
         }
-        //data = '\t' + document.getElementById('taDoMaquinas').value + '. \r\n';
 
-        //aL.push(data); nF[aL.length-1]=0;
     }
 
 
@@ -556,12 +554,26 @@ function criarBotao(onde,ondeTA, texto, acao) {
                     novaAcao = novaAcao.replace(/as\b/g, "a");
                     novaAcao = novaAcao.replace("Senha", "Senhas");
                     novaAcao = novaAcao.replace("As ", "A ");
-                    novaAcao = novaAcao.replace("continham", "continha");
-                    novaAcao = novaAcao.replace("noteiros", "noteiros");
-                    novaAcao = novaAcao.replace("cédula", "cédulas");
-                    novaAcao = novaAcao.replace("foram", "foi");
-                    novaAcao = novaAcao.replace("eram", "era");
-
+                    novaAcao = novaAcao.replace(" continham ", " continha ");
+                    novaAcao = novaAcao.replace(" noteiros ", " noteiros ");
+                    novaAcao = novaAcao.replace(" cédula ", " cédulas ");
+                    novaAcao = novaAcao.replace(" foram ", " foi ");
+                    novaAcao = novaAcao.replace(" eram ", " era ");
+                    novaAcao = novaAcao.replace(/ os /i, " o ");
+                    novaAcao = novaAcao.replace(" noteiros ", " noteiro ");
+                    novaAcao = novaAcao.replace(" encontravam-se ", " encontrava-se ");
+                    novaAcao = novaAcao.replace(" fechados ", " fechado ");
+                    novaAcao = novaAcao.replace(" exibiram ", " exibiu ");
+                    novaAcao = novaAcao.replace(" removidos ", " removido ");
+                    novaAcao = novaAcao.replace(" seus ", " seu ");
+                    novaAcao = novaAcao.replace(" gabinetes ", " gabinete ");
+                    novaAcao = novaAcao.replace(" inutilizados ", " inutilizado ");
+                    novaAcao = novaAcao.replace(" dispositivos ", " dispositivo ");
+                    novaAcao = novaAcao.replace(" cartões ", " cartão ");
+                    novaAcao = novaAcao.replace(" discos ", " disco ");
+                    novaAcao = novaAcao.replace(" pendrives ", " pendrive ");
+                    novaAcao = novaAcao.replace(" placas ", " placa ");
+                    novaAcao = novaAcao.replace(" acondicionados ", " acondicionado ");
                 }
             }
         }
@@ -581,10 +593,13 @@ var opcoesDeLocal = [
 ];
 var opcoesDeMaquinas = [
     { texto: 'Máquinas Antigas', acao: 'Máquinas Antigas.' },
-    { texto: 'Totem Brasil 1', acao: 'No salão principal, ocultas da vista externa, acostadas junto à parede da edificação, foram localizadas XXXXX máquinas computadorizadas, de nominação aparente Totem Brasil I montadas em gabinetes em madeira, da cor predominante azul. A partir do exame visual externo, foi possível observar que as máquinas eram dotadas de noteiros (destinado à inserção de cédulas em Reais), teclado, monitor de vídeo “touch screen” e conexão para internet. \r\n As referidas máquinas ainda continham uma plaqueta frontal portando as seguintes inscrições “Proibido o acesso a sites que contenham: 1º Conteúdo pornográfico ou relacionado com pedofilia; 2º Que violem direitos de terceiros ou violem a lei vigente; 3º Jogos de azar que tenham ou envolvam prêmios em dinheiro.”.\r\nDurante os exames, esse relator acessou uma tela que solicitava a inserção de senha para prosseguimento, no entanto, a mesma não foi fornecida pelo responsável e a continuação dos exames in loco ficou prejudicada. Senhas que funcionaram em exames pretéritos não apresentaram funcionamento.' },
+    { texto: 'Totem Brasil 1', acao: 'No salão principal, ocultas da vista externa, acostadas junto à parede da edificação, foram localizadas XXXXX máquinas computadorizadas, de denominação aparente Totem Brasil I montadas em gabinetes em madeira, da cor predominante azul. A partir do exame visual externo, foi possível observar que as máquinas eram dotadas de noteiros (destinado à inserção de cédulas em Reais), teclado, monitor de vídeo “touch screen” e conexão para internet. \r\n As referidas máquinas ainda continham plaqueta frontal com as seguintes inscrições “Proibido o acesso a sites que contenham: 1º Conteúdo pornográfico ou relacionado com pedofilia; 2º Que violem direitos de terceiros ou violem a lei vigente; 3º Jogos de azar que tenham ou envolvam prêmios em dinheiro.”' },
     { texto: 'Totem Brasil 2', acao: 'Totem Brasil 2.' },
-    { texto: 'Positivo', acao: 'Positivo' },
-    { texto: 'Negativo', acao: 'Negativo' }
+    { texto: 'World Link', acao: 'World Link.' },
+    { texto: 'Kiosk Net', acao: 'Kiosk Net.' },
+    { texto: 'Real Web', acao: 'Real Web.' },
+    { texto: 'Positivo', acao: 'Quando da chegada desta equipe pericial, os noteiros encontravam-se fechados e as XXXXX máquinas desligadas. Quando solicitado o funcionamento destas, as máquinas exibiram em suas telas jogo eletrônico. As máquinas foram abertas, encontrando-se a quantia total de R$XXX,00, a qual foi entregue em mãos ao representante da Polícia Civil. Os noteiros foram removidos de seus gabinetes e inutilizados no próprio local. Os dispositivos de armazenamento, a saber, XXXXX cartões de memória, XXXXX discos rígidos, XXXXX pendrives, XXXXX placas contendo memória programável (EPROM) foram removidos e acondicionados em embalagem plástica lacrada sob o número SPTC LACRE.' },
+    { texto: 'Negativo', acao: 'Durante os exames, esse relator acessou uma tela que solicitava a inserção de senha para prosseguimento, no entanto, a mesma não foi fornecida pelo responsável e a continuação dos exames in loco ficou prejudicada. Não foi possível acessar os históricos de acesso dos navegadores das máquinas, uma vez que os mesmos se encontravam sem registros.' }
     
 ];
 
