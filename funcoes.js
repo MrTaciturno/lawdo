@@ -547,8 +547,8 @@ function criarBotao(onde,ondeTA, texto, acao) {
 
     botao.onclick = function() {
         if (ondeTA == 'taDoMaquinas') {
-            if ((texto != 'Positivo') && (texto != 'Negativo')) {
-                novaAcao = acao.replace("XXXXX", document.getElementById('contadorMaquinas').textContent);
+
+                novaAcao = acao.replace(/XXXXX/g, document.getElementById('contadorMaquinas').textContent);
                 if (document.getElementById('contadorMaquinas').textContent == 1) {
                     
                     novaAcao = novaAcao.replace(/as\b/g, "a");
@@ -571,11 +571,12 @@ function criarBotao(onde,ondeTA, texto, acao) {
                     novaAcao = novaAcao.replace(" dispositivos ", " dispositivo ");
                     novaAcao = novaAcao.replace(" cartões ", " cartão ");
                     novaAcao = novaAcao.replace(" discos ", " disco ");
+                    novaAcao = novaAcao.replace(" rígidos ", " rígido ");
                     novaAcao = novaAcao.replace(" pendrives ", " pendrive ");
                     novaAcao = novaAcao.replace(" placas ", " placa ");
                     novaAcao = novaAcao.replace(" acondicionados ", " acondicionado ");
                 }
-            }
+
         }
         preencherTextarea(onde,ondeTA, novaAcao);
     };
