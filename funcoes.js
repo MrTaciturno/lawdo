@@ -79,6 +79,30 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 },
                 children: 
                     arrParagraf
+                ,
+                table: {
+                rows: [
+                    new docx.TableRow({
+                        children: [
+                            new docx.TableCell({
+                                children: [new docx.Paragraph("Coluna 1")],
+                            }),
+                            new docx.TableCell({
+                                children: [new docx.Paragraph("Coluna 2")],
+                            }),
+                        ],
+                    }),
+                    new docx.TableRow({
+                        children: [
+                            new docx.TableCell({
+                                children: [new docx.Paragraph("Conteúdo 1")],
+                            }),
+                            new docx.TableCell({
+                                children: [new docx.Paragraph("Conteúdo 2")],
+                            }),
+                        ],
+                    }),
+                ]},
             }],
         });
 
