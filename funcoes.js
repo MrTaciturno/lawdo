@@ -154,11 +154,13 @@ function montaLaudo(e){
                 console.log(maquinasTexto[i]);
                 
                 if(maquinasTexto[i].includes("Considerações Finais")){
-                    console.log("OK");
+                    iT++; aL.push(iT + " - Considerações Finais"); nF[aL.length-1]=1;//título considerações finais
                 }
-                data = '\t' + maquinasTexto[i] + '\r\n';
-                aL.push(data);
-                nF[aL.length-1] = 0;
+                else{
+                    data = '\t' + maquinasTexto[i] + '\r\n';
+                    aL.push(data);
+                    nF[aL.length-1] = 0;
+                }
             }
         }
 
