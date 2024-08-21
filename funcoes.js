@@ -565,7 +565,7 @@ function criarBotao(onde,ondeTA, texto, acao) {
                     novaAcao = novaAcao.replace(" cédula ", " cédulas ");
                     novaAcao = novaAcao.replace(" foram ", " foi ");
                     novaAcao = novaAcao.replace(" eram ", " era ");
-                    novaAcao = novaAcao.replace(/ os /i, " o ");
+                    novaAcao = novaAcao.replace(/ os /ig, " o ");
                     novaAcao = novaAcao.replace(" noteiros ", " noteiro ");
                     novaAcao = novaAcao.replace(" encontravam-se ", " encontrava-se ");
                     novaAcao = novaAcao.replace(" fechados ", " fechado ");
