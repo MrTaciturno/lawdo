@@ -1,3 +1,32 @@
+function criarTabelaDOCX(numLinhas, numColunas) {
+    const rows = [];
+    
+    for (let i = 0; i < numLinhas; i++) {
+        const cells = [];
+        for (let j = 0; j < numColunas; j++) {
+            cells.push(new docx.TableCell({
+                children: [new docx.Paragraph({
+                    children: [new docx.TextRun({
+                        text: `Célula ${i+1},${j+1}`,
+                        font: 'Arial',
+                        size: 24
+                    })]
+                })]
+            }));
+        }
+        rows.push(new docx.TableRow({ children: cells }));
+    }
+
+    return new docx.Table({
+        rows: rows,
+        width: {
+            size: 100,
+            type: docx.WidthType.PERCENTAGE,
+        },
+    });
+}
+
+
 function criaTesteDOCX(textoLaudo, formatacao, nome){
     fetch('cabecalho.png')
     .then(res => res.arrayBuffer())
@@ -49,36 +78,37 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 ],
             });
 
-            var testeTabela = new docx.Table({
-                rows: [
-                    new docx.TableRow({
-                        children: [
-                            new docx.TableCell({
-                                children: [
-                                    new docx.Paragraph({
-                                        children: [
-                                            new docx.ImageRun({
-                                                data: buffer,
-                                                transformation: {
-                                                    width: 600,
-                                                    height: 75,
-                                                },
-                                            }),
-                                        ],
-                                    }),
-                                ],
-                            }),
-                        ],
-                    }),
-                    new docx.TableRow({
-                        children: [
-                            new docx.TableCell({
-                                children: [new docx.Paragraph("Fachada do Imóvel.")],
-                            }),
-                        ],
-                    }),
-                ],
-            });
+            var testeTabela = criarTabelaDOCX(5, 2);
+            // new docx.Table({
+            //     rows: [
+            //         new docx.TableRow({
+            //             children: [
+            //                 new docx.TableCell({
+            //                     children: [
+            //                         new docx.Paragraph({
+            //                             children: [
+            //                                 new docx.ImageRun({
+            //                                     data: buffer,
+            //                                     transformation: {
+            //                                         width: 600,
+            //                                         height: 75,
+            //                                     },
+            //                                 }),
+            //                             ],
+            //                         }),
+            //                     ],
+            //                 }),
+            //             ],
+            //         }),
+            //         new docx.TableRow({
+            //             children: [
+            //                 new docx.TableCell({
+            //                     children: [new docx.Paragraph("Fachada do Imóvel.")],
+            //                 }),
+            //             ],
+            //         }),
+            //     ],
+            // });
             if (formatacao[i] == 3){
                 arrParagraf.push(testeTabela);
             }
