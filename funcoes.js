@@ -5,13 +5,13 @@ function criarTabelaDuasColunas() {
             type: docx.WidthType.PERCENTAGE,
             
         },
-        layout:TableLayoutType.FIXED,
+        
         rows: [
             new docx.TableRow({
                 children: [
                     new docx.TableCell({
                         width: {
-                            size: 12,
+                            size: '75%',
                             type: docx.WidthType.CENTIMETERS,
                         
                         },
@@ -20,7 +20,7 @@ function criarTabelaDuasColunas() {
                     }),
                     new docx.TableCell({
                         width: {
-                            size: 4,
+                            size: '25%',
                             type: docx.WidthType.CENTIMETERS,
 
                         },
