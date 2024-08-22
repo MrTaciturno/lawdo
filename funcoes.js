@@ -40,11 +40,7 @@ function criarTabelaDOCX(numLinhas, numColunas) {
         }
     });
     return new docx.Table({
-        rows: rows,
-        width: {
-            size: 100,
-            type: docx.WidthType.PERCENTAGE,
-        },
+        rows: rows
     });
 }
 
