@@ -3,6 +3,7 @@ function criarTabelaDuasColunas() {
         width: {
             size: 100,
             type: docx.WidthType.PERCENTAGE,
+            layout:TableLayoutType.FIXED
         },
         rows: [
             new docx.TableRow({
@@ -11,15 +12,16 @@ function criarTabelaDuasColunas() {
                         width: {
                             size: 12,
                             type: docx.WidthType.CENTIMETERS,
-                            rule: docx.WidthRule.EXACT,
+                        
                         },
+                        
                         children: [new docx.Paragraph("")]
                     }),
                     new docx.TableCell({
                         width: {
                             size: 4,
                             type: docx.WidthType.CENTIMETERS,
-                            rule: docx.WidthRule.EXACT,
+
                         },
                         children: [new docx.Paragraph("")]
                     }),
