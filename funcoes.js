@@ -11,6 +11,7 @@ function criarTabelaDuasColunas() {
                         width: {
                             size: 12,
                             type: docx.WidthType.CENTIMETERS,
+                            rule: docx.WidthRule.EXACT,
                         },
                         children: [new docx.Paragraph("")]
                     }),
