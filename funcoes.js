@@ -1,3 +1,29 @@
+function criarTabelaDuasColunas() {
+    return new docx.Table({
+        width: {
+            size: 100,
+            type: docx.WidthType.PERCENTAGE,
+        },
+        rows: [
+            new docx.TableRow({
+                children: [
+                    new docx.TableCell({
+                        width: {
+                            size: 12,
+                            type: docx.WidthType.CENTIMETERS,
+                        },
+                        children: [new docx.Paragraph("")]
+                    }),
+                    new docx.TableCell({
+                        children: [new docx.Paragraph("")]
+                    }),
+                ],
+            }),
+        ],
+    });
+}
+
+
 function criarTabelaDOCX(numLinhas, numColunas) {
     const rows = [];
     
@@ -17,28 +43,6 @@ function criarTabelaDOCX(numLinhas, numColunas) {
         rows.push(new docx.TableRow({ children: cells }));
     }
 
-    // Definir a largura da primeira coluna como 75% do total
-    const larguraTotal = 100;
-    const larguraPrimeiraColuna = 75;
-    const larguraOutrasColunas = (larguraTotal - larguraPrimeiraColuna) / (numColunas - 1);
-
-    // Ajustar a largura das células
-    rows.forEach(row => {
-        if (row && row.children && row.children.length > 0) {
-            row.children[0].width = {
-                size: 75,
-                type: docx.WidthType.PERCENTAGE,
-            };
-            for (let i = 1; i < row.children.length; i=i+2) {
-                if (row.children[i]) {
-                    row.children[i].width = {
-                        size: 25,
-                        type: docx.WidthType.PERCENTAGE,
-                    };
-                }
-            }
-        }
-    });
     return new docx.Table({
         rows: rows
     });
@@ -95,7 +99,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 ],
             });
 
-            var testeTabela = criarTabelaDOCX(5, 2);
+            var testeTabela = criarTabelaDuasColunas();
 
             if (formatacao[i] == 3){
                 arrParagraf.push(testeTabela);
