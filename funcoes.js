@@ -29,7 +29,7 @@ function criarTabelaDOCX(numLinhas, numColunas) {
                 size: 75,
                 type: docx.WidthType.PERCENTAGE,
             };
-            for (let i = 1; i < row.children.length; i++) {
+            for (let i = 1; i < row.children.length; i=i+2) {
                 if (row.children[i]) {
                     row.children[i].width = {
                         size: 25,
