@@ -54,7 +54,26 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                     new docx.TableRow({
                         children: [
                             new docx.TableCell({
-                                children: [new docx.Paragraph("Coluna 1")],
+                                children: [
+                                    new docx.Paragraph({
+                                        children: [
+                                            new docx.ImageRun({
+                                                data: buffer,
+                                                transformation: {
+                                                    width: 600,
+                                                    height: 75,
+                                                },
+                                            }),
+                                        ],
+                                    }),
+                                ],
+                            }),
+                        ],
+                    }),
+                    new docx.TableRow({
+                        children: [
+                            new docx.TableCell({
+                                children: [new docx.Paragraph("Fachada do Imóvel.")],
                             }),
                         ],
                     }),
