@@ -26,13 +26,13 @@ function criarTabelaDOCX(numLinhas, numColunas) {
     rows.forEach(row => {
         if (row && row.children && row.children.length > 0) {
             row.children[0].width = {
-                size: larguraPrimeiraColuna,
+                size: 75,
                 type: docx.WidthType.PERCENTAGE,
             };
             for (let i = 1; i < row.children.length; i++) {
                 if (row.children[i]) {
                     row.children[i].width = {
-                        size: larguraOutrasColunas,
+                        size: 25,
                         type: docx.WidthType.PERCENTAGE,
                     };
                 }
