@@ -29,17 +29,7 @@ function criarTabelaDOCX(numLinhas, numColunas) {
 
 function tirarFotoEInserirNoDOCX() {
     // Verifica se o navegador suporta a API de captura de mídia
-    const paragrafoImagem = new docx.Paragraph({
-        children: [
-            new docx.ImageRun({
-                data: buffer,
-                transformation: {
-                    width: 500,
-                    height: 300
-                }
-            })
-        ]
-    });
+
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         // Cria um elemento de vídeo para exibir a câmera
         const video = document.createElement('video');
@@ -67,29 +57,8 @@ function tirarFotoEInserirNoDOCX() {
                     const imagemURL = canvas.toDataURL('image/jpeg');
 
                     // Insere a imagem no documento DOCX
-                    //inserirImagemNoDOCX(imagemURL);
-                    fetch(imagemURL)
-                    .then(res => res.arrayBuffer())
-                    .then(buffer => {
-                        // Cria um novo parágrafo com a imagem
-                        paragrafoImagem = new docx.Paragraph({
-                            children: [
-                                new docx.ImageRun({
-                                    data: buffer,
-                                    transformation: {
-                                        width: 500,
-                                        height: 300
-                                    }
-                                })
-                            ]
-                        });
-                        // Adiciona o parágrafo com a imagem ao documento
-                        // Nota: Você precisará adaptar esta parte para inserir no local correto do seu documento
-                        //arrParagraf.push(paragrafoImagem);
-                        console.log("Imagem inserida no documento DOCX com sucesso.");
-                        //return paragrafoImagem;
-                    })
-                    .catch(error => console.error("Erro ao inserir imagem no DOCX: ", error));
+                    inserirImagemNoDOCX(imagemURL);
+                   
 
 
                     // Limpa os elementos criados
@@ -191,6 +160,8 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
 
             if (formatacao[i] == 3){
                 arrParagraf.push(testeTabela);
+
+                tirarFotoEInserirNoDOCX();
             }
             else{
                 arrParagraf.push(propositoGeral);
