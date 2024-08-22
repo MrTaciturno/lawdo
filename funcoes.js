@@ -3,8 +3,9 @@ function criarTabelaDuasColunas() {
         width: {
             size: 100,
             type: docx.WidthType.PERCENTAGE,
-            layout:TableLayoutType.FIXED
+            
         },
+        layout:TableLayoutType.FIXED,
         rows: [
             new docx.TableRow({
                 children: [
