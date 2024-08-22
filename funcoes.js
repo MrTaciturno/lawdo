@@ -96,10 +96,10 @@ function inserirImagemNoDOCX(imagemURL) {
 
             // Adiciona o parágrafo com a imagem ao documento
             // Nota: Você precisará adaptar esta parte para inserir no local correto do seu documento
-            arrParagraf.push(paragrafoImagem);
+            //arrParagraf.push(paragrafoImagem);
             
             console.log("Imagem inserida no documento DOCX com sucesso.");
-            //return paragrafoImagem;
+            return paragrafoImagem;
         })
         .catch(error => console.error("Erro ao inserir imagem no DOCX: ", error));
 }
@@ -161,7 +161,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
             if (formatacao[i] == 3){
                 arrParagraf.push(testeTabela);
 
-                inserirImagemNoDOCX(tirarFotoEInserirNoDOCX());
+                arrParagraf.push(inserirImagemNoDOCX(tirarFotoEInserirNoDOCX()));
             }
             else{
                 arrParagraf.push(propositoGeral);
