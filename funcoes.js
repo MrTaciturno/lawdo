@@ -24,15 +24,19 @@ function criarTabelaDOCX(numLinhas, numColunas) {
 
     // Ajustar a largura das células
     rows.forEach(row => {
-        row.children[0].width = {
-            size: larguraPrimeiraColuna,
-            type: docx.WidthType.PERCENTAGE,
-        };
-        for (let i = 1; i < row.children.length; i++) {
-            row.children[i].width = {
-                size: larguraOutrasColunas,
+        if (row && row.children && row.children.length > 0) {
+            row.children[0].width = {
+                size: larguraPrimeiraColuna,
                 type: docx.WidthType.PERCENTAGE,
             };
+            for (let i = 1; i < row.children.length; i++) {
+                if (row.children[i]) {
+                    row.children[i].width = {
+                        size: larguraOutrasColunas,
+                        type: docx.WidthType.PERCENTAGE,
+                    };
+                }
+            }
         }
     });
     return new docx.Table({
@@ -145,6 +149,8 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
         });
     });
 }
+
+
 
 function montaLaudo(e){
     var mesExtenso = ["janeiro", "fevereiro", "março", "abril", "maio","junho","julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
