@@ -12,7 +12,6 @@ function criarTabelaDOCX(numLinhas, numColunas) {
                         size: 24
                     })]
                 })],
-                children: tirarFotoEInserirNoDOCX(),
             }));
         }
         rows.push(new docx.TableRow({ children: cells }));
@@ -57,7 +56,7 @@ function tirarFotoEInserirNoDOCX() {
                     const imagemURL = canvas.toDataURL('image/jpeg');
 
                     // Insere a imagem no documento DOCX
-                    inserirImagemNoDOCX(imagemURL);
+                    //inserirImagemNoDOCX(imagemURL);
                    
 
 
@@ -65,6 +64,7 @@ function tirarFotoEInserirNoDOCX() {
                     document.body.removeChild(video);
                     document.body.removeChild(botaoCapturar);
                     stream.getTracks().forEach(track => track.stop());
+                    return imagemURL;
                 };
             })
             .catch(function(error) {
@@ -73,7 +73,7 @@ function tirarFotoEInserirNoDOCX() {
     } else {
         console.error("Seu navegador não suporta a captura de mídia.");
     }
-    return paragrafoImagem;
+    
 }
 
 function inserirImagemNoDOCX(imagemURL) {
@@ -161,7 +161,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
             if (formatacao[i] == 3){
                 arrParagraf.push(testeTabela);
 
-                tirarFotoEInserirNoDOCX();
+                inserirImagemNoDOCX(tirarFotoEInserirNoDOCX());
             }
             else{
                 arrParagraf.push(propositoGeral);
