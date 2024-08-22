@@ -12,15 +12,29 @@ function criarTabelaDOCX(numLinhas, numColunas) {
                         size: 24
                     })]
                 })],
-                width:{
-                    size: 75,
-                    type: docx.WidthType.ABSOLUTE,
-                }
             }));
         }
         rows.push(new docx.TableRow({ children: cells }));
     }
 
+    // Definir a largura da primeira coluna como 75% do total
+    const larguraTotal = 100;
+    const larguraPrimeiraColuna = 75;
+    const larguraOutrasColunas = (larguraTotal - larguraPrimeiraColuna) / (numColunas - 1);
+
+    // Ajustar a largura das células
+    rows.forEach(row => {
+        row.children[0].width = {
+            size: larguraPrimeiraColuna,
+            type: docx.WidthType.PERCENTAGE,
+        };
+        for (let i = 1; i < row.children.length; i++) {
+            row.children[i].width = {
+                size: larguraOutrasColunas,
+                type: docx.WidthType.PERCENTAGE,
+            };
+        }
+    });
     return new docx.Table({
         rows: rows,
         width: {
