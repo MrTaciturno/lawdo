@@ -12,6 +12,10 @@ function criarTabelaDOCX(numLinhas, numColunas) {
                         size: 24
                     })]
                 })],
+                width:{
+                    size: 75,
+                    type: docx.WidthType.ABSOLUTE,
+                }
             }));
         }
         rows.push(new docx.TableRow({ children: cells }));
@@ -25,85 +29,6 @@ function criarTabelaDOCX(numLinhas, numColunas) {
         },
     });
 }
-
-function tirarFotoEInserirNoDOCX() {
-    // Verifica se o navegador suporta a API de captura de mídia
-
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        // Cria um elemento de vídeo para exibir a câmera
-        const video = document.createElement('video');
-        document.body.appendChild(video);
-
-        // Solicita acesso à câmera
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function(stream) {
-                video.srcObject = stream;
-                video.play();
-
-                // Cria um botão para capturar a foto
-                const botaoCapturar = document.createElement('button');
-                botaoCapturar.textContent = 'Capturar Foto';
-                document.body.appendChild(botaoCapturar);
-
-                botaoCapturar.onclick = function() {
-                    // Cria um canvas para desenhar a imagem capturada
-                    const canvas = document.createElement('canvas');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    canvas.getContext('2d').drawImage(video, 0, 0);
-
-                    // Converte o canvas para uma URL de dados
-                    const imagemURL = canvas.toDataURL('image/jpeg');
-
-                    // Insere a imagem no documento DOCX
-                    //inserirImagemNoDOCX(imagemURL);
-                   
-
-
-                    // Limpa os elementos criados
-                    document.body.removeChild(video);
-                    document.body.removeChild(botaoCapturar);
-                    stream.getTracks().forEach(track => track.stop());
-                    return imagemURL;
-                };
-            })
-            .catch(function(error) {
-                console.error("Erro ao acessar a câmera: ", error);
-            });
-    } else {
-        console.error("Seu navegador não suporta a captura de mídia.");
-    }
-    
-}
-
-function inserirImagemNoDOCX(imagemURL) {
-    // Converte a URL de dados para um ArrayBuffer
-    fetch(imagemURL)
-        .then(res => res.arrayBuffer())
-        .then(buffer => {
-            // Cria um novo parágrafo com a imagem
-            const paragrafoImagem = new docx.Paragraph({
-                children: [
-                    new docx.ImageRun({
-                        data: buffer,
-                        transformation: {
-                            width: 500,
-                            height: 300
-                        }
-                    })
-                ]
-            });
-
-            // Adiciona o parágrafo com a imagem ao documento
-            // Nota: Você precisará adaptar esta parte para inserir no local correto do seu documento
-            //arrParagraf.push(paragrafoImagem);
-            
-            console.log("Imagem inserida no documento DOCX com sucesso.");
-            return paragrafoImagem;
-        })
-        .catch(error => console.error("Erro ao inserir imagem no DOCX: ", error));
-}
-
 
 function criaTesteDOCX(textoLaudo, formatacao, nome){
     fetch('cabecalho.png')
@@ -161,7 +86,6 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
             if (formatacao[i] == 3){
                 arrParagraf.push(testeTabela);
 
-                arrParagraf.push(inserirImagemNoDOCX(tirarFotoEInserirNoDOCX()));
             }
             else{
                 arrParagraf.push(propositoGeral);
