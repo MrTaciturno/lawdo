@@ -29,7 +29,17 @@ function criarTabelaDOCX(numLinhas, numColunas) {
 
 function tirarFotoEInserirNoDOCX() {
     // Verifica se o navegador suporta a API de captura de mídia
-    const paragrafoImagem = new docx.Paragraph();
+    const paragrafoImagem = new docx.Paragraph({
+        children: [
+            new docx.ImageRun({
+                data: buffer,
+                transformation: {
+                    width: 500,
+                    height: 300
+                }
+            })
+        ]
+    });
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         // Cria um elemento de vídeo para exibir a câmera
         const video = document.createElement('video');
