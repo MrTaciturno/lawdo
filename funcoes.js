@@ -5,7 +5,6 @@ function criarTabelaDuasColunas() {
             type: docx.WidthType.PERCENTAGE,
             
         },
-        
         rows: [
             new docx.TableRow({
                 children: [
@@ -15,14 +14,14 @@ function criarTabelaDuasColunas() {
                             type: docx.WidthType.CENTIMETERS,
                         
                         },
-                        
+
                         children: [new docx.Paragraph("")]
                     }),
                     new docx.TableCell({
                         width: {
                             size: '25%',
                             type: docx.WidthType.CENTIMETERS,
-
+//cade?
                         },
                         children: [new docx.Paragraph("")]
                     }),
