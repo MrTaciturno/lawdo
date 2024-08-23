@@ -144,6 +144,11 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                         ],
                     }),
                 },
+                footers: {
+                    default: new Footer({
+                        children: [new Paragraph("Footer text")],
+                    }),
+                },
                 children: 
                     arrParagraf
             }],
