@@ -3,7 +3,7 @@
 //         width: {
 //             size: 100,
 //             type: docx.WidthType.PERCENTAGE,
-            
+//            layout: verificar e lembrar do 'docx.'
 //         },
 //         rows: [
 //             new docx.TableRow({
@@ -138,8 +138,8 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                     }),
                 },
                 footers: {
-                    default: new Footer({
-                        children: [new Paragraph("Footer text")],
+                    default: new docx.Footer({
+                        children: [new docx.Paragraph("Footer text")],
                     }),
                 },
                 children: 
@@ -347,27 +347,27 @@ function criaDOCX(fullText,nome){
     });
 }
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        document.getElementById("cLatitute").innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//         document.getElementById("cLatitute").innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
 
-function dataCerta() {
-    var currentDate= new Date();
-    var day = ("0" + currentDate.getDate()).slice(-2);
-    var month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
-    var today = currentDate.getFullYear()+"-"+(month)+"-"+(day) ;
+// function dataCerta() {
+//     var currentDate= new Date();
+//     var day = ("0" + currentDate.getDate()).slice(-2);
+//     var month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+//     var today = currentDate.getFullYear()+"-"+(month)+"-"+(day) ;
 
-    var hour = ("0" + currentDate.getHours()).slice(-2);
-    var minute = ("0" + currentDate.getMinutes()).slice(-2);
+//     var hour = ("0" + currentDate.getHours()).slice(-2);
+//     var minute = ("0" + currentDate.getMinutes()).slice(-2);
 
-    pacoteData = [day, month, currentDate.getFullYear(), today, hour, minute];
-    return pacoteData;
+//     pacoteData = [day, month, currentDate.getFullYear(), today, hour, minute];
+//     return pacoteData;
 
-}
+// }
 
 function transfereData(prOndeData,prOndeHora) {
     var data = dataCerta();
