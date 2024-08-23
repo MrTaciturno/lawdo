@@ -1,60 +1,60 @@
-function criarTabelaDuasColunas() {
-    return new docx.Table({
-        width: {
-            size: 100,
-            type: docx.WidthType.PERCENTAGE,
+// function criarTabelaDuasColunas() {
+//     return new docx.Table({
+//         width: {
+//             size: 100,
+//             type: docx.WidthType.PERCENTAGE,
             
-        },
-        rows: [
-            new docx.TableRow({
-                children: [
-                    new docx.TableCell({
-                        width: {
-                            size: '75%',
-                            type: docx.WidthType.CENTIMETERS,
+//         },
+//         rows: [
+//             new docx.TableRow({
+//                 children: [
+//                     new docx.TableCell({
+//                         width: {
+//                             size: '75%',
+//                             type: docx.WidthType.CENTIMETERS,
                         
-                        },
+//                         },
 
-                        children: [new docx.Paragraph("")]
-                    }),
-                    new docx.TableCell({
-                        width: {
-                            size: '25%',
-                            type: docx.WidthType.CENTIMETERS,
-//cade?
-                        },
-                        children: [new docx.Paragraph("")]
-                    }),
-                ],
-            }),
-        ],
-    });
-}
+//                         children: [new docx.Paragraph("")]
+//                     }),
+//                     new docx.TableCell({
+//                         width: {
+//                             size: '25%',
+//                             type: docx.WidthType.CENTIMETERS,
+// //cade?
+//                         },
+//                         children: [new docx.Paragraph("")]
+//                     }),
+//                 ],
+//             }),
+//         ],
+//     });
+// }
 
 
-function criarTabelaDOCX(numLinhas, numColunas) {
-    const rows = [];
+// function criarTabelaDOCX(numLinhas, numColunas) {
+//     const rows = [];
     
-    for (let i = 0; i < numLinhas; i++) {
-        const cells = [];
-        for (let j = 0; j < numColunas; j++) {
-            cells.push(new docx.TableCell({
-                children: [new docx.Paragraph({
-                    children: [new docx.TextRun({
-                        text: `Célula ${i+1},${j+1}`,
-                        font: 'Arial',
-                        size: 24
-                    })]
-                })],
-            }));
-        }
-        rows.push(new docx.TableRow({ children: cells }));
-    }
+//     for (let i = 0; i < numLinhas; i++) {
+//         const cells = [];
+//         for (let j = 0; j < numColunas; j++) {
+//             cells.push(new docx.TableCell({
+//                 children: [new docx.Paragraph({
+//                     children: [new docx.TextRun({
+//                         text: `Célula ${i+1},${j+1}`,
+//                         font: 'Arial',
+//                         size: 24
+//                     })]
+//                 })],
+//             }));
+//         }
+//         rows.push(new docx.TableRow({ children: cells }));
+//     }
 
-    return new docx.Table({
-        rows: rows
-    });
-}
+//     return new docx.Table({
+//         rows: rows
+//     });
+// }
 
 function criaTesteDOCX(textoLaudo, formatacao, nome){
     fetch('cabecalho.png')
@@ -107,15 +107,8 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 ],
             });
 
-            var testeTabela = criarTabelaDuasColunas();
-
-            if (formatacao[i] == 3){
-                arrParagraf.push(testeTabela);
-
-            }
-            else{
-                arrParagraf.push(propositoGeral);
-            }
+            arrParagraf.push(propositoGeral);
+            
         }
 
         const doc = new docx.Document({
@@ -153,10 +146,6 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                     arrParagraf
             }],
         });
-
-
-
-        // Gerar e baixar o arquivo DOCX
         docx.Packer.toBlob(doc).then(blob => {
             saveAs(blob, nome+".docx");
         });
@@ -244,7 +233,7 @@ function montaLaudo(e){
 
     iT++; aL.push(iT + " - Do Levantamento Fotográfico"); nF[aL.length-1]=1;//título do levantamento fotográfico
 
-    aL.push("testeTabela"); nF[aL.length-1]=3;
+//    aL.push("testeTabela"); nF[aL.length-1]=3;
 
 //  finalização do documento
     var currentDate= new Date();
@@ -311,8 +300,6 @@ function handlePaste(e) {
 
     fProcessaEmail();
 }
-
-
 
 function criaDOCX(fullText,nome){
     fetch('cabecalho.png')
