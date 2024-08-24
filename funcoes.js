@@ -172,26 +172,26 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                                 after: 20 * 72 * 0.01
                             },
                             children: [" to ", docx.PageNumber.TOTAL_PAGES],
-                            children: [
-                                new docx.TextRun({
-                                    text: "Este laudo foi elaborado em ",
-                                    font: 'Arial',
-                                    size: 24,
-                                    bold: false,
-                                }),
-                                new docx.TextRun({
-                                    children: [docx.PageNumber.TOTAL_PAGES],
-                                    font: 'Arial',
-                                    size: 24,
-                                    bold: false,
-                                }),
-                                new docx.TextRun({
-                                    text: " páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012).",
-                                    font: 'Arial',
-                                    size: 24,
-                                    bold: false,
-                                }),
-                            ],
+                            // children: [
+                            //     new docx.TextRun({
+                            //         text: "Este laudo foi elaborado em ",
+                            //         font: 'Arial',
+                            //         size: 24,
+                            //         bold: false,
+                            //     }),
+                            //     new docx.TextRun({
+                            //         children: [docx.PageNumber.TOTAL_PAGES],
+                            //         font: 'Arial',
+                            //         size: 24,
+                            //         bold: false,
+                            //     }),
+                            //     new docx.TextRun({
+                            //         text: " páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012).",
+                            //         font: 'Arial',
+                            //         size: 24,
+                            //         bold: false,
+                            //     }),
+                            // ],
                         }),
 //)
 
