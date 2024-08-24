@@ -139,14 +139,15 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 },
                 footers: {
                     default: new docx.Footer({
+                        alignment: docx.AlignmentType.CENTER,
                         children: [
-                            new Paragraph({
+                            new docx.Paragraph({
                                 children: [
-                                    new TextRun("Foo Bar corp. "),
-                                    new TextRun({
+                                    new docx.TextRun("Foo Bar corp. "),
+                                    new docx.TextRun({
                                         children: ["Page Number ", PageNumber.CURRENT],
                                     }),
-                                    new TextRun({
+                                    new docx.TextRun({
                                         children: [" to ", PageNumber.TOTAL_PAGES],
                                     }),
                                 ],
