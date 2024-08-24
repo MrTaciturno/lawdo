@@ -60,11 +60,6 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
     fetch('cabecalho.png')
     .then(res => res.arrayBuffer())
     .then(buffer => {
-        // Criar o documento DOCX com cabeçalho
-
-
-
-
         var arrParagraf = [];
 
         for (var i=0; i< textoLaudo.length; i++){
@@ -122,7 +117,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 properties: {
                     page: {
                         margin: {
-                            top: 2000, // Ajuste conforme necessário
+                            top: 2000,
                         },
                     },
                 },
@@ -145,15 +140,17 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 },
                 footers: {
                     default: new docx.Footer({
-                        alignment: docx.AlignmentType.CENTER,
                         children: [
                             new docx.Paragraph({
+                                alignment: docx.AlignmentType.CENTER,
                                 children: [
+                                    new docx.TextRun("Página "),
                                     new docx.TextRun({
-                                        children: ["Page Number ", docx.PageNumber.CURRENT],
+                                        children: [docx.PageNumber.CURRENT]
                                     }),
+                                    new docx.TextRun(" de "),
                                     new docx.TextRun({
-                                        children: [" to ", docx.PageNumber.TOTAL_PAGES],
+                                        children: [docx.PageNumber.TOTAL_PAGES]
                                     }),
                                 ],
                             }),
@@ -161,63 +158,36 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                     }),
                 },
                 children: [
-                    // arrParagraf
-                    
-                    // .concat(                    
-                        new docx.Paragraph({
-                            alignment: docx.AlignmentType.JUSTIFIED,
-                            spacing:{
-                                line: 250,
-                                before: 20 * 72 * 0.01,
-                                after: 20 * 72 * 0.01
-                            },
-                            children: [" to ", docx.PageNumber.TOTAL_PAGES],
-                            // children: [
-                            //     new docx.TextRun({
-                            //         text: "Este laudo foi elaborado em ",
-                            //         font: 'Arial',
-                            //         size: 24,
-                            //         bold: false,
-                            //     }),
-                            //     new docx.TextRun({
-                            //         children: [docx.PageNumber.TOTAL_PAGES],
-                            //         font: 'Arial',
-                            //         size: 24,
-                            //         bold: false,
-                            //     }),
-                            //     new docx.TextRun({
-                            //         text: " páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012).",
-                            //         font: 'Arial',
-                            //         size: 24,
-                            //         bold: false,
-                            //     }),
-                            // ],
-                        }),
-//)
-
-                    // .concat(                    
-                    //     new docx.Paragraph({
-                    //         alignment: docx.AlignmentType.JUSTIFIED,
-                    //         spacing:{
-                    //             line: 250,
-                    //             before: 20 * 72 * 0.01,
-                    //             after: 20 * 72 * 0.01
-                    //         },
-                    //         children: [
-                    //             new docx.TextRun({
-                    //                 // text: "\tEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012).",
-                    //                 font: 'Arial',
-                    //                 size: 24,
-                    //                 bold: false,
-                    //                 children:["Este laudo foi elaborado em ", docx.PageNumber.TOTAL_PAGES],
-                    //             }),
-
-                    //         ],
-                    //     }),
-                    // )
-                    ],
+                    ...arrParagraf,
+                    new docx.Paragraph({
+                        alignment: docx.AlignmentType.JUSTIFIED,
+                        spacing: {
+                            line: 250,
+                            before: 20 * 72 * 0.01,
+                            after: 20 * 72 * 0.01
+                        },
+                        children: [
+                            new docx.TextRun({
+                                text: "Este laudo foi elaborado em ",
+                                font: 'Arial',
+                                size: 24,
+                            }),
+                            new docx.TextRun({
+                                children: [docx.PageNumber.TOTAL_PAGES],
+                                font: 'Arial',
+                                size: 24,
+                            }),
+                            new docx.TextRun({
+                                text: " páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012).",
+                                font: 'Arial',
+                                size: 24,
+                            }),
+                        ],
+                    }),
+                ],
             }],
         });
+
         docx.Packer.toBlob(doc).then(blob => {
             saveAs(blob, nome+".docx");
         });
