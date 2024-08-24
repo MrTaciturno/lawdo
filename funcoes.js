@@ -234,16 +234,24 @@ function montaLaudo(e){
     iT++; aL.push(iT + " - Do Levantamento Fotográfico"); nF[aL.length-1]=1;//título do levantamento fotográfico
 
     if (document.getElementById('cDoMaquinas').checked){
-        aL.push("Fachada do estabelecimento."); nF[aL.length-1] = 2;
-        aL.push("Acesso às máquinas."); nF[aL.length-1] = 2;
-        aL.push("Máquinas quando da chegada da equipe pericial."); nF[aL.length-1] = 2;
-        aL.push("Máquinas exibindo jogo eletrônico."); nF[aL.length-1] = 2;
-        aL.push("Conteúdo extraído das máquinas."); nF[aL.length-1] = 2;
-        aL.push("Noteiros inutilizados."); nF[aL.length-1] = 2;
+        aL.push("\r\nFachada do estabelecimento."); nF[aL.length-1] = 2;
+        aL.push("\r\nAcesso às máquinas."); nF[aL.length-1] = 2;
+        aL.push("\r\nMáquinas quando da chegada da equipe pericial."); nF[aL.length-1] = 2;
+        aL.push("\r\nMáquinas exibindo jogo eletrônico."); nF[aL.length-1] = 2;
+        aL.push("\r\nConteúdo extraído das máquinas."); nF[aL.length-1] = 2;
+        aL.push("\r\nNoteiros inutilizados."); nF[aL.length-1] = 2;
     }
+
 
     //legendas?
 
+    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
+    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
+    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
+    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
+    
+
+    
     //Assinatura.
 
 //  aL.push("testeTabela"); nF[aL.length-1]=3;
