@@ -161,9 +161,9 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                     }),
                 },
                 children: 
-                    arrParagraf
+                    // arrParagraf
                     
-                    .concat(                    
+                    // .concat(                    
                         new docx.Paragraph({
                             alignment: docx.AlignmentType.JUSTIFIED,
                             spacing:{
@@ -192,7 +192,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                                 }),
                             ],
                         }),
-                    )
+//)
                     // .concat(                    
                     //     new docx.Paragraph({
                     //         alignment: docx.AlignmentType.JUSTIFIED,
