@@ -171,11 +171,11 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                             },
                             children: [
                                 new docx.TextRun({
-                                    text: "\tEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012).",
-                                    font: 'Arial',
-                                    size: 24,
-                                    bold: false,
-                                    // children:["Este laudo foi elaborado em ", docx.PageNumber.TOTAL_PAGES, " páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."],
+                                    // text: "\tEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012).",
+                                    // font: 'Arial',
+                                    // size: 24,
+                                    // bold: false,
+                                    children:["Este laudo foi elaborado em ", docx.PageNumber.TOTAL_PAGES, " páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."],
                                 }),
                             ],
                         }),
