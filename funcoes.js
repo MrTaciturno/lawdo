@@ -63,6 +63,22 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
         // Criar o documento DOCX com cabeçalho
         var numTotalPage = 1;
         var arrParagraf = [];
+        var textoFinal = new docx.Paragraph({
+            alignment: docx.AlignmentType.JUSTIFIED,
+            spacing:{
+                line: 250,
+                before: 20 * 72 * 0.01,
+                after: 20 * 72 * 0.01
+            },
+            children: [
+                new docx.TextRun({
+                    text:"\rEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012).",
+                    font: 'Arial',
+                    size: 24,
+                    bold: false,
+                }),
+            ],
+        });
         for (var i=0; i< textoLaudo.length; i++){
            //default '0':
             var alinhamentoDX = docx.AlignmentType.JUSTIFIED;
@@ -108,9 +124,12 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 ],
             });
 
+
             arrParagraf.push(propositoGeral);
             
         }
+
+        arrParagraf.push(textoFinal);
 
         const doc = new docx.Document({
             sections: [{
