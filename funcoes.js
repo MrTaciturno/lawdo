@@ -139,7 +139,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 },
                 footers: {
                     default: new docx.Footer({
-                        children: [new docx.Paragraph("Footer text")],
+                        children: [new docx.Paragraph(docx.PageNumber.CURRENT)],
                     }),
                 },
                 children: 
@@ -258,8 +258,8 @@ function montaLaudo(e){
     var sFileName = today + "_" + hora;
 
     aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
-    aL.push("\r\nEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
-    aL.push("\r\nAmericana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
+    aL.push("\n\n\nEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
+    aL.push("\r\n\nAmericana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
     aL.push("\r\n-assinado digitalmente-"); nF[aL.length-1] = 2;
     aL.push("\r\nLeonardo Reis da Silva"); nF[aL.length-1] = 2;
     aL.push("\r\nPerito Criminal"); nF[aL.length-1] = 2;  
