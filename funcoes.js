@@ -245,18 +245,9 @@ function montaLaudo(e){
 
     //legendas?
 
-    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
-    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
-    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
-    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
-    
 
-    
-    //Assinatura.
 
-//  aL.push("testeTabela"); nF[aL.length-1]=3;
-
-//  finalização do documento
+    //  finalização do documento
     var currentDate= new Date();
     var day = ("0" + currentDate.getDate()).slice(-2);
     var month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
@@ -265,6 +256,20 @@ function montaLaudo(e){
     var minute = ("0" + currentDate.getMinutes()).slice(-2);
     var hora = hour + "h" + minute+"m";
     var sFileName = today + "_" + hora;
+
+    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
+    aL.push("\r\nEste laudo foi elaborado em 5 (cinco) páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
+    aL.push("\r\nAmericana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
+    aL.push("\r\n-assinado digitalmente-"); nF[aL.length-1] = 2;
+    aL.push("\r\nLeonardo Reis da Silva"); nF[aL.length-1] = 2;
+    aL.push("\r\nPerito Criminal"); nF[aL.length-1] = 2;  
+
+    
+    //Assinatura.
+
+//  aL.push("testeTabela"); nF[aL.length-1]=3;
+
+
 
     if (document.getElementById('cProtSAEP').value) sFileName = document.getElementById('cProtSAEP').value;
     if (document.getElementById('cREP').value) {sFileName = document.getElementById('cREP').value+'$'+document.getElementById('cNaturezaExame').value;}
