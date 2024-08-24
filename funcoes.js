@@ -139,7 +139,19 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                 },
                 footers: {
                     default: new docx.Footer({
-                        children: [new docx.Paragraph(docx.PageNumber.CURRENT)],
+                        children: [
+                            new Paragraph({
+                                children: [
+                                    new TextRun("Foo Bar corp. "),
+                                    new TextRun({
+                                        children: ["Page Number ", PageNumber.CURRENT],
+                                    }),
+                                    new TextRun({
+                                        children: [" to ", PageNumber.TOTAL_PAGES],
+                                    }),
+                                ],
+                            }),
+                        ],
                     }),
                 },
                 children: 
@@ -234,12 +246,12 @@ function montaLaudo(e){
     iT++; aL.push(iT + " - Do Levantamento Fotográfico"); nF[aL.length-1]=1;//título do levantamento fotográfico
 
     if (document.getElementById('cDoMaquinas').checked){
-        aL.push("\r\nFachada do estabelecimento."); nF[aL.length-1] = 2;
-        aL.push("\r\nAcesso às máquinas."); nF[aL.length-1] = 2;
-        aL.push("\r\nMáquinas quando da chegada da equipe pericial."); nF[aL.length-1] = 2;
-        aL.push("\r\nMáquinas exibindo jogo eletrônico."); nF[aL.length-1] = 2;
-        aL.push("\r\nConteúdo extraído das máquinas."); nF[aL.length-1] = 2;
-        aL.push("\r\nNoteiros inutilizados."); nF[aL.length-1] = 2;
+        aL.push("Fachada do estabelecimento."); nF[aL.length-1] = 2;
+        aL.push("Acesso às máquinas."); nF[aL.length-1] = 2;
+        aL.push("Máquinas quando da chegada da equipe pericial."); nF[aL.length-1] = 2;
+        aL.push("Máquinas exibindo jogo eletrônico."); nF[aL.length-1] = 2;
+        aL.push("Conteúdo extraído das máquinas."); nF[aL.length-1] = 2;
+        aL.push("Noteiros inutilizados."); nF[aL.length-1] = 2;
     }
 
 
@@ -257,12 +269,12 @@ function montaLaudo(e){
     var hora = hour + "h" + minute+"m";
     var sFileName = today + "_" + hora;
 
-    aL.push("\r\nEra o que havia a relatar."); nF[aL.length-1] = 1;
-    aL.push("\n\n\nEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
-    aL.push("\r\n\nAmericana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
-    aL.push("\r\n-assinado digitalmente-"); nF[aL.length-1] = 2;
-    aL.push("\r\nLeonardo Reis da Silva"); nF[aL.length-1] = 2;
-    aL.push("\r\nPerito Criminal"); nF[aL.length-1] = 2;  
+    aL.push("Era o que havia a relatar."); nF[aL.length-1] = 1;
+    aL.push("\rEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
+    aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
+    aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
+    aL.push("Leonardo Reis da Silva"); nF[aL.length-1] = 2;
+    aL.push("Perito Criminal"); nF[aL.length-1] = 2;  
 
     
     //Assinatura.
