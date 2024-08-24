@@ -61,6 +61,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
     .then(res => res.arrayBuffer())
     .then(buffer => {
         // Criar o documento DOCX com cabeçalho
+        var numTotalPage = 1;
         var arrParagraf = [];
         for (var i=0; i< textoLaudo.length; i++){
            //default '0':
@@ -143,7 +144,6 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                         children: [
                             new docx.Paragraph({
                                 children: [
-                                    new docx.TextRun("Foo Bar corp. "),
                                     new docx.TextRun({
                                         children: ["Page Number ", docx.PageNumber.CURRENT],
                                     }),
@@ -271,6 +271,8 @@ function montaLaudo(e){
     var sFileName = today + "_" + hora;
 
     aL.push("Era o que havia a relatar."); nF[aL.length-1] = 1;
+    
+    //subir para a função de criação do DOCX acima
     aL.push("\rEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
     aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
     aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
