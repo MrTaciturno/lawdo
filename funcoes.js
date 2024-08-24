@@ -145,10 +145,10 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                                 children: [
                                     new docx.TextRun("Foo Bar corp. "),
                                     new docx.TextRun({
-                                        children: ["Page Number ", PageNumber.CURRENT],
+                                        children: ["Page Number ", docx.PageNumber.CURRENT],
                                     }),
                                     new docx.TextRun({
-                                        children: [" to ", PageNumber.TOTAL_PAGES],
+                                        children: [" to ", docx.PageNumber.TOTAL_PAGES],
                                     }),
                                 ],
                             }),
