@@ -171,6 +171,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                                 before: 20 * 72 * 0.01,
                                 after: 20 * 72 * 0.01
                             },
+                            children: [" to ", docx.PageNumber.TOTAL_PAGES],
                             children: [
                                 new docx.TextRun({
                                     text: "Este laudo foi elaborado em ",
