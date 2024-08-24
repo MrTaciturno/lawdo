@@ -160,7 +160,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                         ],
                     }),
                 },
-                children: 
+                children: [
                     // arrParagraf
                     
                     // .concat(                    
@@ -193,6 +193,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                             ],
                         }),
 //)
+
                     // .concat(                    
                     //     new docx.Paragraph({
                     //         alignment: docx.AlignmentType.JUSTIFIED,
@@ -213,7 +214,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                     //         ],
                     //     }),
                     // )
-                
+                    ],
             }],
         });
         docx.Packer.toBlob(doc).then(blob => {
