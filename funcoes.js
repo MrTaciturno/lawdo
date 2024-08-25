@@ -729,7 +729,8 @@ var opcoesDeLocal = [
     { texto: 'Casa', acao: 'Residência.' },
     { texto: 'C1', acao: 'Residência.' },
     { texto: 'C2', acao: 'Residência.' },
-    { texto: 'C3', acao: 'Residência.' }
+    { texto: 'C3', acao: 'Residência.' },
+    {texto: 'LIMPAR', acao: 'LIMPAR'}
 
 ];
 var opcoesDeMaquinas = [
