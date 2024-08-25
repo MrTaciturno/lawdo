@@ -116,7 +116,8 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
             arrParagraf.push(propositoGeral);
             
         }
-
+        let nomedoPerito = document.getElementById("cPerito");
+        
         const doc = new docx.Document({
             sections: [{
                 properties: {
@@ -189,7 +190,21 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                             }),
                         ],
                     }),
-                    
+                    new docx.Paragraph({
+                        alignment: docx.AlignmentType.CENTER,
+                        spacing: {
+                            line: 250,
+                            before: 20 * 72 * 0.01,
+                            after: 20 * 72 * 0.01
+                        },
+                        children: [
+                            new docx.TextRun({
+                                text: " ",
+                                font: 'Arial',
+                                size: 24,
+                            }),
+                        ],
+                    }),
                     new docx.Paragraph({
                         alignment: docx.AlignmentType.CENTER,
                         spacing: {
@@ -217,21 +232,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                             
                         ],
                     }),
-                    new docx.Paragraph({
-                        alignment: docx.AlignmentType.CENTER,
-                        spacing: {
-                            line: 250,
-                            before: 20 * 72 * 0.01,
-                            after: 20 * 72 * 0.01
-                        },
-                        children: [
-                            new docx.TextRun({
-                                text: " ",
-                                font: 'Arial',
-                                size: 24,
-                            }),
-                        ],
-                    }),
+
                     new docx.Paragraph({
                         alignment: docx.AlignmentType.CENTER,
                         spacing: {
@@ -257,7 +258,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                         },
                         children: [
                             new docx.TextRun({
-                                children: [document.getElementById("cPerito")],
+                                text: nomedoPerito,
                                 font: 'Arial',
                                 size: 24,
                             }),
