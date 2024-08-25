@@ -57,6 +57,11 @@
 // }
 
 function criaTesteDOCX(textoLaudo, formatacao, nome){
+    var currentDate= new Date();
+    var day = ("0" + currentDate.getDate()).slice(-2);
+    var month = ("0" + (currentDate.getMonth() + 1)).slice(-2);
+    var mesExtenso = ["janeiro", "fevereiro", "março", "abril", "maio","junho","julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+
     fetch('cabecalho.png')
     .then(res => res.arrayBuffer())
     .then(buffer => {
@@ -184,6 +189,36 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                             }),
                         ],
                     }),
+                    new docx.Paragraph({
+                        alignment: docx.AlignmentType.CENTER,
+                        spacing: {
+                            line: 250,
+                            before: 20 * 72 * 0.01,
+                            after: 20 * 72 * 0.01
+                        },
+                        children: [
+                            new docx.TextRun({
+                                text: "Americana, ",
+                                font: 'Arial',
+                                size: 24,
+                            }),
+                            new docx.TextRun({
+                                children: day,
+                                font: 'Arial',
+                                size: 24,
+                            }),
+                            new docx.TextRun({
+                                text: " de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear(),
+                                font: 'Arial',
+                                size: 24,
+                            }),
+                            // aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
+                            // aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
+                            // aL.push(document.getElementById("cPerito")); nF[aL.length-1] = 2;
+                            // aL.push("Perito Criminal"); nF[aL.length-1] = 2; 
+                            
+                        ],
+                    }),
                 ],
             }],
         });
@@ -309,10 +344,10 @@ function montaLaudo(e){
     
     //subir para a função de criação do DOCX acima
     // aL.push("\rEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
-    aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
-    aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
-    aL.push(document.getElementById("cPerito")); nF[aL.length-1] = 2;
-    aL.push("Perito Criminal"); nF[aL.length-1] = 2;  
+    // aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
+    // aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
+    // aL.push(document.getElementById("cPerito")); nF[aL.length-1] = 2;
+    // aL.push("Perito Criminal"); nF[aL.length-1] = 2;  
 
     
     //Assinatura.
