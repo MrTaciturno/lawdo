@@ -291,7 +291,7 @@ function montaLaudo(e){
     aL.push(""); nF[aL.length-1] = 0;
 
     //subir para a função de criação do DOCX acima
-    aL.push("\rEste laudo foi elaborado em XXXXXXX páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 0;
+    aL.push("\tEste laudo foi elaborado em XXXXXXX páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 0;
     aL.push(""); nF[aL.length-1] = 2;
     aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
     aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
