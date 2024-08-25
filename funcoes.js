@@ -147,7 +147,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                     default: new docx.Footer({
                         children: [
                             new docx.Paragraph({
-                                alignment: docx.AlignmentType.CENTER,
+                                alignment: docx.AlignmentType.RIGHT,
                                 children: [
                                     new docx.TextRun("Página "),
                                     new docx.TextRun({
@@ -189,6 +189,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                             }),
                         ],
                     }),
+                    
                     new docx.Paragraph({
                         alignment: docx.AlignmentType.CENTER,
                         spacing: {
@@ -225,6 +226,21 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                         },
                         children: [
                             new docx.TextRun({
+                                text: " ",
+                                font: 'Arial',
+                                size: 24,
+                            }),
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        alignment: docx.AlignmentType.CENTER,
+                        spacing: {
+                            line: 250,
+                            before: 20 * 72 * 0.01,
+                            after: 20 * 72 * 0.01
+                        },
+                        children: [
+                            new docx.TextRun({
                                 text: "-assinado digitalmente-",
                                 font: 'Arial',
                                 size: 24,
@@ -241,7 +257,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                         },
                         children: [
                             new docx.TextRun({
-                                text: document.getElementById("cPerito"),
+                                children: [document.getElementById("cPerito")],
                                 font: 'Arial',
                                 size: 24,
                             }),
@@ -388,7 +404,8 @@ function montaLaudo(e){
     var sFileName = today + "_" + hora;
 
     aL.push("\tEra o que havia a relatar."); nF[aL.length-1] = 0;
-    
+    aL.push("\tEra o que havia a relatar."); nF[aL.length-1] = 0;
+
     //subir para a função de criação do DOCX acima
     // aL.push("\rEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
     // aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
@@ -565,7 +582,7 @@ function fProcessaEmail(){
     document.getElementById('cCampodeColagem').textContent = "";
     document.getElementById('cCampodeColagem').placeholder= "OK";
 
-    console.log(conteudoEmail);
+    //console.log(conteudoEmail);
 
     var posProtSAEP = conteudoEmail.search   ("Nº ");
 
