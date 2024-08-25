@@ -150,7 +150,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                             new docx.Paragraph({
                                 alignment: docx.AlignmentType.RIGHT,
                                 children: [
-                                    new docx.TextRun("Página "),
+                                    new docx.TextRun("Propriedade Superintendência da Polícia Técnico-Científica. Proibida divulgação ou cópia sem autorização. Página "),
                                     new docx.TextRun({
                                         children: [docx.PageNumber.CURRENT]
                                     }),
