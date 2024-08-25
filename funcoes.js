@@ -212,11 +212,57 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                                 font: 'Arial',
                                 size: 24,
                             }),
-                            // aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
-                            // aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
-                            // aL.push(document.getElementById("cPerito")); nF[aL.length-1] = 2;
-                            // aL.push("Perito Criminal"); nF[aL.length-1] = 2; 
+
                             
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        alignment: docx.AlignmentType.CENTER,
+                        spacing: {
+                            line: 250,
+                            before: 20 * 72 * 0.01,
+                            after: 20 * 72 * 0.01
+                        },
+                        children: [
+                            new docx.TextRun({
+                                text: "-assinado digitalmente-",
+                                font: 'Arial',
+                                size: 24,
+                            }),
+
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        alignment: docx.AlignmentType.CENTER,
+                        spacing: {
+                            line: 250,
+                            before: 20 * 72 * 0.01,
+                            after: 20 * 72 * 0.01
+                        },
+                        children: [
+                            new docx.TextRun({
+                                text: document.getElementById("cPerito"),
+                                font: 'Arial',
+                                size: 24,
+                            }),
+
+                            // aL.push("Perito Criminal"); nF[aL.length-1] = 2; 
+                        ],
+                    }),
+                    new docx.Paragraph({
+                        alignment: docx.AlignmentType.CENTER,
+                        spacing: {
+                            line: 250,
+                            before: 20 * 72 * 0.01,
+                            after: 20 * 72 * 0.01
+                        },
+                        children: [
+                            new docx.TextRun({
+                                text: "Perito Criminal",
+                                font: 'Arial',
+                                size: 24,
+                            }),
+
                         ],
                     }),
                 ],
