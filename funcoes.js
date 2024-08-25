@@ -302,10 +302,10 @@ function montaLaudo(e){
     aL.push("Era o que havia a relatar."); nF[aL.length-1] = 1;
     
     //subir para a função de criação do DOCX acima
-    aL.push("\rEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
-    aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
+    // aL.push("\rEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
+     aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
     aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
-    aL.push("Leonardo Reis da Silva"); nF[aL.length-1] = 2;
+    aL.push(document.getElementById("cPerito")); nF[aL.length-1] = 2;
     aL.push("Perito Criminal"); nF[aL.length-1] = 2;  
 
     
