@@ -117,7 +117,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
             
         }
         let nomedoPerito = document.getElementById("cPerito");
-        
+
         const doc = new docx.Document({
             sections: [{
                 properties: {
@@ -164,124 +164,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                     }),
                 },
                 children: [
-                    ...arrParagraf,
-                    new docx.Paragraph({
-                        alignment: docx.AlignmentType.JUSTIFIED,
-                        spacing: {
-                            line: 250,
-                            before: 20 * 72 * 0.01,
-                            after: 20 * 72 * 0.01
-                        },
-                        children: [
-                            new docx.TextRun({
-                                text: "\tEste laudo foi elaborado em ",
-                                font: 'Arial',
-                                size: 24,
-                            }),
-                            new docx.TextRun({
-                                children: [docx.PageNumber.TOTAL_PAGES],
-                                font: 'Arial',
-                                size: 24,
-                            }),
-                            new docx.TextRun({
-                                text: " páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012).",
-                                font: 'Arial',
-                                size: 24,
-                            }),
-                        ],
-                    }),
-                    new docx.Paragraph({
-                        alignment: docx.AlignmentType.CENTER,
-                        spacing: {
-                            line: 250,
-                            before: 20 * 72 * 0.01,
-                            after: 20 * 72 * 0.01
-                        },
-                        children: [
-                            new docx.TextRun({
-                                text: " ",
-                                font: 'Arial',
-                                size: 24,
-                            }),
-                        ],
-                    }),
-                    new docx.Paragraph({
-                        alignment: docx.AlignmentType.CENTER,
-                        spacing: {
-                            line: 250,
-                            before: 20 * 72 * 0.01,
-                            after: 20 * 72 * 0.01
-                        },
-                        children: [
-                            new docx.TextRun({
-                                text: "Americana, ",
-                                font: 'Arial',
-                                size: 24,
-                            }),
-                            new docx.TextRun({
-                                children: day,
-                                font: 'Arial',
-                                size: 24,
-                            }),
-                            new docx.TextRun({
-                                text: " de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear(),
-                                font: 'Arial',
-                                size: 24,
-                            }),
-
-                            
-                        ],
-                    }),
-
-                    new docx.Paragraph({
-                        alignment: docx.AlignmentType.CENTER,
-                        spacing: {
-                            line: 250,
-                            before: 20 * 72 * 0.01,
-                            after: 20 * 72 * 0.01
-                        },
-                        children: [
-                            new docx.TextRun({
-                                text: "-assinado digitalmente-",
-                                font: 'Arial',
-                                size: 24,
-                            }),
-
-                        ],
-                    }),
-                    new docx.Paragraph({
-                        alignment: docx.AlignmentType.CENTER,
-                        spacing: {
-                            line: 250,
-                            before: 20 * 72 * 0.01,
-                            after: 20 * 72 * 0.01
-                        },
-                        children: [
-                            new docx.TextRun({
-                                text: nomedoPerito,
-                                font: 'Arial',
-                                size: 24,
-                            }),
-
-                            // aL.push("Perito Criminal"); nF[aL.length-1] = 2; 
-                        ],
-                    }),
-                    new docx.Paragraph({
-                        alignment: docx.AlignmentType.CENTER,
-                        spacing: {
-                            line: 250,
-                            before: 20 * 72 * 0.01,
-                            after: 20 * 72 * 0.01
-                        },
-                        children: [
-                            new docx.TextRun({
-                                text: "Perito Criminal",
-                                font: 'Arial',
-                                size: 24,
-                            }),
-
-                        ],
-                    }),
+                    arrParagraf
                 ],
             }],
         });
@@ -405,14 +288,15 @@ function montaLaudo(e){
     var sFileName = today + "_" + hora;
 
     aL.push("\tEra o que havia a relatar."); nF[aL.length-1] = 0;
-    aL.push("\tEra o que havia a relatar."); nF[aL.length-1] = 0;
+    aL.push(""); nF[aL.length-1] = 0;
 
     //subir para a função de criação do DOCX acima
-    // aL.push("\rEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
-    // aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
-    // aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
-    // aL.push(document.getElementById("cPerito")); nF[aL.length-1] = 2;
-    // aL.push("Perito Criminal"); nF[aL.length-1] = 2;  
+    aL.push("\rEste laudo foi elaborado em XXXXXXX páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
+    aL.push(""); nF[aL.length-1] = 2;
+    aL.push("Americana, "+day+" de "+ mesExtenso[currentDate.getMonth()]+" de "+ currentDate.getFullYear()); nF[aL.length-1] = 2;
+    aL.push("-assinado digitalmente-"); nF[aL.length-1] = 2;
+    aL.push(document.getElementById("cPerito")); nF[aL.length-1] = 2;
+    aL.push("Perito Criminal"); nF[aL.length-1] = 2;  
 
     
     //Assinatura.
