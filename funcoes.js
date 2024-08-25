@@ -168,7 +168,7 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                         },
                         children: [
                             new docx.TextRun({
-                                text: "Este laudo foi elaborado em ",
+                                text: "\tEste laudo foi elaborado em ",
                                 font: 'Arial',
                                 size: 24,
                             }),
@@ -276,15 +276,15 @@ function montaLaudo(e){
     iT++; aL.push(iT + " - Do Levantamento Fotográfico"); nF[aL.length-1]=1;//título do levantamento fotográfico
 
     if (document.getElementById('cDoMaquinas').checked){
-        aL.push(""); nF[aL.length-1] = 2;
+        aL.push("\r"); nF[aL.length-1] = 2;
         aL.push("Fachada do estabelecimento."); nF[aL.length-1] = 2;
-        aL.push(""); nF[aL.length-1] = 2;
+        aL.push("\r\n"); nF[aL.length-1] = 2;
         aL.push("Acesso às máquinas."); nF[aL.length-1] = 2;
-        aL.push(""); nF[aL.length-1] = 2;
+        aL.push("\n"); nF[aL.length-1] = 2;
         aL.push("Máquinas quando da chegada da equipe pericial."); nF[aL.length-1] = 2;
-        aL.push(""); nF[aL.length-1] = 2;
+        aL.push(" "); nF[aL.length-1] = 2;
         aL.push("Máquinas exibindo jogo eletrônico."); nF[aL.length-1] = 2;
-        aL.push(""); nF[aL.length-1] = 2;
+        aL.push(" "); nF[aL.length-1] = 2;
         aL.push("Conteúdo extraído das máquinas."); nF[aL.length-1] = 2;
         aL.push(""); nF[aL.length-1] = 2;
         aL.push("Noteiros inutilizados."); nF[aL.length-1] = 2;
@@ -305,7 +305,7 @@ function montaLaudo(e){
     var hora = hour + "h" + minute+"m";
     var sFileName = today + "_" + hora;
 
-    aL.push("Era o que havia a relatar."); nF[aL.length-1] = 0;
+    aL.push("\tEra o que havia a relatar."); nF[aL.length-1] = 0;
     
     //subir para a função de criação do DOCX acima
     // aL.push("\rEste laudo foi elaborado em "+ docx.PageNumber.TOTAL_PAGES +" páginas com cópia digital arquivada no Sistema Gestor de Documentos e Laudos da Superintendência da Polícia Técnico-Científica do Estado de São Paulo (Portaria SPTC 145/2012)."); nF[aL.length-1] = 1;
