@@ -163,9 +163,9 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
                         ],
                     }),
                 },
-                children: [
+                children: 
                     arrParagraf
-                ],
+                
             }],
         });
 
