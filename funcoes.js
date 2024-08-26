@@ -726,11 +726,24 @@ function criarBotao(onde,ondeTA, texto, acao) {
 var opcoesDeLocal = [
     { texto: 'Via pública', acao: 'Via pública.' },
     { texto: 'Bar', acao: 'Tratava-se de edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
-    { texto: 'Casa', acao: 'Residência.' },
+    { texto: 'Alvenaria', acao: 'Tratava-se de edificação em alvenaria,' },
+    { texto: 'Madeira', acao: 'Tratava-se de edificação em madeira,' },
+    { texto: 'Metal', acao: 'Tratava-se de edificação em metal,' },
+    { texto: 'Vidro e Metal', acao: 'Tratava-se de edificação em vidro e metal,' },
+    
+    { texto: 'Casa', acao: ' do tipo residência,' },
+    { texto: 'Comercial', acao: ' do tipo estabelecimento comercial,' },
+    { texto: 'Industrial', acao: ' do tipo industrial,' },
+    
     { texto: 'C1', acao: 'Residência.' },
     { texto: 'C2', acao: 'Residência.' },
     { texto: 'C3', acao: 'Residência.' },
+    { texto: 'C', acao: 'Residência.' },
+    { texto: 'C2', acao: 'Residência.' },
+    { texto: 'C3', acao: 'Residência.' },
+    
     {texto: 'LIMPAR', acao: 'LIMPAR'}
+
 
 ];
 var opcoesDeMaquinas = [
