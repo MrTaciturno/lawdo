@@ -10,21 +10,15 @@ const urlsToCache = [
     // Adicione aqui outros recursos que devem ser armazenados em cache
 ];
 
-self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(urlsToCache))
-    );
+self.addEventListener('install', (event) => {
+    console.log('Service Worker instalado');
 });
 
-self.addEventListener('fetch', event => {
-    event.respondWith(
-        caches.match(event.request)
-            .then(response => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
-            })
-    );
+self.addEventListener('activate', (event) => {
+    console.log('Service Worker ativado');
+});
+
+self.addEventListener('fetch', (event) => {
+    console.log('Fetch interceptado para:', event.request.url);
+    // Aqui você pode adicionar lógica de cache posteriormente
 });
