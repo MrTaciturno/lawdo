@@ -726,6 +726,7 @@ function criarBotao(onde,ondeTA, texto, acao) {
 var opcoesDeLocal = [
     { texto: 'Via pública', acao: 'Via pública.' },
     { texto: 'Bar', acao: 'Tratava-se de edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
+
     { texto: 'Alvenaria', acao: 'Tratava-se de edificação em alvenaria,' },
     { texto: 'Madeira', acao: 'Tratava-se de edificação em madeira,' },
     { texto: 'Metal', acao: 'Tratava-se de edificação em metal,' },
@@ -734,7 +735,64 @@ var opcoesDeLocal = [
     { texto: 'Casa', acao: ' do tipo residência,' },
     { texto: 'Comercial', acao: ' do tipo estabelecimento comercial,' },
     { texto: 'Industrial', acao: ' do tipo industrial,' },
+
+    { texto: 'Acima', acao: ' acima' },
+    { texto: 'Abaixo', acao: ' abaixo' },
+    { texto: 'Ao nível', acao: ' ao nível geral da via pública' },
+    { texto: 'UAR', acao: ' unido à direita, alinhado e recuado' },
+    { texto: 'UAA', acao: ' unido à direita, alinhado e ao nível' },
+    { texto: 'GER', acao: ' geminado à esquerda e recuado' },
+    { texto: 'GDR', acao: ' geminado à direita e recuado' },
+    { texto: 'GEA', acao: ' geminado à esquerda e alinhado' },
+    { texto: 'GDA', acao: ' geminado à direita e alinhado' },
+    { texto: 'IER', acao: ' isolado, erguido recuado' },
+    { texto: 'IDR', acao: ' isolado, erguido recuado' },
+    { texto: 'IAR', acao: ' isolado, erguido alinhado e recuado' },
+    { texto: 'IEA', acao: ' isolado, erguido alinhado' },
+    { texto: 'IDA', acao: ' isolado, erguido à direita e alinhado' },
+    { texto: 'IAA', acao: ' isolado, erguido alinhado e ao nível' },
+    { texto: 'Vedada', acao: ', vedada' },
+    { texto: 'Não vedada', acao: ', não vedada' },
+    { texto: 'Muro', acao: ' por muro' },
+    { texto: 'Grade', acao: ' por grade' },
+    { texto: 'Cerca', acao: ' por cerca' },
+    { texto: 'Altura', acao: ' com altura de' },
+    { texto: 'Portão metálico', acao: ' com portão metálico' },
+    { texto: 'Portão de madeira', acao: ' com portão de madeira' },
+    { texto: 'Folha única', acao: ' de folha única' },
+    { texto: 'Folha dupla', acao: ' de folha dupla' },
+    { texto: 'Portão social', acao: ' com portão social' },
+    { texto: 'Portão basculante', acao: ' com portão basculante' },
+    { texto: 'Portão deslizante lateral', acao: ' com portão de deslizamento lateral' },
+    { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico' },
+    { texto: 'Portaria 24h', acao: ' com portaria 24h' },
+    { texto: 'Cerca elétrica', acao: ' com cerca elétrica' },
+    //unido geminado isolado
+    //esquerda direita ambos
+    //recuado alinhado
+    //acima abaixo aonivel
+
+    //casa UAR UAA
+    //casa GER GDR GEA GDA
+    //casa IER IDR IAR IEA IDA IAA
     
+    //quanto a vedação
+    //vedada nãovedada
+    //muro grade cerca
+    //altura
+    
+    //quanto ao acesso principal 
+    //portão metálico madeira
+    //folha unica folha dupla
+    //portão social 
+    //portão basculante
+    //portão deslizamento lateral
+    //acionamento eletrônico
+    //portaria 24h
+    // cerca elétrica
+
+    
+
     { texto: 'C1', acao: 'Residência.' },
     { texto: 'C2', acao: 'Residência.' },
     { texto: 'C3', acao: 'Residência.' },
