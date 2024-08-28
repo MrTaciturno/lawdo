@@ -685,6 +685,7 @@ function preencherTextarea(onde,ondeTA, texto) {
 function criarBotao(onde,ondeTA, texto, acao) {
     var botao = document.createElement('button');
     botao.textContent = texto;
+    botao.style.backgroundColor = "#FF00FF";
     var novaAcao = acao;
 
     botao.onclick = function() {
@@ -730,14 +731,38 @@ function criarBotao(onde,ondeTA, texto, acao) {
     return botao;
 }
 
-var opcoesDeLocal = [
-    { texto: 'Via pública', acao: 'Via pública.' },
-    { texto: 'Bar', acao: 'Tratava-se de edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
 
-    { texto: 'Alvenaria', acao: 'Tratava-se de edificação em alvenaria,' },
-    { texto: 'Madeira', acao: 'Tratava-se de edificação em madeira,' },
-    { texto: 'Metal', acao: 'Tratava-se de edificação em metal,' },
-    { texto: 'Vidro e Metal', acao: 'Tratava-se de edificação em vidro e metal,' },
+document.addEventListener('DOMContentLoaded', function() {
+    opcoesDeLocal.forEach(function(opcao) {
+        const menuOpcoesDoLocal = document.getElementById('menuOpcoesDoLocal');
+        if (menuOpcoesDoLocal) {
+            menuOpcoesDoLocal.appendChild(criarBotao('menuOpcoesDoLocal','taDoLocal',opcao.texto,opcao.acao)); // Or use appendChild as needed
+        } else {
+            console.error("Element with ID 'menuOpcoesDoLocal' not found.");
+        }
+    });
+    opcoesDeMaquinas.forEach(function(opcao) {
+        const menuOpcoesDoMaquinas = document.getElementById('menuOpcoesDoMaquinas');
+        if (menuOpcoesDoMaquinas) {
+            menuOpcoesDoMaquinas.appendChild(criarBotao('menuOpcoesDoMaquinas','taDoMaquinas',opcao.texto, opcao.acao)); // Or use appendChild as needed
+        } else {
+            console.error("Element with ID 'menuOpcoesDoMaquinas' not found.");
+        }
+    });
+});
+
+
+var opcoesDeLocal = [
+    //{ texto: 'Via pública', acao: 'Via pública.' },
+
+    { texto: 'Bar', acao: 'edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
+
+    { texto: 'Complexo', acao: 'complexo dotado de diversas edificações,'},
+
+    { texto: 'Alvenaria', acao: 'edificação em alvenaria,'},
+    { texto: 'Madeira', acao: 'edificação em madeira,' },
+    { texto: 'Metal', acao: 'edificação em metal,' },
+    { texto: 'Vidro e Metal', acao: 'edificação em vidro e metal,'},
     
     { texto: 'Casa', acao: ' do tipo residência,' },
     { texto: 'Comercial', acao: ' do tipo estabelecimento comercial,' },
@@ -836,21 +861,3 @@ var opcoesDeMaquinas = [
     {texto: 'LIMPAR', acao: 'LIMPAR'}
 ];
 
-document.addEventListener('DOMContentLoaded', function() {
-    opcoesDeLocal.forEach(function(opcao) {
-        const menuOpcoesDoLocal = document.getElementById('menuOpcoesDoLocal');
-        if (menuOpcoesDoLocal) {
-            menuOpcoesDoLocal.appendChild(criarBotao('menuOpcoesDoLocal','taDoLocal',opcao.texto,opcao.acao)); // Or use appendChild as needed
-        } else {
-            console.error("Element with ID 'menuOpcoesDoLocal' not found.");
-        }
-    });
-    opcoesDeMaquinas.forEach(function(opcao) {
-        const menuOpcoesDoMaquinas = document.getElementById('menuOpcoesDoMaquinas');
-        if (menuOpcoesDoMaquinas) {
-            menuOpcoesDoMaquinas.appendChild(criarBotao('menuOpcoesDoMaquinas','taDoMaquinas',opcao.texto, opcao.acao)); // Or use appendChild as needed
-        } else {
-            console.error("Element with ID 'menuOpcoesDoMaquinas' not found.");
-        }
-    });
-});
