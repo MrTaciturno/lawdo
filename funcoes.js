@@ -687,7 +687,7 @@ function criarBotao(onde,ondeTA, texto, acao) {
     botao.textContent = texto;
     
     var novaAcao = "";
-    if (onde == menuOpcoesDoLocal){
+    if (onde == 'menuOpcoesDoLocal'){
         novaAcao = acao.slice(0, -7);
         botao.style.backgroundColor = acao.slice(-7);
     }else{
