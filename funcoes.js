@@ -761,7 +761,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var opcoesDeLocal = [
     //{ texto: 'Via pública', acao: 'Via pública.' },
-
+    { texto: 'Via pública', acao: 'Via pública.#E6F3FF'},
+    { texto: 'Residência', acao: 'edificação do tipo residência,#FFF0E6'},
+    { texto: 'Comércio', acao: 'edificação do tipo estabelecimento comercial,#E6FFE6'},
+    { texto: 'Indústria', acao: 'edificação do tipo industrial,#FFE6E6'},
+    
+    { texto: 'Alvenaria', acao: 'edificação em alvenaria,#F0E6FF'},
+    { texto: 'Madeira', acao: 'edificação em madeira,#FFFAE6'},
+    { texto: 'Metal', acao: 'edificação em metal,#E6FFFA'},
+    { texto: 'Vidro e Metal', acao: 'edificação em vidro e metal,#FFE6F0'},
+    
+    { texto: 'Acima', acao: ' acima#E6F3FF'},
+    { texto: 'Abaixo', acao: ' abaixo#E6F3FF'},
+    { texto: 'Ao nível', acao: ' ao nível geral da via pública#E6F3FF'},
+    
+    { texto: 'UAR', acao: ' unido à direita, alinhado e recuado#FFF0E6'},
+    { texto: 'UAA', acao: ' unido à direita, alinhado e ao nível#FFF0E6'},
+    { texto: 'GER', acao: ' geminado à esquerda e recuado#FFF0E6'},
+    { texto: 'GDR', acao: ' geminado à direita e recuado#FFF0E6'},
+    { texto: 'GEA', acao: ' geminado à esquerda e alinhado#FFF0E6'},
+    { texto: 'GDA', acao: ' geminado à direita e alinhado#FFF0E6'},
+    { texto: 'IER', acao: ' isolado, erguido recuado#FFF0E6'},
+    { texto: 'IDR', acao: ' isolado, erguido recuado#FFF0E6'},
+    { texto: 'IAR', acao: ' isolado, erguido alinhado e recuado#FFF0E6'},
+    { texto: 'IEA', acao: ' isolado, erguido alinhado#FFF0E6'},
+    { texto: 'IDA', acao: ' isolado, erguido à direita e alinhado#FFF0E6'},
+    { texto: 'IAA', acao: ' isolado, erguido alinhado e ao nível#FFF0E6'},
+    
+    { texto: 'Vedada', acao: ', vedada#E6FFE6'},
+    { texto: 'Não vedada', acao: ', não vedada#E6FFE6'},
+    { texto: 'Muro', acao: ' por muro#E6FFE6'},
+    { texto: 'Grade', acao: ' por grade#E6FFE6'},
+    { texto: 'Cerca', acao: ' por cerca#E6FFE6'},
+    { texto: 'Altura', acao: ' com altura de#E6FFE6'},
+    
+    { texto: 'Portão metálico', acao: ' com portão metálico#FFE6E6'},
+    { texto: 'Portão de madeira', acao: ' com portão de madeira#FFE6E6'},
+    { texto: 'Folha única', acao: ' de folha única#FFE6E6'},
+    { texto: 'Folha dupla', acao: ' de folha dupla#FFE6E6'},
+    { texto: 'Portão social', acao: ' com portão social#FFE6E6'},
+    { texto: 'Portão basculante', acao: ' com portão basculante#FFE6E6'},
+    { texto: 'Portão deslizante lateral', acao: ' com portão de deslizamento lateral#FFE6E6'},
+    { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico#FFE6E6'},
+    { texto: 'Portaria 24h', acao: ' com portaria 24h#FFE6E6'},
+    { texto: 'Cerca elétrica', acao: ' com cerca elétrica#FFE6E6'},
     { texto: 'Bar', acao: 'edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.#FF00FF'},
 
     { texto: 'Complexo', acao: 'complexo dotado de diversas edificações,#FF0000'},
