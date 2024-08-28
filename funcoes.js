@@ -689,11 +689,12 @@ function criarBotao(onde,ondeTA, texto, acao) {
     var novaAcao = "";
     if (onde == menuOpcoesDoLocal){
         novaAcao = acao.slice(0, -7);
+        botao.style.backgroundColor = acao.slice(-7);
     }else{
         novaAcao = acao;
     }
     
-    botao.style.backgroundColor = acao.slice(-7);
+    
 
     botao.onclick = function() {
         if (ondeTA == 'taDoMaquinas') {
