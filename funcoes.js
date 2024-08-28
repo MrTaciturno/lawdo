@@ -670,9 +670,16 @@ function preencherTextarea(onde,ondeTA, texto) {
         document.getElementById(ondeTA).value = "";
     }
     else {
-        document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto+"\r\n";
+        if (onde == "menuOpcoesDoLocal"){
+            document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto;
+        }else{
+            document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto+"\r\n";
+        }
     }
-    document.getElementById(onde).style.display = 'none';
+
+    if (onde != "menuOpcoesDoLocal"){
+        document.getElementById(onde).style.display = 'none';
+    }
 }
 
 function criarBotao(onde,ondeTA, texto, acao) {
