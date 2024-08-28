@@ -685,8 +685,15 @@ function preencherTextarea(onde,ondeTA, texto) {
 function criarBotao(onde,ondeTA, texto, acao) {
     var botao = document.createElement('button');
     botao.textContent = texto;
-    botao.style.backgroundColor = "#FF00FF";
-    var novaAcao = acao;
+    
+    var novaAcao = "";
+    if (onde == menuOpcoesDoLocal){
+        novaAcao = acao.slice(0, -7);
+    }else{
+        novaAcao = acao;
+    }
+    
+    botao.style.backgroundColor = acao.slice(-7);
 
     botao.onclick = function() {
         if (ondeTA == 'taDoMaquinas') {
@@ -755,11 +762,11 @@ document.addEventListener('DOMContentLoaded', function() {
 var opcoesDeLocal = [
     //{ texto: 'Via pública', acao: 'Via pública.' },
 
-    { texto: 'Bar', acao: 'edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.'},
+    { texto: 'Bar', acao: 'edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.#FF00FF'},
 
-    { texto: 'Complexo', acao: 'complexo dotado de diversas edificações,'},
+    { texto: 'Complexo', acao: 'complexo dotado de diversas edificações,#FF0000'},
 
-    { texto: 'Alvenaria', acao: 'edificação em alvenaria,'},
+    { texto: 'Alvenaria', acao: 'edificação em alvenaria,#FF001F'},
     { texto: 'Madeira', acao: 'edificação em madeira,' },
     { texto: 'Metal', acao: 'edificação em metal,' },
     { texto: 'Vidro e Metal', acao: 'edificação em vidro e metal,'},
