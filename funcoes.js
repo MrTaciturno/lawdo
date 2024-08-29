@@ -175,6 +175,27 @@ function criaTesteDOCX(textoLaudo, formatacao, nome){
     });
 }
 
+function formatarString(str) {
+    // Remover espaços em branco no início e no fim da string
+    str = str.trim();
+    
+    // Substituir a última vírgula por ponto final, se existir
+    // if (str.endsWith(',')) {
+    //     str = str.slice(0, -1) + '.';
+    // }
+    
+    // Encontrar a posição da penúltima vírgula
+    let ultimaVirgula = str.lastIndexOf(',');
+    let penultimaVirgula = str.lastIndexOf(',', ultimaVirgula - 1);
+    
+    // Se houver mais de uma vírgula, substituir a penúltima por " e "
+    if (penultimaVirgula !== -1) {
+        str = str.slice(0, penultimaVirgula) + ' e' + str.slice(penultimaVirgula + 1);
+    }
+    
+    return str;
+}
+
 
 
 function montaLaudo(e){
@@ -224,8 +245,11 @@ function montaLaudo(e){
 
     iT++;aL.push(iT + " - Do Local");  nF[aL.length-1]=1;//título do local
 
+
+    
+
     data=
-    '\t' + (!document.getElementById('cDoLocal').checked ? "Detalhes do local não informados. \r\n" : document.getElementById('taDoLocal').value) + '.'; aL.push(data); nF[aL.length-1]=0;
+    '\t' + (!document.getElementById('cDoLocal').checked ? "Detalhes do local não informados. \r\n" : formatarString(document.getElementById('taDoLocal').value)) + '.'; aL.push(data); nF[aL.length-1]=0;
 
     iT++; aL.push(iT + " - Dos Exames"); nF[aL.length-1]=1;//título dos exames
     
@@ -619,7 +643,6 @@ function fProcessaEmail(){
     document.getElementById('output').textContent = fullText;
     return fullText;
 
-
 }
 
 function convertePDF(){
@@ -788,11 +811,11 @@ var opcoesDeLocal = [
     { texto: 'Isolado D', acao: ' isolado de vizinhos à direita,#FF7F50'},
 
     { texto: 'Alinhado Acima', acao: ' erguido alinhado e acima do nível geral da via pública,#FF69B4'},
-    { texto: 'Recuado Acima', acao: '  erguido recuado e acima do nível geral da via pública,#FF69B4'},
-    { texto: 'Alinhado Abaixo', acao: '  erguido alinhado e abaixo do nível geral da via pública,#FF69B4'},
-    { texto: 'Recuado Abaixo', acao: '  erguido recuado e abaixo do nível geral da via pública,#FF69B4'},
-    { texto: 'Alinhado Ao Nível', acao: '  erguido alinhado e ao nível geral da via pública,#FF69B4'},
-    { texto: 'Recuado Ao Nível', acao: '  erguido recuado e ao nível geral da via pública,#FF69B4'},
+    { texto: 'Recuado Acima', acao: ' erguido recuado e acima do nível geral da via pública,#FF69B4'},
+    { texto: 'Alinhado Abaixo', acao: ' erguido alinhado e abaixo do nível geral da via pública,#FF69B4'},
+    { texto: 'Recuado Abaixo', acao: ' erguido recuado e abaixo do nível geral da via pública,#FF69B4'},
+    { texto: 'Alinhado Ao Nível', acao: ' erguido alinhado e ao nível geral da via pública,#FF69B4'},
+    { texto: 'Recuado Ao Nível', acao: ' erguido recuado e ao nível geral da via pública,#FF69B4'},
 
     { texto: 'Ved Muro', acao: ' vedada do passeio público por muro de alvenaria, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
     { texto: 'Ved Grade', acao: ' vedada do passeio público por gradeamento metálico, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
@@ -809,9 +832,9 @@ var opcoesDeLocal = [
     { texto: 'Portão metálico folha dupla', acao: ' cujo acesso principal era portão metálico,#DA70D6'},
     { texto: 'Portão de madeira folha dupla', acao: ' cujo acesso principal era portão madeira,#DA70D6'},
 
-    { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico#DA70D6'},
-    { texto: 'Portaria 24h', acao: ' com portaria 24h#DA70D6'},
-    { texto: 'Cerca elétrica', acao: ' com cerca elétrica#DA70D6'},
+    { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico,#BA55D3'},
+    { texto: 'Portaria 24h', acao: ' com portaria 24h,#BA55D3'},
+    { texto: 'Cerca elétrica', acao: ' com cerca elétrica,#BA55D3'},
   
     {texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'},
     {texto: 'Tratava-se de ', acao: 'Tratava-se de #FFFFFF'}
