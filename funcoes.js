@@ -781,23 +781,22 @@ var opcoesDeLocal = [
     { texto: 'Comércio', acao: ' do tipo estabelecimento comercial,#E9967A'},
     { texto: 'Indústria', acao: ' do tipo industrial,#E9967A'},
     
-    { texto: 'Acima', acao: ' acima#F08080'},
-    { texto: 'Abaixo', acao: ' abaixo#F08080'},
-    { texto: 'Ao nível', acao: ' ao nível geral da via pública#F08080'},
     
-    { texto: 'UAR', acao: ' unido à direita, alinhado e recuado#FF7F50'},
-    { texto: 'UAA', acao: ' unido à direita, alinhado e ao nível#FF7F50'},
-    { texto: 'GER', acao: ' geminado à esquerda e recuado#FF7F50'},
-    { texto: 'GDR', acao: ' geminado à direita e recuado#FF7F50'},
-    { texto: 'GEA', acao: ' geminado à esquerda e alinhado#FF7F50'},
-    { texto: 'GDA', acao: ' geminado à direita e alinhado#FF7F50'},
-    { texto: 'IER', acao: ' isolado, erguido recuado#FF7F50'},
-    { texto: 'IDR', acao: ' isolado, erguido recuado#FF7F50'},
-    { texto: 'IAR', acao: ' isolado, erguido alinhado e recuado#FF7F50'},
-    { texto: 'IEA', acao: ' isolado, erguido alinhado#FF7F50'},
-    { texto: 'IDA', acao: ' isolado, erguido à direita e alinhado#FF7F50'},
-    { texto: 'IAA', acao: ' isolado, erguido alinhado e ao nível#FF7F50'},
+    { texto: 'Unido', acao: ' unido de vizinhos,#FF7F50'},
+    { texto: 'Geminado E', acao: ' geminado de vizinhos à esquerda,#FF7F50'},
+    { texto: 'Geminado D', acao: ' geminado de vizinhos à direita,#FF7F50'},
     
+    { texto: 'Isolado Ambos', acao: ' isolado de vizinhos em ambos os lados,#FF7F50'},
+    { texto: 'Isolado E', acao: ' isolado de vizinhos à esquerda,#FF7F50'},
+    { texto: 'Isolado D', acao: ' isolado de vizinhos à direita,#FF7F50'},
+
+    { texto: 'Alinhado Acima', acao: ' erguido alinhado e acima do nível geral da via pública,#FF7F50'},
+    { texto: 'Recuado Acima', acao: '  erguido recuado e acima do nível geral da via pública,#FF7F50'},
+    { texto: 'Alinhado Abaixo', acao: '  erguido alinhado e abaixo do nível geral da via pública,#FF7F50'},
+    { texto: 'Recuado Abaixo', acao: '  erguido recuado e abaixo do nível geral da via pública,#FF7F50'},
+    { texto: 'Alinhado Ao Nível', acao: '  erguido alinhado e ao nível geral da via pública,#FF7F50'},
+    { texto: 'Recuado Ao Nível', acao: '  erguido recuado e ao nível geral da via pública,#FF7F50'},
+
     { texto: 'Vedada', acao: ', vedada#FF4500'},
     { texto: 'Não vedada', acao: ', não vedada#FF4500'},
 
