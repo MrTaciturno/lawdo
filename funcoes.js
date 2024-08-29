@@ -225,7 +225,7 @@ function montaLaudo(e){
     iT++;aL.push(iT + " - Do Local");  nF[aL.length-1]=1;//título do local
 
     data=
-    '\t' + (!document.getElementById('cDoLocal').checked ? "Detalhes do local não informados. \r\n" : document.getElementById('taDoLocal').value) + '\r\n'; aL.push(data); nF[aL.length-1]=0;
+    '\t' + (!document.getElementById('cDoLocal').checked ? "Detalhes do local não informados. \r\n" : document.getElementById('taDoLocal').value) + '.'; aL.push(data); nF[aL.length-1]=0;
 
     iT++; aL.push(iT + " - Dos Exames"); nF[aL.length-1]=1;//título dos exames
     
@@ -693,8 +693,6 @@ function criarBotao(onde,ondeTA, texto, acao) {
     }else{
         novaAcao = acao;
     }
-    
-    
 
     botao.onclick = function() {
         if (ondeTA == 'taDoMaquinas') {
@@ -799,7 +797,7 @@ var opcoesDeLocal = [
     { texto: 'Ved Muro', acao: ' vedada do passeio público por muro de alvenaria, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
     { texto: 'Ved Grade', acao: ' vedada do passeio público por gradeamento metálico, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
     { texto: 'Ved Cerca', acao: ' vedada do passeio público por cerca metálica, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
-    { texto: 'Não vedada', acao: ' não vedada do passeio público.#FF6347'},
+    { texto: 'Não vedada', acao: ' não vedada do passeio público#FF6347'},
 
 //?    { texto: 'Altura', acao: ' medindo aproximadamente XX m em seu ponto mais baixo,#FF6347'},
     
@@ -811,17 +809,12 @@ var opcoesDeLocal = [
     { texto: 'Portão metálico folha dupla', acao: ' cujo acesso principal era portão metálico,#DA70D6'},
     { texto: 'Portão de madeira folha dupla', acao: ' cujo acesso principal era portão madeira,#DA70D6'},
 
-    { texto: 'Folha única', acao: ' de folha única#DA70D6'},
-    { texto: 'Folha dupla', acao: ' de folha dupla#DA70D6'},
     { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico#DA70D6'},
     { texto: 'Portaria 24h', acao: ' com portaria 24h#DA70D6'},
     { texto: 'Cerca elétrica', acao: ' com cerca elétrica#DA70D6'},
-
-    { texto: 'Portão metálico', acao: ' cujo acesso principal era portão metálico,#DA70D6'},
-    { texto: 'Portão de madeira', acao: ' cujo acesso principal era portão madeira,#DA70D6'},
-
-   
-    {texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'}
+  
+    {texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'},
+    {texto: 'Tratava-se de ', acao: 'Tratava-se de #FFFFFF'}
 
 
 ];
