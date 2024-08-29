@@ -762,39 +762,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var opcoesDeLocal = [
     //{ texto: 'Via pública', acao: 'Via pública.' },
-    { texto: 'Via pública', acao: 'Via pública.#E6F3FF'},
-    { texto: 'Residência', acao: 'edificação do tipo residência,#FFF0E6'},
-    { texto: 'Comércio', acao: 'edificação do tipo estabelecimento comercial,#E6FFE6'},
-    { texto: 'Indústria', acao: 'edificação do tipo industrial,#FFE6E6'},
+
+    //CORES:
+    //Textos Prontos: #32CD32
+    //
     
-    { texto: 'Alvenaria', acao: 'edificação em alvenaria,#F0E6FF'},
-    { texto: 'Madeira', acao: 'edificação em madeira,#FFFAE6'},
-    { texto: 'Metal', acao: 'edificação em metal,#E6FFFA'},
-    { texto: 'Vidro e Metal', acao: 'edificação em vidro e metal,#FFE6F0'},
+    { texto: 'Via pública', acao: 'Via pública.#32CD32'},
     
-    { texto: 'Acima', acao: ' acima#E6F3FF'},
-    { texto: 'Abaixo', acao: ' abaixo#E6F3FF'},
-    { texto: 'Ao nível', acao: ' ao nível geral da via pública#E6F3FF'},
+    { texto: 'Bar', acao: 'edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.#32CD32'},
     
-    { texto: 'UAR', acao: ' unido à direita, alinhado e recuado#FFF0E6'},
-    { texto: 'UAA', acao: ' unido à direita, alinhado e ao nível#FFF0E6'},
-    { texto: 'GER', acao: ' geminado à esquerda e recuado#FFF0E6'},
-    { texto: 'GDR', acao: ' geminado à direita e recuado#FFF0E6'},
-    { texto: 'GEA', acao: ' geminado à esquerda e alinhado#FFF0E6'},
-    { texto: 'GDA', acao: ' geminado à direita e alinhado#FFF0E6'},
-    { texto: 'IER', acao: ' isolado, erguido recuado#FFF0E6'},
-    { texto: 'IDR', acao: ' isolado, erguido recuado#FFF0E6'},
-    { texto: 'IAR', acao: ' isolado, erguido alinhado e recuado#FFF0E6'},
-    { texto: 'IEA', acao: ' isolado, erguido alinhado#FFF0E6'},
-    { texto: 'IDA', acao: ' isolado, erguido à direita e alinhado#FFF0E6'},
-    { texto: 'IAA', acao: ' isolado, erguido alinhado e ao nível#FFF0E6'},
+    { texto: 'Alvenaria', acao: ' edificação em alvenaria,#FA8072'},
+    { texto: 'Madeira', acao: ' edificação em madeira,#FA8072'},
+    { texto: 'Metal', acao: ' edificação em metal,#FA8072'},
+    { texto: 'Vidro e Metal', acao: ' edificação em vidro e metal,#FA8072'},
+
+    { texto: 'Residência', acao: ' do tipo residência,#E9967A'},
+    { texto: 'Comércio', acao: ' do tipo estabelecimento comercial,#E9967A'},
+    { texto: 'Indústria', acao: ' do tipo industrial,#E9967A'},
     
-    { texto: 'Vedada', acao: ', vedada#E6FFE6'},
-    { texto: 'Não vedada', acao: ', não vedada#E6FFE6'},
-    { texto: 'Muro', acao: ' por muro#E6FFE6'},
-    { texto: 'Grade', acao: ' por grade#E6FFE6'},
-    { texto: 'Cerca', acao: ' por cerca#E6FFE6'},
-    { texto: 'Altura', acao: ' com altura de#E6FFE6'},
+    { texto: 'Acima', acao: ' acima#FFA07A'},
+    { texto: 'Abaixo', acao: ' abaixo#FFA07A'},
+    { texto: 'Ao nível', acao: ' ao nível geral da via pública#FFA07A'},
+    
+    { texto: 'UAR', acao: ' unido à direita, alinhado e recuado#FF7F50'},
+    { texto: 'UAA', acao: ' unido à direita, alinhado e ao nível#FF7F50'},
+    { texto: 'GER', acao: ' geminado à esquerda e recuado#FF7F50'},
+    { texto: 'GDR', acao: ' geminado à direita e recuado#FF7F50'},
+    { texto: 'GEA', acao: ' geminado à esquerda e alinhado#FF7F50'},
+    { texto: 'GDA', acao: ' geminado à direita e alinhado#FF7F50'},
+    { texto: 'IER', acao: ' isolado, erguido recuado#FF7F50'},
+    { texto: 'IDR', acao: ' isolado, erguido recuado#FF7F50'},
+    { texto: 'IAR', acao: ' isolado, erguido alinhado e recuado#FF7F50'},
+    { texto: 'IEA', acao: ' isolado, erguido alinhado#FF7F50'},
+    { texto: 'IDA', acao: ' isolado, erguido à direita e alinhado#FF7F50'},
+    { texto: 'IAA', acao: ' isolado, erguido alinhado e ao nível#FF7F50'},
+    
+    { texto: 'Vedada', acao: ', vedada#FF4500'},
+    { texto: 'Não vedada', acao: ', não vedada#FF4500'},
+
+    { texto: 'Muro', acao: ' por muro#FF6347'},
+    { texto: 'Grade', acao: ' por grade#FF6347'},
+    { texto: 'Cerca', acao: ' por cerca#FF6347'},
+    { texto: 'Altura', acao: ' com altura de#FF6347'},
     
     { texto: 'Portão metálico', acao: ' com portão metálico#FFE6E6'},
     { texto: 'Portão de madeira', acao: ' com portão de madeira#FFE6E6'},
@@ -806,7 +815,7 @@ var opcoesDeLocal = [
     { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico#FFE6E6'},
     { texto: 'Portaria 24h', acao: ' com portaria 24h#FFE6E6'},
     { texto: 'Cerca elétrica', acao: ' com cerca elétrica#FFE6E6'},
-    { texto: 'Bar', acao: 'edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.#FF00FF'},
+
 
     { texto: 'Complexo', acao: 'complexo dotado de diversas edificações,#FF0000'},
 
