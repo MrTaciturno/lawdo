@@ -179,10 +179,8 @@ function formatarString(str) {
     // Remover espaços em branco no início e no fim da string
     str = str.trim();
     
-    // Substituir a última vírgula por ponto final, se existir
-    // if (str.endsWith(',')) {
-    //     str = str.slice(0, -1) + '.';
-    // }
+    //Substituir a última vírgula por ponto final, se existir
+
     
     // Encontrar a posição da penúltima vírgula
     let ultimaVirgula = str.lastIndexOf(',');
@@ -193,6 +191,10 @@ function formatarString(str) {
         str = str.slice(0, penultimaVirgula) + ' e' + str.slice(penultimaVirgula + 1);
     }
     
+    if (str.endsWith(',')) {
+        str = str.slice(0, -1) + '.';
+    }
+
     return str;
 }
 
@@ -249,7 +251,7 @@ function montaLaudo(e){
     
 
     data=
-    '\t' + (!document.getElementById('cDoLocal').checked ? "Detalhes do local não informados. \r\n" : formatarString(document.getElementById('taDoLocal').value)) + '.'; aL.push(data); nF[aL.length-1]=0;
+    '\t' + (!document.getElementById('cDoLocal').checked ? "Detalhes do local não informados. \r\n" : formatarString(document.getElementById('taDoLocal').value)); aL.push(data); nF[aL.length-1]=0;
 
     iT++; aL.push(iT + " - Dos Exames"); nF[aL.length-1]=1;//título dos exames
     
