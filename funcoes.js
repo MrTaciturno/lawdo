@@ -771,18 +771,19 @@ var opcoesDeLocal = [
     
     { texto: 'Bar', acao: 'edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.#32CD32'},
     
-    { texto: 'Alvenaria', acao: ' edificação em alvenaria,#FA8072'},
-    { texto: 'Madeira', acao: ' edificação em madeira,#FA8072'},
-    { texto: 'Metal', acao: ' edificação em metal,#FA8072'},
-    { texto: 'Vidro e Metal', acao: ' edificação em vidro e metal,#FA8072'},
+    { texto: 'Alvenaria', acao: 'edificação em alvenaria,#FA8072'},
+    { texto: 'Madeira', acao: 'edificação em madeira,#FA8072'},
+    { texto: 'Metal', acao: 'edificação em metal,#FA8072'},
+    { texto: 'Vidro e Metal', acao: 'edificação em vidro e metal,#FA8072'},
+    { texto: 'Complexo', acao: 'complexo dotado de diversas edificações,#FA8072'},
 
     { texto: 'Residência', acao: ' do tipo residência,#E9967A'},
     { texto: 'Comércio', acao: ' do tipo estabelecimento comercial,#E9967A'},
     { texto: 'Indústria', acao: ' do tipo industrial,#E9967A'},
     
-    { texto: 'Acima', acao: ' acima#FFA07A'},
-    { texto: 'Abaixo', acao: ' abaixo#FFA07A'},
-    { texto: 'Ao nível', acao: ' ao nível geral da via pública#FFA07A'},
+    { texto: 'Acima', acao: ' acima#F08080'},
+    { texto: 'Abaixo', acao: ' abaixo#F08080'},
+    { texto: 'Ao nível', acao: ' ao nível geral da via pública#F08080'},
     
     { texto: 'UAR', acao: ' unido à direita, alinhado e recuado#FF7F50'},
     { texto: 'UAA', acao: ' unido à direita, alinhado e ao nível#FF7F50'},
@@ -817,48 +818,9 @@ var opcoesDeLocal = [
     { texto: 'Cerca elétrica', acao: ' com cerca elétrica#FFE6E6'},
 
 
-    { texto: 'Complexo', acao: 'complexo dotado de diversas edificações,#FF0000'},
 
-    { texto: 'Alvenaria', acao: 'edificação em alvenaria,#FF001F'},
-    { texto: 'Madeira', acao: 'edificação em madeira,' },
-    { texto: 'Metal', acao: 'edificação em metal,' },
-    { texto: 'Vidro e Metal', acao: 'edificação em vidro e metal,'},
-    
-    { texto: 'Casa', acao: ' do tipo residência,' },
-    { texto: 'Comercial', acao: ' do tipo estabelecimento comercial,' },
-    { texto: 'Industrial', acao: ' do tipo industrial,' },
 
-    { texto: 'Acima', acao: ' acima' },
-    { texto: 'Abaixo', acao: ' abaixo' },
-    { texto: 'Ao nível', acao: ' ao nível geral da via pública' },
-    { texto: 'UAR', acao: ' unido à direita, alinhado e recuado' },
-    { texto: 'UAA', acao: ' unido à direita, alinhado e ao nível' },
-    { texto: 'GER', acao: ' geminado à esquerda e recuado' },
-    { texto: 'GDR', acao: ' geminado à direita e recuado' },
-    { texto: 'GEA', acao: ' geminado à esquerda e alinhado' },
-    { texto: 'GDA', acao: ' geminado à direita e alinhado' },
-    { texto: 'IER', acao: ' isolado, erguido recuado' },
-    { texto: 'IDR', acao: ' isolado, erguido recuado' },
-    { texto: 'IAR', acao: ' isolado, erguido alinhado e recuado' },
-    { texto: 'IEA', acao: ' isolado, erguido alinhado' },
-    { texto: 'IDA', acao: ' isolado, erguido à direita e alinhado' },
-    { texto: 'IAA', acao: ' isolado, erguido alinhado e ao nível' },
-    { texto: 'Vedada', acao: ', vedada' },
-    { texto: 'Não vedada', acao: ', não vedada' },
-    { texto: 'Muro', acao: ' por muro' },
-    { texto: 'Grade', acao: ' por grade' },
-    { texto: 'Cerca', acao: ' por cerca' },
-    { texto: 'Altura', acao: ' com altura de' },
-    { texto: 'Portão metálico', acao: ' com portão metálico' },
-    { texto: 'Portão de madeira', acao: ' com portão de madeira' },
-    { texto: 'Folha única', acao: ' de folha única' },
-    { texto: 'Folha dupla', acao: ' de folha dupla' },
-    { texto: 'Portão social', acao: ' com portão social' },
-    { texto: 'Portão basculante', acao: ' com portão basculante' },
-    { texto: 'Portão deslizante lateral', acao: ' com portão de deslizamento lateral' },
-    { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico' },
-    { texto: 'Portaria 24h', acao: ' com portaria 24h' },
-    { texto: 'Cerca elétrica', acao: ' com cerca elétrica' },
+
     //unido geminado isolado
     //esquerda direita ambos
     //recuado alinhado
