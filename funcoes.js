@@ -821,7 +821,7 @@ var opcoesDeLocal = [
     { texto: 'Portão de madeira', acao: ' cujo acesso principal era portão madeira,#DA70D6'},
 
    
-    {texto: 'LIMPAR', acao: 'LIMPAR'}
+    {texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'}
 
 
 ];
