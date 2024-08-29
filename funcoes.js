@@ -782,20 +782,19 @@ var opcoesDeLocal = [
     { texto: 'Indústria', acao: ' do tipo industrial,#E9967A'},
     
     
-    { texto: 'Unido', acao: ' unido de vizinhos,#FF7F50'},
+    { texto: 'Unido', acao: ' unido de vizinhos em ambos os lados,#FF7F50'},
     { texto: 'Geminado E', acao: ' geminado de vizinhos à esquerda,#FF7F50'},
     { texto: 'Geminado D', acao: ' geminado de vizinhos à direita,#FF7F50'},
-    
     { texto: 'Isolado Ambos', acao: ' isolado de vizinhos em ambos os lados,#FF7F50'},
     { texto: 'Isolado E', acao: ' isolado de vizinhos à esquerda,#FF7F50'},
     { texto: 'Isolado D', acao: ' isolado de vizinhos à direita,#FF7F50'},
 
-    { texto: 'Alinhado Acima', acao: ' erguido alinhado e acima do nível geral da via pública,#FF7F50'},
-    { texto: 'Recuado Acima', acao: '  erguido recuado e acima do nível geral da via pública,#FF7F50'},
-    { texto: 'Alinhado Abaixo', acao: '  erguido alinhado e abaixo do nível geral da via pública,#FF7F50'},
-    { texto: 'Recuado Abaixo', acao: '  erguido recuado e abaixo do nível geral da via pública,#FF7F50'},
-    { texto: 'Alinhado Ao Nível', acao: '  erguido alinhado e ao nível geral da via pública,#FF7F50'},
-    { texto: 'Recuado Ao Nível', acao: '  erguido recuado e ao nível geral da via pública,#FF7F50'},
+    { texto: 'Alinhado Acima', acao: ' erguido alinhado e acima do nível geral da via pública,#FF69B4'},
+    { texto: 'Recuado Acima', acao: '  erguido recuado e acima do nível geral da via pública,#FF69B4'},
+    { texto: 'Alinhado Abaixo', acao: '  erguido alinhado e abaixo do nível geral da via pública,#FF69B4'},
+    { texto: 'Recuado Abaixo', acao: '  erguido recuado e abaixo do nível geral da via pública,#FF69B4'},
+    { texto: 'Alinhado Ao Nível', acao: '  erguido alinhado e ao nível geral da via pública,#FF69B4'},
+    { texto: 'Recuado Ao Nível', acao: '  erguido recuado e ao nível geral da via pública,#FF69B4'},
 
     { texto: 'Vedada', acao: ', vedada#FF4500'},
     { texto: 'Não vedada', acao: ', não vedada#FF4500'},
@@ -805,54 +804,18 @@ var opcoesDeLocal = [
     { texto: 'Cerca', acao: ' por cerca#FF6347'},
     { texto: 'Altura', acao: ' com altura de#FF6347'},
     
-    { texto: 'Portão metálico', acao: ' com portão metálico#FFE6E6'},
-    { texto: 'Portão de madeira', acao: ' com portão de madeira#FFE6E6'},
-    { texto: 'Folha única', acao: ' de folha única#FFE6E6'},
-    { texto: 'Folha dupla', acao: ' de folha dupla#FFE6E6'},
-    { texto: 'Portão social', acao: ' com portão social#FFE6E6'},
-    { texto: 'Portão basculante', acao: ' com portão basculante#FFE6E6'},
-    { texto: 'Portão deslizante lateral', acao: ' com portão de deslizamento lateral#FFE6E6'},
-    { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico#FFE6E6'},
-    { texto: 'Portaria 24h', acao: ' com portaria 24h#FFE6E6'},
-    { texto: 'Cerca elétrica', acao: ' com cerca elétrica#FFE6E6'},
+    { texto: 'Portão metálico', acao: ' com portão metálico#DA70D6'},
+    { texto: 'Portão de madeira', acao: ' com portão de madeira#DA70D6'},
+    { texto: 'Folha única', acao: ' de folha única#DA70D6'},
+    { texto: 'Folha dupla', acao: ' de folha dupla#DA70D6'},
+    { texto: 'Portão social', acao: ' com portão social#DA70D6'},
+    { texto: 'Portão basculante', acao: ' com portão basculante#DA70D6'},
+    { texto: 'Portão deslizante lateral', acao: ' com portão de deslizamento lateral#DA70D6'},
+    { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico#DA70D6'},
+    { texto: 'Portaria 24h', acao: ' com portaria 24h#DA70D6'},
+    { texto: 'Cerca elétrica', acao: ' com cerca elétrica#DA70D6'},
 
-
-
-
-
-    //unido geminado isolado
-    //esquerda direita ambos
-    //recuado alinhado
-    //acima abaixo aonivel
-
-    //casa UAR UAA
-    //casa GER GDR GEA GDA
-    //casa IER IDR IAR IEA IDA IAA
-    
-    //quanto a vedação
-    //vedada nãovedada
-    //muro grade cerca
-    //altura
-    
-    //quanto ao acesso principal 
-    //portão metálico madeira
-    //folha unica folha dupla
-    //portão social 
-    //portão basculante
-    //portão deslizamento lateral
-    //acionamento eletrônico
-    //portaria 24h
-    // cerca elétrica
-
-    
-
-    { texto: 'C1', acao: 'Residência.' },
-    { texto: 'C2', acao: 'Residência.' },
-    { texto: 'C3', acao: 'Residência.' },
-    { texto: 'C', acao: 'Residência.' },
-    { texto: 'C2', acao: 'Residência.' },
-    { texto: 'C3', acao: 'Residência.' },
-    
+   
     {texto: 'LIMPAR', acao: 'LIMPAR'}
 
 
