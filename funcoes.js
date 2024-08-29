@@ -770,17 +770,17 @@ var opcoesDeLocal = [
     { texto: 'Via pública', acao: 'Via pública.#32CD32'},
     
     { texto: 'Bar', acao: 'edificação do tipo estabelecimento comercial, unido de vizinhos em ambos os lados, erguido recuado e ao nível geral da via pública, vedado do passeio público por muro de alvenaria/gradeamento metálico. Internamente era composto por um salão principal, contendo balcão mesas, cadeiras e bancos, bem como geladeiras e prateleiras.#32CD32'},
-    
-    { texto: 'Alvenaria', acao: 'edificação em alvenaria,#FA8072'},
-    { texto: 'Madeira', acao: 'edificação em madeira,#FA8072'},
-    { texto: 'Metal', acao: 'edificação em metal,#FA8072'},
-    { texto: 'Vidro e Metal', acao: 'edificação em vidro e metal,#FA8072'},
-    { texto: 'Complexo', acao: 'complexo dotado de diversas edificações,#FA8072'},
 
-    { texto: 'Residência', acao: ' do tipo residência,#E9967A'},
-    { texto: 'Comércio', acao: ' do tipo estabelecimento comercial,#E9967A'},
-    { texto: 'Indústria', acao: ' do tipo industrial,#E9967A'},
     
+    { texto: 'Residência', acao: 'edificação do tipo residência,#E9967A'},
+    { texto: 'Comércio', acao: 'edificação do tipo estabelecimento comercial,#E9967A'},
+    { texto: 'Indústria', acao: 'edificação do tipo industrial,#E9967A'},
+    { texto: 'Complexo', acao: 'complexo dotado de diversas edificações,#E9967A'},
+
+    { texto: 'Alvenaria', acao: ' em alvenaria,#FA8072'},
+    { texto: 'Madeira', acao: ' em madeira,#FA8072'},
+    { texto: 'Metal', acao: ' em metal,#FA8072'},
+    { texto: 'Vidro e Metal', acao: ' em vidro e metal,#FA8072'},
     
     { texto: 'Unido', acao: ' unido de vizinhos em ambos os lados,#FF7F50'},
     { texto: 'Geminado E', acao: ' geminado de vizinhos à esquerda,#FF7F50'},
@@ -796,24 +796,29 @@ var opcoesDeLocal = [
     { texto: 'Alinhado Ao Nível', acao: '  erguido alinhado e ao nível geral da via pública,#FF69B4'},
     { texto: 'Recuado Ao Nível', acao: '  erguido recuado e ao nível geral da via pública,#FF69B4'},
 
-    { texto: 'Vedada', acao: ', vedada#FF4500'},
-    { texto: 'Não vedada', acao: ', não vedada#FF4500'},
+    { texto: 'Ved Muro', acao: ' vedada do passeio público por muro de alvenaria, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
+    { texto: 'Ved Grade', acao: ' vedada do passeio público por gradeamento metálico, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
+    { texto: 'Ved Cerca', acao: ' vedada do passeio público por cerca metálica, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
+    { texto: 'Não vedada', acao: ' não vedada do passeio público.#FF6347'},
 
-    { texto: 'Muro', acao: ' por muro#FF6347'},
-    { texto: 'Grade', acao: ' por grade#FF6347'},
-    { texto: 'Cerca', acao: ' por cerca#FF6347'},
-    { texto: 'Altura', acao: ' com altura de#FF6347'},
+//?    { texto: 'Altura', acao: ' medindo aproximadamente XX m em seu ponto mais baixo,#FF6347'},
     
-    { texto: 'Portão metálico', acao: ' com portão metálico#DA70D6'},
-    { texto: 'Portão de madeira', acao: ' com portão de madeira#DA70D6'},
+    { texto: 'Portão social', acao: ' cujo acesso principal era portão social,#DA70D6'},
+    { texto: 'Portão basculante', acao: ' cujo acesso principal era portão metálico basculante,#DA70D6'},
+    { texto: 'Portão deslizante lateral', acao: ' cujo acesso principal era portão metálico de deslizamento lateral,#DA70D6'},
+    { texto: 'Portão metálico folha única', acao: ' cujo acesso principal era portão metálico,#DA70D6'},
+    { texto: 'Portão de madeira folha única', acao: ' cujo acesso principal era portão madeira,#DA70D6'},
+    { texto: 'Portão metálico folha dupla', acao: ' cujo acesso principal era portão metálico,#DA70D6'},
+    { texto: 'Portão de madeira folha dupla', acao: ' cujo acesso principal era portão madeira,#DA70D6'},
+
     { texto: 'Folha única', acao: ' de folha única#DA70D6'},
     { texto: 'Folha dupla', acao: ' de folha dupla#DA70D6'},
-    { texto: 'Portão social', acao: ' com portão social#DA70D6'},
-    { texto: 'Portão basculante', acao: ' com portão basculante#DA70D6'},
-    { texto: 'Portão deslizante lateral', acao: ' com portão de deslizamento lateral#DA70D6'},
     { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico#DA70D6'},
     { texto: 'Portaria 24h', acao: ' com portaria 24h#DA70D6'},
     { texto: 'Cerca elétrica', acao: ' com cerca elétrica#DA70D6'},
+
+    { texto: 'Portão metálico', acao: ' cujo acesso principal era portão metálico,#DA70D6'},
+    { texto: 'Portão de madeira', acao: ' cujo acesso principal era portão madeira,#DA70D6'},
 
    
     {texto: 'LIMPAR', acao: 'LIMPAR'}
