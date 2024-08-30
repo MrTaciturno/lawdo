@@ -829,7 +829,8 @@ document.addEventListener('click', function(event) {
 
 var opcoesDeVestigios = [
     
-    { texto: 'Via pública', acao: 'Via pública.'},
+    { texto: 'Danos', acao: 'Danos'},
+    { texto: 'típicos de arrombamento', acao: 'típicos de arrombamento'},
 
 ];
 
