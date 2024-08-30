@@ -701,7 +701,7 @@ function preencherTextarea(onde,ondeTA, texto) {
         linhas[document.getElementById('contadorVestigios')]=linhas[document.getElementById('contadorVestigios')]+texto;
         textoAtual = linhas[0];
         for (var i = 1; i < linhas.length; i++) {
-            textoAtual = textoAtual + linhas[i];
+            textoAtual = textoAtual + linhas[i] + "\n";
             console.log(textoAtual);
         }
 
