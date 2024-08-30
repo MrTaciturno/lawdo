@@ -22,6 +22,7 @@
         
         document.getElementById('criaDOCX').addEventListener('click', montaLaudo);
         document.getElementById('contadorMaquinas').textContent = 1;
+        document.getElementById('contadorVestigios').textContent = 1;
 	}
 
     //esperar o SW por agora
@@ -178,7 +179,24 @@
         </div>
     
         <div id="menuOpcoesDosVestigios" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
-        </div> 
+            <p>Vestígio número: <span id="contadorVestigios"></span></p>
+            <button type="button" onclick="proxVest()">Próximo Vestígio</button>
+            <button type="button" onclick="vestAnt()">Vestígio Anterior</button>
+        </div>
+        <script>
+            var numVestigios = 1;
+            function proxVest() {
+                numVestigios++;
+                document.getElementById('contadorVestigios').textContent = numVestigios;
+            }
+            function vestAnt() {
+                if (numVestigios > 1) {
+                    numVestigios--;
+                    document.getElementById('contadorVestigios').textContent = numVestigios;
+                }
+            }
+
+        </script>
     
     </fieldset>
 
