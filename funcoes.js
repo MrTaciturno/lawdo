@@ -704,8 +704,14 @@ function preencherTextarea(onde,ondeTA, texto) {
             console.log("textoatual "+textoAtual);
             var linhas = textoAtual.split('\n');
             console.log("linhas "+linhas);
-            linhas[parseInt(document.getElementById('contadorVestigios').textContent)]=linhas[parseInt(document.getElementById('contadorVestigios').textContent)]+document.getElementById('contadorVestigios').textContent+") "+texto;
-            
+
+
+            if (linhas[i]){
+                linhas[parseInt(document.getElementById('contadorVestigios').textContent)]=linhas[parseInt(document.getElementById('contadorVestigios').textContent)]+texto;
+            }else{
+                linhas[parseInt(document.getElementById('contadorVestigios').textContent)]=document.getElementById('contadorVestigios').textContent+") "+texto;
+            }
+
             console.log("linha +numero: "+ linhas[parseInt(document.getElementById('contadorVestigios').textContent)]);
 
             textoAtual = linhas[0];
