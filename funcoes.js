@@ -695,22 +695,27 @@ function preencherTextarea(onde,ondeTA, texto) {
     var textoAreaVestigios =[];
     
     if(onde == "menuOpcoesDosVestigios"){
-        //procura 1) e procura \r\n
+
         var textoAtual = document.getElementById(ondeTA).value;
-        var linhas = textoAtual.split('\r\n');
-    
+        var linhas = textoAtual.split('\n');
         for (var i = 0; i < linhas.length; i++) {
-            var linha = linhas[i].trim();
-            if (linha.match(/^\d+\)/)) {
-                var numero = parseInt(linha.match(/^\d+/)[0]);
-                if (!textoAreaVestigios[numero]) {
-                    textoAreaVestigios[numero] = texto;
-                }
-                textoAreaVestigios[numero].push(linha.substring(linha.indexOf(')') + 1).trim());
-                console.log(textoAreaVestigios);
-            }
+            console.log(linhas);
         }
-        console.log(linhas);
+
+
+        // for (var i = 0; i < linhas.length; i++) {
+        //     var linha = linhas[i].trim();
+        //     if (linha.match(/^\d+\)/)) {
+        //         var numero = parseInt(linha.match(/^\d+/)[0]);
+        //         if (!textoAreaVestigios[numero]) {
+        //             textoAreaVestigios[numero] = texto;
+        //         }
+        //         textoAreaVestigios[numero].push(linha.substring(linha.indexOf(')') + 1).trim());
+        //         console.log(textoAreaVestigios);
+        //     }
+        // }
+        
+
     }
     
     if (texto == "LIMPAR"){
