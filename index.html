@@ -166,6 +166,24 @@
 
 <fieldset id="fieldDosExames">
     <legend>Exames</legend>
+    
+    <fieldset id="fieldDosVestigios">
+        <legend><label><input type="checkbox" checked="true" name="tDosVestigios" id="cDosVestigios"
+        onclick="document.getElementById('fieldDosVestigios').disabled = !document.getElementById('cDosVestigios').checked"/>Do Local: </label></legend>
+    
+        <div style="display: flex; align-items: stretch;">
+            <textarea id="taDosVestigios" name="ttaDosVestigios" rows="4" cols="50">Tratava-se de </textarea>
+        
+            <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDosVestigios')">+</button>
+        </div>
+    
+        <div id="menuOpcoesDosVestigios" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
+        </div> 
+    
+    </fieldset>
+
+    
+    
     <fieldset id="fieldDoMaquinas" disabled="true">
         <legend><label><input type="checkbox" name="tDoMaquinas" id="cDoMaquinas"
         onclick="document.getElementById('fieldDoMaquinas').disabled = !document.getElementById('cDoMaquinas').checked"/>Máquinas:</label></legend>

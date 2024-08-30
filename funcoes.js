@@ -780,7 +780,21 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Element with ID 'menuOpcoesDoMaquinas' not found.");
         }
     });
+    opcoesDeVestigios.forEach(function(opcao) {
+        const menuOpcoesDosVestigios = document.getElementById('menuOpcoesDosVestigios');
+        if (menuOpcoesDosVestigios) {
+            menuOpcoesDosVestigios.appendChild(criarBotao('menuOpcoesDosVestigios','taDosVestigios',opcao.texto, opcao.acao)); // Or use appendChild as needed
+        } else {
+            console.error("Element with ID 'menuOpcoesDosVestigios' not found.");
+        }
+    });
 });
+
+var opcoesDeVestigios = [
+    
+    { texto: 'Via pública', acao: 'Via pública.'},
+
+];
 
 
 var opcoesDeLocal = [
