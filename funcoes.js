@@ -704,13 +704,13 @@ function preencherTextarea(onde,ondeTA, texto) {
             if (linha.match(/^\d+\)/)) {
                 var numero = parseInt(linha.match(/^\d+/)[0]);
                 if (!textoAreaVestigios[numero]) {
-                    textoAreaVestigios[numero] = [];
+                    textoAreaVestigios[numero] = texto;
                 }
                 textoAreaVestigios[numero].push(linha.substring(linha.indexOf(')') + 1).trim());
                 console.log(textoAreaVestigios);
             }
         }
-        console.log(textoAreaVestigios);
+        console.log(linhas);
     }
     
     if (texto == "LIMPAR"){
