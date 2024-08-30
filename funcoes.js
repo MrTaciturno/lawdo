@@ -697,10 +697,15 @@ function preencherTextarea(onde,ondeTA, texto) {
     else {
         if (onde == "menuOpcoesDoLocal"){
             document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto;
-        }else{
+        }
+        else if(onde == "menuOpcoesDosVestigios"){
+            document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+"\r\n"+document.getElementById('contadorVestigios').textContent+texto;
+        }
+        else{
             document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto+"\r\n";
         }
     }
+
 
     if (onde != "menuOpcoesDoLocal"){
         document.getElementById(onde).style.display = 'none';
