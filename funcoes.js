@@ -698,8 +698,11 @@ function preencherTextarea(onde,ondeTA, texto) {
 
         var textoAtual = document.getElementById(ondeTA).value;
         var linhas = textoAtual.split('\n');
+        linhas[document.getElementById('contadorVestigios')]=linhas[document.getElementById('contadorVestigios')]+texto;
+
         for (var i = 0; i < linhas.length; i++) {
-            console.log(linhas);
+            textoAtual = textoAtual + linhas;
+            console.log(textoAtual);
         }
 
 
@@ -728,7 +731,7 @@ function preencherTextarea(onde,ondeTA, texto) {
         else if(onde == "menuOpcoesDosVestigios"){
         
             
-            document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+"\r\n"+document.getElementById('contadorVestigios').textContent+") "+texto;
+            document.getElementById(ondeTA).value = textoAtual;
 
             
         }
