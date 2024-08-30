@@ -691,6 +691,28 @@ function abrirMenuOpcoes(onde) {
 
 
 function preencherTextarea(onde,ondeTA, texto) {
+    
+    var textoAreaVestigios =[];
+    
+    if(onde == "menuOpcoesDosVestigios"){
+        //procura 1) e procura \r\n
+        var textoAtual = document.getElementById(ondeTA).value;
+        var linhas = textoAtual.split('\r\n');
+    
+        for (var i = 0; i < linhas.length; i++) {
+            var linha = linhas[i].trim();
+            if (linha.match(/^\d+\)/)) {
+                var numero = parseInt(linha.match(/^\d+/)[0]);
+                if (!textoAreaVestigios[numero]) {
+                    textoAreaVestigios[numero] = [];
+                }
+                textoAreaVestigios[numero].push(linha.substring(linha.indexOf(')') + 1).trim());
+                console.log(textoAreaVestigios);
+            }
+        }
+        console.log(textoAreaVestigios);
+    }
+    
     if (texto == "LIMPAR"){
         document.getElementById(ondeTA).value = "";
     }
@@ -699,7 +721,11 @@ function preencherTextarea(onde,ondeTA, texto) {
             document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto;
         }
         else if(onde == "menuOpcoesDosVestigios"){
-            document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+"\r\n"+document.getElementById('contadorVestigios').textContent+texto;
+        
+            
+            document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+"\r\n"+document.getElementById('contadorVestigios').textContent+") "+texto;
+
+            
         }
         else{
             document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto+"\r\n";
