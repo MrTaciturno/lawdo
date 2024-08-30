@@ -699,9 +699,9 @@ function preencherTextarea(onde,ondeTA, texto) {
         var textoAtual = document.getElementById(ondeTA).value;
         var linhas = textoAtual.split('\n');
         linhas[document.getElementById('contadorVestigios')]=linhas[document.getElementById('contadorVestigios')]+texto;
-
-        for (var i = 0; i < linhas.length; i++) {
-            textoAtual = textoAtual + linhas;
+        textoAtual = linhas[0];
+        for (var i = 1; i < linhas.length; i++) {
+            textoAtual = textoAtual + linhas[i];
             console.log(textoAtual);
         }
 
