@@ -697,7 +697,7 @@ function preencherTextarea(onde,ondeTA, texto) {
     }
     else {
         if (onde == "menuOpcoesDoLocal"){
-            document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+document.getElementById('contadorVestigios').textContent+") "+texto;
+            document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto;
         }
         else if(onde == "menuOpcoesDosVestigios"){
             var textoAtual = document.getElementById(ondeTA).value;
