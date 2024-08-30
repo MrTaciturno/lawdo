@@ -710,8 +710,8 @@ function preencherTextarea(onde,ondeTA, texto) {
 
             textoAtual = linhas[0];
             for (var i = 1; i < linhas.length; i++) {
-                if (linhas[i]!=undefined){
-                    textoAtual = textoAtual + linhas[i] + "\n";
+                if (linhas[i]){
+                    textoAtual = textoAtual + "\n" + linhas[i];
                 }
 
             }
