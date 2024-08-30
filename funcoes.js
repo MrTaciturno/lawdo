@@ -742,7 +742,7 @@ function criarBotao(onde,ondeTA, texto, acao) {
     botao.textContent = texto;
     
     var novaAcao = "";
-    if (onde == 'menuOpcoesDoLocal'){
+    if (onde == 'menuOpcoesDoLocal' || onde == 'menuOpcoesDosVestigios'){
         novaAcao = acao.slice(0, -7);
         botao.style.backgroundColor = acao.slice(-7);
     }else{
@@ -851,7 +851,101 @@ var opcoesDeVestigios = [
 
 
     
+    { texto: 'Sangue', acao: 'Vestígios de sangue#32CD32'},
+    { texto: 'em gota', acao: ' em gota#FA8072'},
+    { texto: 'em mancha', acao: ' em mancha#FA8072'},
+    { texto: 'em esfregaço', acao: ' em esfregaço#FA8072'},
+    { texto: 'em poça', acao: ' em poça#FA8072'},
+    { texto: 'no piso', acao: ' no piso#FF7F50'},
+    { texto: 'na parede', acao: ' na parede#FF7F50'},
+    { texto: 'no teto', acao: ' no teto#FF7F50'},
+    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
     
+    { texto: 'Projétil', acao: 'Projétil de arma de fogo#32CD32'},
+    { texto: 'deformado', acao: ' deformado#FA8072'},
+    { texto: 'íntegro', acao: ' íntegro#FA8072'},
+    { texto: 'encamisado', acao: ' encamisado#FA8072'},
+    { texto: 'semi-encamisado', acao: ' semi-encamisado#FA8072'},
+    { texto: 'no piso', acao: ' no piso#FF7F50'},
+    { texto: 'na parede', acao: ' na parede#FF7F50'},
+    { texto: 'no teto', acao: ' no teto#FF7F50'},
+    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    { texto: 'Estojo', acao: 'Estojo de munição#32CD32'},
+    { texto: 'deflagrado', acao: ' deflagrado#FA8072'},
+    { texto: 'percutido', acao: ' percutido#FA8072'},
+    { texto: 'picotado', acao: ' picotado#FA8072'},
+    { texto: 'no piso', acao: ' no piso#FF7F50'},
+    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    { texto: 'Marca de tiro', acao: 'Marca de impacto de projétil de arma de fogo#32CD32'},
+    { texto: 'no piso', acao: ' no piso#FA8072'},
+    { texto: 'na parede', acao: ' na parede#FA8072'},
+    { texto: 'no teto', acao: ' no teto#FA8072'},
+    { texto: 'em móveis', acao: ' em móveis#FA8072'},
+    { texto: 'em objetos', acao: ' em objetos#FA8072'},
+    
+    { texto: 'Pegada', acao: 'Pegada#32CD32'},
+    { texto: 'em sangue', acao: ' em sangue#FA8072'},
+    { texto: 'em poeira', acao: ' em poeira#FA8072'},
+    { texto: 'em terra', acao: ' em terra#FA8072'},
+    { texto: 'em lama', acao: ' em lama#FA8072'},
+    { texto: 'no piso', acao: ' no piso#FF7F50'},
+    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    { texto: 'Impressão papilar', acao: 'Impressão papilar#32CD32'},
+    { texto: 'em sangue', acao: ' em sangue#FA8072'},
+    { texto: 'em poeira', acao: ' em poeira#FA8072'},
+    { texto: 'em gordura', acao: ' em gordura#FA8072'},
+    { texto: 'em superfície lisa', acao: ' em superfície lisa#FA8072'},
+    { texto: 'no piso', acao: ' no piso#FF7F50'},
+    { texto: 'na parede', acao: ' na parede#FF7F50'},
+    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    { texto: 'Fio de cabelo', acao: 'Fio de cabelo#32CD32'},
+    { texto: 'no piso', acao: ' no piso#FA8072'},
+    { texto: 'em móveis', acao: ' em móveis#FA8072'},
+    { texto: 'em objetos', acao: ' em objetos#FA8072'},
+    
+    { texto: 'Mancha', acao: 'Mancha#32CD32'},
+    { texto: 'de líquido', acao: ' de líquido#FA8072'},
+    { texto: 'de gordura', acao: ' de gordura#FA8072'},
+    { texto: 'de fluido corporal', acao: ' de fluido corporal#FA8072'},
+    { texto: 'no piso', acao: ' no piso#FF7F50'},
+    { texto: 'na parede', acao: ' na parede#FF7F50'},
+    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    { texto: 'Fibra', acao: 'Fibra#32CD32'},
+    { texto: 'têxtil', acao: ' têxtil#FA8072'},
+    { texto: 'sintética', acao: ' sintética#FA8072'},
+    { texto: 'natural', acao: ' natural#FA8072'},
+    { texto: 'no piso', acao: ' no piso#FF7F50'},
+    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    { texto: 'Fragmento', acao: 'Fragmento#32CD32'},
+    { texto: 'de vidro', acao: ' de vidro#FA8072'},
+    { texto: 'de metal', acao: ' de metal#FA8072'},
+    { texto: 'de plástico', acao: ' de plástico#FA8072'},
+    { texto: 'de madeira', acao: ' de madeira#FA8072'},
+    { texto: 'no piso', acao: ' no piso#FF7F50'},
+    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    { texto: 'Marca de ferramenta', acao: 'Marca de ferramenta#32CD32'},
+    { texto: 'de corte', acao: ' de corte#FA8072'},
+    { texto: 'de pressão', acao: ' de pressão#FA8072'},
+    { texto: 'de alavanca', acao: ' de alavanca#FA8072'},
+    { texto: 'no piso', acao: ' no piso#FF7F50'},
+    { texto: 'na parede', acao: ' na parede#FF7F50'},
+    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    { texto: 'em objetos', acao: ' em objetos#FF7F50'}
     // for (var i=0; i<gTodosVF.length; i++){
     //     if(gTodosVF[i].checked){
     //         flagTemVF = true;
