@@ -692,35 +692,6 @@ function abrirMenuOpcoes(onde) {
 
 function preencherTextarea(onde,ondeTA, texto) {
     
-    var textoAreaVestigios =[];
-    
-    if(onde == "menuOpcoesDosVestigios"){
-
-        var textoAtual = document.getElementById(ondeTA).value;
-        var linhas = textoAtual.split('\n');
-        linhas[document.getElementById('contadorVestigios')]=linhas[document.getElementById('contadorVestigios')]+texto;
-        textoAtual = linhas[0];
-        for (var i = 1; i < linhas.length; i++) {
-            textoAtual = textoAtual + linhas[i] + "\n";
-            console.log(textoAtual);
-        }
-
-
-        // for (var i = 0; i < linhas.length; i++) {
-        //     var linha = linhas[i].trim();
-        //     if (linha.match(/^\d+\)/)) {
-        //         var numero = parseInt(linha.match(/^\d+/)[0]);
-        //         if (!textoAreaVestigios[numero]) {
-        //             textoAreaVestigios[numero] = texto;
-        //         }
-        //         textoAreaVestigios[numero].push(linha.substring(linha.indexOf(')') + 1).trim());
-        //         console.log(textoAreaVestigios);
-        //     }
-        // }
-        
-
-    }
-    
     if (texto == "LIMPAR"){
         document.getElementById(ondeTA).value = "";
     }
@@ -729,7 +700,16 @@ function preencherTextarea(onde,ondeTA, texto) {
             document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto;
         }
         else if(onde == "menuOpcoesDosVestigios"){
-        
+            var textoAtual = document.getElementById(ondeTA).value;
+            var linhas = textoAtual.split('\n');
+            
+            linhas[document.getElementById('contadorVestigios')]=linhas[document.getElementById('contadorVestigios')]+texto;
+            
+            textoAtual = linhas[0];
+            for (var i = 1; i < linhas.length; i++) {
+                textoAtual = textoAtual + linhas[i] + "\n";
+                console.log(textoAtual);
+            }
             
             document.getElementById(ondeTA).value = textoAtual;
 
