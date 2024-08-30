@@ -732,7 +732,7 @@ function preencherTextarea(onde,ondeTA, texto) {
     }
 
 
-    if (onde != "menuOpcoesDoLocal"){
+    if (onde != "menuOpcoesDoLocal" && onde!= "menuOpcoesDosVestigios"){
         document.getElementById(onde).style.display = 'none';
     }
 }
