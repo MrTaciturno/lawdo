@@ -822,426 +822,157 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 var opcoesDeVestigios = [
-    
-    { texto: 'Danos', acao: 'Danos#FFFFFF'},
-    { texto: 'típicos de arrombamento', acao: 'típicos de arrombamento#FFFFFF'},
 
-    { texto: 'Vestígios de escalada', acao: 'Vestígios compatíveis com escalada, caracterizados por:#32CD32'},
-    { texto: 'Sujidades', acao: 'sujidades#FA8072'},
-    { texto: 'de calçado', acao: ' típicas de calçado#FF7F50'},
-    { texto: 'de pés', acao: ' que ensejam marcas de pés#FF7F50'},
-    { texto: 'de mãos', acao: ' que ensejam marcas de mãos#FF7F50'},
-    { texto: 'de terra', acao: ' em terra#FF7F50'},
-    { texto: 'Fragmentos', acao: 'fragmentos#FA8072'},
-    { texto: 'cimentícios', acao: ' cimentícios caídos ao solo#FF7F50'},
-    { texto: 'cerâmicos', acao: ' cerâmicos caídos ao solo#FF7F50'},
-    { texto: 'de vidro', acao: ' de vidro caídos ao solo#FF7F50'},
-    { texto: 'Sem vestígios', acao: 'Apesar de não ter sido encontrado o ponto exato de entrada, entende-se escalada como modo provável de acesso ao interior da propriedade.#32CD32'},
+    { texto: 'Escalada sem vestígios', acao: 'Apesar de não ter sido encontrado o ponto exato de entrada, entende-se escalada como modo provável de acesso ao interior da propriedade.#32CD32'},
+
+    { texto: 'Vestígios escalada', acao: 'Vestígios compatíveis com escalada,#32CD32'},
+    { texto: 'Sujidades', acao: ' caracterizados por sujidades#DA70D6'},
+    { texto: 'calçado', acao: ' típicas de calçado,#FF7F50'},
+    { texto: 'pés', acao: ' que ensejam marcas de pés#FF7F50'},
+    { texto: 'mãos', acao: ' que ensejam marcas de mãos#FF7F50'},
+    { texto: 'terra', acao: ' em terra#FF7F50'},
     
-    { texto: 'Arrombamento', acao: 'Vestígios compatíveis com arrombamento, caracterizados por:#32CD32'},
-    { texto: 'Danos', acao: 'danos#FA8072'},
+    { texto: 'Fragmentos', acao: ' caracterizados por fragmentos caídos ao solo, a saber,#DA70D6'},
+    { texto: 'de cimento', acao: ' de cimento#FF7F50'},
+    { texto: 'de telha ', acao: ' de telha#FF7F50'},
+    { texto: 'de tijolo', acao: ' de tijolo#FF7F50'},
+    { texto: 'de vidro', acao: ' de vidro#FF7F50'},
+
+
+    { texto: 'Arrombamento', acao: 'Vestígios compatíveis com arrombamento, caracterizados por #32CD32'},
+    { texto: 'Danos', acao: ' danos#DA70D6'},
+    { texto: 'Amolgamento', acao: ' amolgamentos#DA70D6'},
+    { texto: 'Fraturas', acao: ' fraturas#DA70D6'},
+    { texto: 'Atritamentos', acao: ' atritamentos#DA70D6'},
+    { texto: 'Remoção', acao: ' remoção#DA70D6'},
+    
     { texto: 'em porta', acao: ' em porta#FF7F50'},
     { texto: 'em janela', acao: ' em janela#FF7F50'},
     { texto: 'em parede', acao: ' em parede#FF7F50'},
     { texto: 'em telhado', acao: ' em telhado#FF7F50'},
-    { texto: 'Marcas', acao: 'marcas#FA8072'},
-    { texto: 'de ferramenta', acao: ' de ferramenta#FF7F50'},
-    { texto: 'de chute', acao: ' de chute#FF7F50'},
-    { texto: 'de alavanca', acao: ' de alavanca#FF7F50'},
-
-
+    { texto: 'de forro', acao: ' de forro#FF7F50'},
+    { texto: 'moldura de vedação', acao: ' de moldura de vedação#FF7F50'},
     
-    { texto: 'Sangue', acao: 'Vestígios de sangue#32CD32'},
-    { texto: 'em gota', acao: ' em gota#FA8072'},
-    { texto: 'em mancha', acao: ' em mancha#FA8072'},
-    { texto: 'em esfregaço', acao: ' em esfregaço#FA8072'},
-    { texto: 'em poça', acao: ' em poça#FA8072'},
-    { texto: 'no piso', acao: ' no piso#FF7F50'},
-    { texto: 'na parede', acao: ' na parede#FF7F50'},
-    { texto: 'no teto', acao: ' no teto#FF7F50'},
-    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
-    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
-    
-    { texto: 'Projétil', acao: 'Projétil de arma de fogo#32CD32'},
-    { texto: 'deformado', acao: ' deformado#FA8072'},
-    { texto: 'íntegro', acao: ' íntegro#FA8072'},
-    { texto: 'encamisado', acao: ' encamisado#FA8072'},
-    { texto: 'semi-encamisado', acao: ' semi-encamisado#FA8072'},
-    { texto: 'no piso', acao: ' no piso#FF7F50'},
-    { texto: 'na parede', acao: ' na parede#FF7F50'},
-    { texto: 'no teto', acao: ' no teto#FF7F50'},
-    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
-    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
-    
-    { texto: 'Estojo', acao: 'Estojo de munição#32CD32'},
-    { texto: 'deflagrado', acao: ' deflagrado#FA8072'},
-    { texto: 'percutido', acao: ' percutido#FA8072'},
-    { texto: 'picotado', acao: ' picotado#FA8072'},
-    { texto: 'no piso', acao: ' no piso#FF7F50'},
-    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
-    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
-    
-    { texto: 'Marca de tiro', acao: 'Marca de impacto de projétil de arma de fogo#32CD32'},
-    { texto: 'no piso', acao: ' no piso#FA8072'},
-    { texto: 'na parede', acao: ' na parede#FA8072'},
-    { texto: 'no teto', acao: ' no teto#FA8072'},
-    { texto: 'em móveis', acao: ' em móveis#FA8072'},
-    { texto: 'em objetos', acao: ' em objetos#FA8072'},
-    
-    { texto: 'Pegada', acao: 'Pegada#32CD32'},
-    { texto: 'em sangue', acao: ' em sangue#FA8072'},
-    { texto: 'em poeira', acao: ' em poeira#FA8072'},
-    { texto: 'em terra', acao: ' em terra#FA8072'},
-    { texto: 'em lama', acao: ' em lama#FA8072'},
-    { texto: 'no piso', acao: ' no piso#FF7F50'},
-    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
-    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
-    
-    { texto: 'Impressão papilar', acao: 'Impressão papilar#32CD32'},
-    { texto: 'em sangue', acao: ' em sangue#FA8072'},
-    { texto: 'em poeira', acao: ' em poeira#FA8072'},
-    { texto: 'em gordura', acao: ' em gordura#FA8072'},
-    { texto: 'em superfície lisa', acao: ' em superfície lisa#FA8072'},
-    { texto: 'no piso', acao: ' no piso#FF7F50'},
-    { texto: 'na parede', acao: ' na parede#FF7F50'},
-    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
-    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
-    
-    { texto: 'Fio de cabelo', acao: 'Fio de cabelo#32CD32'},
-    { texto: 'no piso', acao: ' no piso#FA8072'},
-    { texto: 'em móveis', acao: ' em móveis#FA8072'},
-    { texto: 'em objetos', acao: ' em objetos#FA8072'},
-    
-    { texto: 'Mancha', acao: 'Mancha#32CD32'},
-    { texto: 'de líquido', acao: ' de líquido#FA8072'},
-    { texto: 'de gordura', acao: ' de gordura#FA8072'},
-    { texto: 'de fluido corporal', acao: ' de fluido corporal#FA8072'},
-    { texto: 'no piso', acao: ' no piso#FF7F50'},
-    { texto: 'na parede', acao: ' na parede#FF7F50'},
-    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
-    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
-    
-    { texto: 'Fibra', acao: 'Fibra#32CD32'},
-    { texto: 'têxtil', acao: ' têxtil#FA8072'},
-    { texto: 'sintética', acao: ' sintética#FA8072'},
-    { texto: 'natural', acao: ' natural#FA8072'},
-    { texto: 'no piso', acao: ' no piso#FF7F50'},
-    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
-    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
-    
-    { texto: 'Fragmento', acao: 'Fragmento#32CD32'},
-    { texto: 'de vidro', acao: ' de vidro#FA8072'},
+    { texto: 'de vidro/vidrilho', acao: ' de vidro/vidrilho#FA8072'},
     { texto: 'de metal', acao: ' de metal#FA8072'},
+    { texto: 'de vidro e metal', acao: ' de metal#FA8072'},
     { texto: 'de plástico', acao: ' de plástico#FA8072'},
     { texto: 'de madeira', acao: ' de madeira#FA8072'},
-    { texto: 'no piso', acao: ' no piso#FF7F50'},
-    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
-    { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+
+    { texto: 'alavanca', acao: ' que ensejam uso de instrumento na forma de alavanca#FA8072'},
+    { texto: 'ação percussiva', acao: ' que ensejam uso de instrumento na forma de percussiva#FA8072'},
+    { texto: 'força humana', acao: ' que ensejam emprego de força humana desassistida de instrumento#FA8072'},
+    { texto: 'alavanca', acao: ' que ensejam uso de instrumento na forma de alavanca#FA8072'},
+    { texto: 'mixa', acao: ' que ensejam uso de chave falsa ou mixa#FA8072'},
+    { texto: 'inserção de instrumento', acao: ' que ensejam inserção de instrumento incerto#FA8072'},
     
-    { texto: 'Marca de ferramenta', acao: 'Marca de ferramenta#32CD32'},
-    { texto: 'de corte', acao: ' de corte#FA8072'},
-    { texto: 'de pressão', acao: ' de pressão#FA8072'},
-    { texto: 'de alavanca', acao: ' de alavanca#FA8072'},
-    { texto: 'no piso', acao: ' no piso#FF7F50'},
-    { texto: 'na parede', acao: ' na parede#FF7F50'},
-    { texto: 'em móveis', acao: ' em móveis#FF7F50'},
-    { texto: 'em objetos', acao: ' em objetos#FF7F50'}
-    // for (var i=0; i<gTodosVF.length; i++){
-    //     if(gTodosVF[i].checked){
-    //         flagTemVF = true;
-    //         var montaFlagVF = 'cFlagVest'+(i+1);
-    //         var VFE="";
-    //         if(document.getElementById(montaFlagVF+"Escalada").checked){
-    //             if(document.getElementById(montaFlagVF+"EscaladaSemVestigio").checked)
-    //             VFE = "Apesar de não ter sido encontrado o ponto exato de entrada, entende-se escalada como modo provável de acesso ao interior da propriedade.";
-    //             else
-    //             VFE = "Vestígio compatível com escalada.";
+    
+    { texto: 'Desordem', acao: 'Desordem típica de busca #32CD32'},
+    { texto: 'quartos', acao: ' nos quartos,#FF7F50'},
+    { texto: 'quarto', acao: ' no quarto,#FF7F50'},
+    { texto: 'closet', acao: ' no closet,#FF7F50'},
+    { texto: 'sala ', acao: ' na sala,#FF7F50'},
+    { texto: 'cozinha', acao: ' na cozinha,#FF7F50'},
+    { texto: 'banheiro', acao: ' no banheiro,#FF7F50'},
+    { texto: 'garagem ', acao: ' na garagem,#FF7F50'},
+    { texto: 'lavanderia', acao: ' na lavanderia#FF7F50'},
+    { texto: 'na área externa', acao: ' na área externa,#FF7F50'},
+        
+    { texto: 'Situado', acao: 'situado na porção #32CD32'},
+    { texto: 'anterior', acao: 'anterior,#FF7F50'},
+    { texto: 'média', acao: 'média,#FF7F50'},
+    { texto: 'posterior', acao: 'posterior,#FF7F50'},
+    { texto: 'central', acao: 'central,#FF7F50'},
+    { texto: 'direita', acao: 'direita,#FF7F50'},
+    { texto: 'interna', acao: 'interna,#FF7F50'},
+    { texto: 'externa', acao: 'externa,#FF7F50'},
+    { texto: 'superior', acao: 'superior,#FF7F50'},
+    { texto: 'inferior', acao: 'inferior,#FF7F50'},
 
-    //             if(document.getElementById(montaFlagVF+"EscaladaSujidade").checked){
-    //                 VFE = VFE.slice(0,-1) + ", caracterizado por sujidades.";
-    //                 if(document.getElementById(montaFlagVF+"EscaladaSujidadeCalcado").checked){
-    //                     VFE = VFE.slice(0,-1) + " típicas de calçado.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"EscaladaSujidadePes").checked){
-    //                     VFE = VFE.slice(0,-1) + " que ensejam marcas de pés.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"EscaladaSujidadeMao").checked){
-    //                     VFE = VFE.slice(0,-1) + " que ensejam marcas de mãos.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"EscaladaSujidadeTerra").checked){
-    //                     VFE = VFE.slice(0,-1) + " em terra.";
-    //                 }
+    
 
-    //                 if((VFE.indexOf("que ensejam marcas de") != VFE.lastIndexOf("que ensejam marcas de"))&&(VFE.search("que ensejam marcas de")!=-1)){
-    //                     VFE = VFE.slice(0,VFE.lastIndexOf("que ensejam marcas de"))+ "e " +VFE.slice(VFE.lastIndexOf("que ensejam marcas de")+22);
-    //                 }
-    //             }
-    //             if(document.getElementById(montaFlagVF+"EscaladaFragmento").checked){
+    // { texto: 'Sangue', acao: 'Vestígios de sangue#32CD32'},
+    // { texto: 'em gota', acao: ' em gota#FA8072'},
+    // { texto: 'em mancha', acao: ' em mancha#FA8072'},
+    // { texto: 'em esfregaço', acao: ' em esfregaço#FA8072'},
+    // { texto: 'em poça', acao: ' em poça#FA8072'},
+    // { texto: 'no piso', acao: ' no piso#FF7F50'},
+    // { texto: 'na parede', acao: ' na parede#FF7F50'},
+    // { texto: 'no teto', acao: ' no teto#FF7F50'},
+    // { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    // { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    // { texto: 'Projétil', acao: 'Projétil de arma de fogo#32CD32'},
+    // { texto: 'deformado', acao: ' deformado#FA8072'},
+    // { texto: 'íntegro', acao: ' íntegro#FA8072'},
+    // { texto: 'encamisado', acao: ' encamisado#FA8072'},
+    // { texto: 'semi-encamisado', acao: ' semi-encamisado#FA8072'},
+    // { texto: 'no piso', acao: ' no piso#FF7F50'},
+    // { texto: 'na parede', acao: ' na parede#FF7F50'},
+    // { texto: 'no teto', acao: ' no teto#FF7F50'},
+    // { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    // { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    // { texto: 'Estojo', acao: 'Estojo de munição#32CD32'},
+    // { texto: 'deflagrado', acao: ' deflagrado#FA8072'},
+    // { texto: 'percutido', acao: ' percutido#FA8072'},
+    // { texto: 'picotado', acao: ' picotado#FA8072'},
+    // { texto: 'no piso', acao: ' no piso#FF7F50'},
+    // { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    // { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    // { texto: 'Marca de tiro', acao: 'Marca de impacto de projétil de arma de fogo#32CD32'},
+    // { texto: 'no piso', acao: ' no piso#FA8072'},
+    // { texto: 'na parede', acao: ' na parede#FA8072'},
+    // { texto: 'no teto', acao: ' no teto#FA8072'},
+    // { texto: 'em móveis', acao: ' em móveis#FA8072'},
+    // { texto: 'em objetos', acao: ' em objetos#FA8072'},
+    
+    // { texto: 'Pegada', acao: 'Pegada#32CD32'},
+    // { texto: 'em sangue', acao: ' em sangue#FA8072'},
+    // { texto: 'em poeira', acao: ' em poeira#FA8072'},
+    // { texto: 'em terra', acao: ' em terra#FA8072'},
+    // { texto: 'em lama', acao: ' em lama#FA8072'},
+    // { texto: 'no piso', acao: ' no piso#FF7F50'},
+    // { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    // { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    // { texto: 'Impressão papilar', acao: 'Impressão papilar#32CD32'},
+    // { texto: 'em sangue', acao: ' em sangue#FA8072'},
+    // { texto: 'em poeira', acao: ' em poeira#FA8072'},
+    // { texto: 'em gordura', acao: ' em gordura#FA8072'},
+    // { texto: 'em superfície lisa', acao: ' em superfície lisa#FA8072'},
+    // { texto: 'no piso', acao: ' no piso#FF7F50'},
+    // { texto: 'na parede', acao: ' na parede#FF7F50'},
+    // { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    // { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
+    // { texto: 'Fio de cabelo', acao: 'Fio de cabelo#32CD32'},
+    // { texto: 'no piso', acao: ' no piso#FA8072'},
+    // { texto: 'em móveis', acao: ' em móveis#FA8072'},
+    // { texto: 'em objetos', acao: ' em objetos#FA8072'},
+    
+    // { texto: 'Mancha', acao: 'Mancha#32CD32'},
+    // { texto: 'de líquido', acao: ' de líquido#FA8072'},
+    // { texto: 'de gordura', acao: ' de gordura#FA8072'},
+    // { texto: 'de fluido corporal', acao: ' de fluido corporal#FA8072'},
+    // { texto: 'no piso', acao: ' no piso#FF7F50'},
+    // { texto: 'na parede', acao: ' na parede#FF7F50'},
+    // { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    // { texto: 'em objetos', acao: ' em objetos#FF7F50'},
+    
 
-    //                 if(VFE.search("caracterizado por")==-1){
-    //                     VFE = VFE.slice(0,-1) + ", caracterizado por fragmentos.";
-    //                 } else {
-    //                     VFE = VFE.slice(0,-1) + " e fragmentos.";
-    //                 }
+    
+    // { texto: 'Marca de ferramenta', acao: 'Marca de ferramenta#32CD32'},
+    // { texto: 'de corte', acao: ' de corte#FA8072'},
+    // { texto: 'de pressão', acao: ' de pressão#FA8072'},
+    // { texto: 'de alavanca', acao: ' de alavanca#FA8072'},
+    // { texto: 'no piso', acao: ' no piso#FF7F50'},
+    // { texto: 'na parede', acao: ' na parede#FF7F50'},
+    // { texto: 'em móveis', acao: ' em móveis#FF7F50'},
+    // { texto: 'em objetos', acao: ' em objetos#FF7F50'},
 
-    //                 if(document.getElementById(montaFlagVF+"EscaladaFragmentoCimento").checked){
-    //                     VFE = VFE.slice(0,-1) + " cimentícios caídos ao solo.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"EscaladaFragmentoCeramico").checked){
-    //                     VFE = VFE.slice(0,-1) + " cerâmicos caídos ao solo.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"EscaladaFragmentoVidro").checked){
-    //                     VFE = VFE.slice(0,-1) + " de vidro caídos ao solo.";
-    //                 }
-
-    //                 var vCaS = VFE.lastIndexOf(" caídos ao solo");
-    //                 var vCaS = VFE.lastIndexOf(" caídos ao solo",vCaS-1);
-
-    //                 while (vCaS != -1){
-
-    //                     VFE = VFE.slice(0,vCaS)+","+VFE.slice(vCaS+15);
-    //                     vCaS = VFE.lastIndexOf(" caídos ao solo", vCaS-1);
-    //                 }
-    //             }
-    //         }
-    //         if(document.getElementById(montaFlagVF+"Arrombamento").checked){
-    //             VFE = VFE + " Danos típicos de arrombamento.";
-    //             var poeVirgula = false;
-
-    //             if	((document.getElementById(montaFlagVF+"ArrombamentoAmolg").checked)||
-    //                 (document.getElementById(montaFlagVF+"ArrombamentoFraturas").checked)||
-    //                 (document.getElementById(montaFlagVF+"ArrombamentoFragmento").checked)||
-    //                 (document.getElementById(montaFlagVF+"ArrombamentoAtritamentos").checked)||
-    //                 (document.getElementById(montaFlagVF+"ArrombamentoRemocao").checked))
-    //                 VFE = VFE.slice(0,-1) + ", caracterizado por ";
-
-    //             if(document.getElementById(montaFlagVF+"ArrombamentoAmolg").checked){
-    //                 var poeVirgulaArromb = false;
-    //                 VFE = VFE.slice(0,-1) + (poeVirgula ? ",":"") + " amolgamentos."; poeVirgula=true;
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAmolgPorta").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaArromb ? ",":"") + " em porta."; poeVirgulaArromb=true;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAmolgJanela").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaArromb ? ",":"") + " em janela."; poeVirgulaArromb=true;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAmolgMetal").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaArromb ? ",":"") + " em metal."; poeVirgulaArromb=true;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAmolgMadeira").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaArromb ? ",":"") + " em madeira."; poeVirgulaArromb=true;
-    //                 }
-    //                 var comEmprego = true;
-    //                 var flagInstrumento = true;
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAmolgInstIncerto").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaArromb ? ",":"") + (comEmprego ? " com emprego":"")
-    //                         +(flagInstrumento ? " de instrumento":"")+" incerto."; poeVirgulaArromb=true; comEmprego = false; flagInstrumento= false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAmolgInstAlav").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaArromb ? ",":"") + (comEmprego ? " com emprego":"")
-    //                         +(flagInstrumento ? " de instrumento":"")+" na forma de alavanca."; poeVirgulaArromb=true; comEmprego = false; flagInstrumento= false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAmolgInstPerc").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaArromb ? ",":"") + (comEmprego ? " com emprego":"")
-    //                         +(flagInstrumento ? " de instrumento":"")+" de ação percussiva."; poeVirgulaArromb=true; comEmprego = false; flagInstrumento= false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAmolgSemInst").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaArromb ? ",":"") + (comEmprego ? " com emprego":"")
-    //                         +(flagInstrumento ? "":" e")+" de força humana desassistida de instrumentos."; poeVirgulaArromb=true; comEmprego = false; flagInstrumento= false;
-    //                 }
-
-
-    //             }
-    //             if(document.getElementById(montaFlagVF+"ArrombamentoFraturas").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgula ? ",":"") + " fraturas."; poeVirgula=true;
-
-    //                 var poeVirgulaFratura = false;
-
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFratPorta").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaFratura ? ",":"") + " em porta."; poeVirgulaFratura=true;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFratJanela").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaFratura ? ",":"") + " em janela."; poeVirgulaFratura=true;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFratMuro").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaFratura ? ",":"") + " em muro de alvenaria."; poeVirgulaFratura=true;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFratVidro").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaFratura ? ",":"") + " em porção vítrea."; poeVirgulaFratura=true;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFratMadeira").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaFratura ? ",":"") + " em madeira."; poeVirgulaFratura=true;
-    //                 }
-
-    //                 var comEmpregoFrat = true;
-    //                 var flagInstrumentoFrat = true;
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFratInstIncerto").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaFratura ? ",":"") + (comEmpregoFrat ? " com emprego":"")
-    //                         +(flagInstrumentoFrat ? " de instrumento":"")+" incerto."; poeVirgulaFratura=true; comEmpregoFrat = false; flagInstrumentoFrat= false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFratInstAlav").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaFratura ? ",":"") + (comEmpregoFrat ? " com emprego":"")
-    //                         +(flagInstrumentoFrat ? " de instrumento":"")+" na forma de alavanca."; poeVirgulaFratura=true; comEmpregoFrat = false; flagInstrumentoFrat= false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFratInstPerc").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaFratura ? ",":"") + (comEmpregoFrat ? " com emprego":"")
-    //                         +(flagInstrumentoFrat ? " de instrumento":"")+" de ação percussiva."; poeVirgulaFratura=true; comEmpregoFrat = false; flagInstrumentoFrat= false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFratSemIns").checked){
-    //                     VFE = VFE.slice(0,-1) + (poeVirgulaFratura ? ",":"") + (comEmpregoFrat ? " com emprego":"")
-    //                         +(flagInstrumentoFrat ? "":" e")+" de força humana desassistida de instrumentos."; poeVirgulaFratura=true; comEmpregoFrat = false; flagInstrumentoFrat= false;
-    //                 }
-
-    //             }
-
-    //             if(document.getElementById(montaFlagVF+"ArrombamentoFragmento").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgula ? ",":"") + " presença de fragmentos."; poeVirgula=true;
-
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFragmentoCimento").checked){
-    //                     VFE = VFE.slice(0,-1) + " cimentícios caídos ao solo.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFragmentoCeramico").checked){
-    //                     VFE = VFE.slice(0,-1) + " cerâmicos caídos ao solo.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFragmentoVidro").checked){
-    //                     VFE = VFE.slice(0,-1) + " de vidro caídos ao solo.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFragmentoMadeira").checked){
-    //                     VFE = VFE.slice(0,-1) + " de madeira caídos ao solo.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoFragmentoMetal").checked){
-    //                     VFE = VFE.slice(0,-1) + " em metal caídos ao solo.";
-    //                 }
-    //                 var vCaS = VFE.lastIndexOf(" caídos ao solo");
-    //                 var vCaS = VFE.lastIndexOf(" caídos ao solo",vCaS-1);
-
-    //                 while (vCaS != -1){
-
-    //                     VFE = VFE.slice(0,vCaS)+","+VFE.slice(vCaS+15);
-    //                     vCaS = VFE.lastIndexOf(" caídos ao solo", vCaS-1);
-    //                 }
-    //             }
-
-    //             if(document.getElementById(montaFlagVF+"ArrombamentoAtritamentos").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgula ? ",":"") + " atritamentos."; poeVirgula=true;
-
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAtritamentosMixa").checked){
-    //                     VFE = VFE.slice(0,-1) + " que ensejam uso de chave mixa.";
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoAtritamentosMixa").checked){
-    //                     VFE = VFE.slice(0,-1) + " que ensejam inserção de instrumento.";
-    //                 }
-
-    //             }
-    //             if(document.getElementById(montaFlagVF+"ArrombamentoRemocao").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgula ? ",":"") + " remoção de itens."; poeVirgula=true;
-    //                 var poeVirgulaRem = false;
-    //                 var porDentreQuaislRem = true;
-
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoRemocaoTelhas").checked){
-    //                     VFE = VFE.slice(0,-1) + (porDentreQuaislRem ? " dentre os quais":",") +" telhas."; porDentreQuaislRem = false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoRemocaoForro").checked){
-    //                     VFE = VFE.slice(0,-1) + (porDentreQuaislRem ? " dentre os quais":",") +" segmentos do forro."; porDentreQuaislRem = false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoRemocaoVidrilhos").checked){
-    //                     VFE = VFE.slice(0,-1) + (porDentreQuaislRem ? " dentre os quais":",") +" vidrilhos."; porDentreQuaislRem = false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoRemocaoFVidro").checked){
-    //                     VFE = VFE.slice(0,-1) + (porDentreQuaislRem ? " dentre os quais":",") +" folha de vidro."; porDentreQuaislRem = false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoRemocaoFPorta").checked){
-    //                     VFE = VFE.slice(0,-1) + (porDentreQuaislRem ? " dentre os quais":",") +" folha de porta."; porDentreQuaislRem = false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoRemocaoFJanela").checked){
-    //                     VFE = VFE.slice(0,-1) + (porDentreQuaislRem ? " dentre os quais":",") +" folha de janela."; porDentreQuaislRem = false;
-    //                 }
-    //                 if(document.getElementById(montaFlagVF+"ArrombamentoRemocaoMVedacao").checked){
-    //                     VFE = VFE.slice(0,-1) + (porDentreQuaislRem ? " dentre os quais":",") +" moldura da vedação."; porDentreQuaislRem = false;
-    //                 }
-    //             }
-    //         }
-    //         if(document.getElementById(montaFlagVF+"Desordem").checked){
-    //             VFE = VFE + " Constatou-se desordem típica de busca.";
-
-    //             var poeVirgulaDes = false;
-
-    //             if(document.getElementById(montaFlagVF+"DesordemQuartos").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgulaDes ? ",":"") +" nos quartos."; poeVirgulaDes = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"DesordemQuarto").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgulaDes ? ",":"") +" no quarto."; poeVirgulaDes = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"DesordemCloset").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgulaDes ? ",":"") +" no closet."; poeVirgulaDes = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"DesordemSala").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgulaDes ? ",":"") +" na sala."; poeVirgulaDes = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"DesordemCozinha").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgulaDes ? ",":"") +" na cozinha."; poeVirgulaDes = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"DesordemBanheiro").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgulaDes ? ",":"") +" no banheiro."; poeVirgulaDes = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"DesordemGaragem").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgulaDes ? ",":"") +" na garagem."; poeVirgulaDes = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"DesordemLavanderia").checked){
-    //                 VFE = VFE.slice(0,-1) + (poeVirgulaDes ? ",":"") +" no lavanderia."; poeVirgulaDes = true;
-    //             }
-
-    //         }
-
-    //         if(document.getElementById(montaFlagVF+"Situado").checked){
-    //             VFE = VFE.slice(0,-1) + " situado na";
-
-    //             var porPorcaoSit = true;
-    //             var flagDaSit = false;
-    //             if(document.getElementById(montaFlagVF+"SituadoPAnt").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" anterior"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"SituadoPMed").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" média"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"SituadoPPos").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" posterior"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"SituadoPEsq").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" esquerda"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"SituadoPCen").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" central"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"SituadoPDir").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" direita"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"SituadoPInt").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" interna"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"SituadoPExt").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" externa"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"SituadoPSup").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" superior"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-    //             if(document.getElementById(montaFlagVF+"SituadoPInf").checked){
-    //                 VFE = VFE + (porPorcaoSit ? " porção":"")+" inferior"; porPorcaoSit = false; flagDaSit = true;
-    //             }
-
-    //             if (flagDaSit) VFE = VFE+" da";
-    //             VFE = VFE + " propriedade.";
-    //         }
-    //         if(document.getElementById(montaFlagVF+"Extras").checked){
-    //             VFE = VFE + " Detalhe adicional: " + document.getElementById(montaFlagVF+"ExOutros").value;
-    //         }
-
-
-    //         matrizTodosVF.push(VFE);
-
-    //     }
-
-    // }
-
+    { texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'}
 
 
 ];
