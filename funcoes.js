@@ -819,13 +819,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-document.addEventListener('click', function(event) {
-    const minhaDiv = document.getElementById('menuOpcoesDosVestigios');
-    if (!minhaDiv.contains(event.target)) {
-        document.getElementById('menuOpcoesDosVestigios').style.display = 'none';
-      // Adicione aqui a ação que deseja executar
-    }
-  });
+
 
 var opcoesDeVestigios = [
     
