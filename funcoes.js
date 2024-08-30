@@ -701,14 +701,17 @@ function preencherTextarea(onde,ondeTA, texto) {
         }
         else if(onde == "menuOpcoesDosVestigios"){
             var textoAtual = document.getElementById(ondeTA).value;
+            console.log("textoatual "+textoAtual);
             var linhas = textoAtual.split('\n');
-            
+            console.log("linhas "+linhas);
             linhas[document.getElementById('contadorVestigios')]=linhas[document.getElementById('contadorVestigios')]+texto;
             
+            console.log("linha +numero: "+ linhas[document.getElementById('contadorVestigios')]);
+
             textoAtual = linhas[0];
             for (var i = 1; i < linhas.length; i++) {
                 textoAtual = textoAtual + linhas[i] + "\n";
-                console.log(textoAtual);
+
             }
             
             document.getElementById(ondeTA).value = textoAtual;
