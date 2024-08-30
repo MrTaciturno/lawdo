@@ -823,8 +823,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var opcoesDeVestigios = [
     
-    { texto: 'Danos', acao: 'Danos'},
-    { texto: 'típicos de arrombamento', acao: 'típicos de arrombamento'},
+    { texto: 'Danos', acao: 'Danos#FFFFFF'},
+    { texto: 'típicos de arrombamento', acao: 'típicos de arrombamento#FFFFFF'},
 
     { texto: 'Vestígios de escalada', acao: 'Vestígios compatíveis com escalada, caracterizados por:#32CD32'},
     { texto: 'Sujidades', acao: 'sujidades#FA8072'},
