@@ -304,7 +304,7 @@ function montaLaudo(e){
         data = document.getElementById('taDosVestigios').value;
                 aL.push(data);
                 nF[aL.length-1] = 0;
-        }
+
 
     }
 
