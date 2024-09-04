@@ -238,12 +238,12 @@ function montaLaudo(e){
     data =
     '\tExames iniciados em '+ document.getElementById("cDataExame").value.slice(-2) + " de "+mesExtenso[document.getElementById("cDataExame").value.substring(5,7)-1]+" de "+document.getElementById("cDataExame").value.slice(0,4) +' às '+document.getElementById('cHoraExame').value+' horas. \r\n'; aL.push(data); nF[aL.length-1]=0;
 
-    data = 
-    '\tForam ofertados os seguintes quesitos quando da solicitação do exame: "'+document.getElementById('taQuesitos').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
-
-    data =
-    '\tQuando do acionamento foi informado o seguinte histórico: "'+document.getElementById('taHistorico').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
-    
+    if (document.getElementById("cQuesitos").checked){
+        data = '\tForam ofertados os seguintes quesitos quando da solicitação do exame: "'+document.getElementById('taQuesitos').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
+    }
+    if (document.getElementById("cHistorico").checked){
+        data = '\tQuando do acionamento foi informado o seguinte histórico: "'+document.getElementById('taHistorico').value+'". \r\n'; aL.push(data); nF[aL.length-1]=0;
+    }
 
     iT++;aL.push(iT + " - Do Local");  nF[aL.length-1]=1;//título do local
 
@@ -262,16 +262,16 @@ function montaLaudo(e){
         iTt++;aL.push('\t'+iT+'.'+iTt + " - Das Máquinas");  nF[aL.length-1]=1; // título das máquinas
 
         let maquinasTexto = document.getElementById('taDoMaquinas').value.split('\n');
-        console.log(maquinasTexto);
+
         for (let i = 0; i < maquinasTexto.length; i++) {
             if (maquinasTexto[i].trim() !== '') {
-                console.log(maquinasTexto[i]);
+
                 
                 if(maquinasTexto[i].includes("Considerações Finais")){
                     iT++; aL.push(iT + " - Considerações Finais"); nF[aL.length-1]=1;//título considerações finais
                 }
                 else{
-                    data = '\t' + maquinasTexto[i] + '\r\n';
+                    data = '\t' + maquinasTexto[i];
                     aL.push(data);
                     nF[aL.length-1] = 0;
                 }
@@ -280,22 +280,67 @@ function montaLaudo(e){
 
     }
 
+    if (document.getElementById('cDosVestigios').checked){
+
+        iTt++;aL.push('\t'+iT+'.'+iTt + " - Dos Vestígios");  nF[aL.length-1]=1; // título dos vestigios
+
+        let vestTexto = document.getElementById('taDosVestigios').value.split('\n');
+
+        for (let i = 0; i < vestTexto.length; i++) {
+            if (vestTexto[i].trim() !== '') {
+
+                data = '\t' + vestTexto[i];
+                aL.push(data);
+                nF[aL.length-1] = 0;
+
+            }
+        }
+
+    }
+
+
     iT++; aL.push(iT + " - Do Levantamento Fotográfico"); nF[aL.length-1]=1;//título do levantamento fotográfico
 
     if (document.getElementById('cDoMaquinas').checked){
         aL.push(""); nF[aL.length-1] = 2;
         aL.push("Fachada do estabelecimento."); nF[aL.length-1] = 2;
         aL.push(""); nF[aL.length-1] = 2;
+        aL.push(""); nF[aL.length-1] = 2;
         aL.push("Acesso às máquinas."); nF[aL.length-1] = 2;
+        aL.push(""); nF[aL.length-1] = 2;
         aL.push(""); nF[aL.length-1] = 2;
         aL.push("Máquinas quando da chegada da equipe pericial."); nF[aL.length-1] = 2;
         aL.push(""); nF[aL.length-1] = 2;
+        aL.push(""); nF[aL.length-1] = 2;
         aL.push("Máquinas exibindo jogo eletrônico."); nF[aL.length-1] = 2;
+        aL.push(""); nF[aL.length-1] = 2;
         aL.push(""); nF[aL.length-1] = 2;
         aL.push("Conteúdo extraído das máquinas."); nF[aL.length-1] = 2;
         aL.push(""); nF[aL.length-1] = 2;
+        aL.push(""); nF[aL.length-1] = 2;
         aL.push("Noteiros inutilizados."); nF[aL.length-1] = 2;
         aL.push(""); nF[aL.length-1] = 2;
+    }
+
+    if (document.getElementById('cDosVestigios').checked){
+
+        aL.push(""); nF[aL.length-1] = 2;
+        aL.push("Fachada do imóvel."); nF[aL.length-1] = 2;
+        aL.push(""); nF[aL.length-1] = 2;
+        
+        let vestTexto = document.getElementById('taDosVestigios').value.split('\n');
+
+        for (let i = 1; i < vestTexto.length; i++) {
+            if (vestTexto[i].trim() !== '') {
+
+                data = '\t' + vestTexto[i];
+                aL.push(""); nF[aL.length-1] = 2;
+                aL.push(data);nF[aL.length-1] = 2;
+                aL.push(""); nF[aL.length-1] = 2;
+
+            }
+        }
+
     }
 
 
