@@ -297,6 +297,16 @@ function montaLaudo(e){
         }
 
     }
+    if (document.getElementById('cDosVeiculos').checked){
+
+        iTt++;aL.push('\t'+iT+'.'+iTt + " - Dos Veículos");  nF[aL.length-1]=1; // título dos veiculos
+
+        data = document.getElementById('taDosVestigios').value;
+                aL.push(data);
+                nF[aL.length-1] = 0;
+        }
+
+    }
 
 
     iT++; aL.push(iT + " - Do Levantamento Fotográfico"); nF[aL.length-1]=1;//título do levantamento fotográfico
@@ -865,7 +875,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    opcoesDeVestigios.forEach(function(opcao) {
+    opcoesDeVeiculos.forEach(function(opcao) {
         const menuOpcoesDosVeiculos = document.getElementById('menuOpcoesDosVeiculos');
         if (menuOpcoesDosVeiculos) {
             menuOpcoesDosVeiculos.appendChild(criarBotao('menuOpcoesDosVeiculos','taDosVeiculos',opcao.texto, opcao.acao)); // Or use appendChild as needed
@@ -876,9 +886,9 @@ document.addEventListener('DOMContentLoaded', function() {
     //menuOpcoesDosVeiculos
 });
 
-var opcoesDeVestigios =[
+var opcoesDeVeiculos =[
     {texto: 'automovel', acao: 'automovel'}
-    
+
 ]
 
 
