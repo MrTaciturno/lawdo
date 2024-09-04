@@ -231,11 +231,6 @@
         </script>
     </fieldset>
 
-    <fieldset id="fieldDosVeiculos" disabled="true">
-        <legend><label><input type="checkbox" name="tDosVeiculos" id="cDosVeiculos"
-        onclick="document.getElementById('fieldDosVeiculos').disabled = !document.getElementById('cDosVeiculos').checked"/>Dos Veículos: </label></legend>
-        <textarea id="taDosVeiculos" name="ctaDosVeiculos" rows="4" cols="50">Dos Veículos.</textarea>
-    </fieldset>
     
     <fieldset id="fieldDosVeiculos" disabled="true">
         <legend><label><input type="checkbox"  name="tDosVeiculos" id="cDosVeiculos"
@@ -247,7 +242,10 @@
         <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDosVeiculos')">+</button>
         
     </div>
+    <div id="menuOpcoesDosVeiculos" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
+    </div> 
     
+    </fieldset>
 
     <fieldset id="fieldDoCadaveres" disabled="true">
         <legend><label><input type="checkbox" name="tDoCadaveres" id="cDoCadaveres"
