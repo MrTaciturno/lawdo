@@ -327,13 +327,14 @@ function montaLaudo(e){
         aL.push(""); nF[aL.length-1] = 2;
         aL.push("Fachada do imóvel."); nF[aL.length-1] = 2;
         aL.push(""); nF[aL.length-1] = 2;
-        
+
         let vestTexto = document.getElementById('taDosVestigios').value.split('\n');
 
         for (let i = 1; i < vestTexto.length; i++) {
             if (vestTexto[i].trim() !== '') {
 
-                data = '\t' + vestTexto[i];
+                data = vestTexto[i].slice(3);
+                
                 aL.push(""); nF[aL.length-1] = 2;
                 aL.push(data);nF[aL.length-1] = 2;
                 aL.push(""); nF[aL.length-1] = 2;
@@ -863,7 +864,22 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Element with ID 'menuOpcoesDosVestigios' not found.");
         }
     });
+
+    opcoesDeVestigios.forEach(function(opcao) {
+        const menuOpcoesDosVeiculos = document.getElementById('menuOpcoesDosVeiculos');
+        if (menuOpcoesDosVeiculos) {
+            menuOpcoesDosVeiculos.appendChild(criarBotao('menuOpcoesDosVeiculos','taDosVeiculos',opcao.texto, opcao.acao)); // Or use appendChild as needed
+        } else {
+            console.error("Element with ID 'menuOpcoesDosVeiculos' not found.");
+        }
+    });
+    //menuOpcoesDosVeiculos
 });
+
+var opcoesDeVestigios =[
+    {texto: 'automovel', acao: 'automovel'}
+    
+]
 
 
 var opcoesDeVestigios = [
