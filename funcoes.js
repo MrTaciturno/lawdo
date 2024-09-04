@@ -887,8 +887,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 var opcoesDeVeiculos =[
-    {texto: 'automovel', acao: 'automovel'}
+    {texto: 'automóvel', acao: 'automóvel '},
+    {texto: 'motociclo', acao: 'motociclo '},
+    {texto: 'caminhão', acao: 'caminhão '},
 
+    {texto: 'FORD', acao: ', marca FORD'},
+    {texto: 'VW', acao: ', marca VOLKSWAGEN'},
+    
+
+
+    
+    { texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'}
 ]
 
 
@@ -953,6 +962,7 @@ var opcoesDeVestigios = [
     { texto: 'anterior', acao: 'anterior,#FF7F50'},
     { texto: 'média', acao: 'média,#FF7F50'},
     { texto: 'posterior', acao: 'posterior,#FF7F50'},
+    { texto: 'esquerda', acao: 'esquerda,#FF7F50'},
     { texto: 'central', acao: 'central,#FF7F50'},
     { texto: 'direita', acao: 'direita,#FF7F50'},
     { texto: 'interna', acao: 'interna,#FF7F50'},
@@ -1043,7 +1053,9 @@ var opcoesDeVestigios = [
     // { texto: 'em móveis', acao: ' em móveis#FF7F50'},
     // { texto: 'em objetos', acao: ' em objetos#FF7F50'},
 
+    
     { texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'}
+
 
 
 ];
@@ -1104,6 +1116,11 @@ var opcoesDeLocal = [
     { texto: 'Portaria 24h', acao: ' com portaria 24h,#BA55D3'},
     { texto: 'Cerca elétrica', acao: ' com cerca elétrica,#BA55D3'},
   
+    { texto: 'Ofício IIRGD', acao: 'Senhor Delegado,\r\n\tPor meio deste, encaminho a V. Sa., XX(XX) lâminas com fragmentos de impressões dígito-papilares e mídia ótica dentro do envelope lacrado para fins de pesquisa criminal, relacionado com a ocorrência abaixo discriminada:\r\nNATUREZA: Furto Qualificado; DATA: 10/07/2023; B.O.: JA6438/2023; Delegacia: 3DP Americana/SP; Laudo: 225712/2023; LOCAL: R. Emilio Menezes, 01, Americana/SP; Lacre: SPTC5978546 SOLICITANTE: Dr. Regina Aparecida Castilho Cunha \r\nAtenciosamente,\r\n#FFFFFF'}, // corrigir texto
+
+    { texto: 'Ofício Local Fechado', acao: 'Em atenção à requisição de perícia com as referências epigrafadas, sirvo do presente para informar a vossa senhoria que este perito não teve êxito na localização do endereço Delegacia de Sumaré - Plantão, Sumaré/SP, bem como não conseguiu contato com a Paulo Sérgio Bruscagin através do telefone 3465-1352 ou no endereço Av. Comendador Thomaz Fortunato, 3151, Chácara Letônia, Americana/SP, em tentativas consecutivas nos dias 19 de novembro de 2020 e 20 de novembro de 2020; desta forma o exame pericial deixou de ser realizado.#FFFFFF'}, // corrigir texto
+    //ofícios?
+    
     {texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'},
     {texto: 'Tratava-se de ', acao: 'Tratava-se de #FFFFFF'}
 
