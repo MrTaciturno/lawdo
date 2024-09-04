@@ -301,11 +301,9 @@ function montaLaudo(e){
 
         iTt++;aL.push('\t'+iT+'.'+iTt + " - Dos Veículos");  nF[aL.length-1]=1; // título dos veiculos
 
-        data = document.getElementById('taDosVestigios').value;
+        data = document.getElementById('taDosVeiculos').value;
                 aL.push(data);
                 nF[aL.length-1] = 0;
-
-
     }
 
 
