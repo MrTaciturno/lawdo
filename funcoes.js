@@ -885,14 +885,49 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 var opcoesDeVeiculos =[
-    {texto: 'automóvel', acao: 'automóvel '},
-    {texto: 'motociclo', acao: 'motociclo '},
-    {texto: 'caminhão', acao: 'caminhão '},
+    {texto: 'automóvel', acao: ' AUTOMÓVEL'},
+    {texto: 'motociclo', acao: ' MOTOCLICO'},
+    {texto: 'caminhão', acao: ' CAMINHÃO'},
 
+    {texto: 'marca', acao: ', marca'},
     {texto: 'FORD', acao: ', marca FORD'},
     {texto: 'VW', acao: ', marca VOLKSWAGEN'},
     
+    {texto: 'modelo', acao: ', modelo'},
+    {texto: 'GOL', acao: ', modelo GOL'},
+  
+    {texto: 'cor', acao: ', na cor'},
+    {texto: 'CINZA', acao: ', na cor CINZA'},
 
+    {texto: 'fabricação', acao: ', ano de fabricação'},
+    {texto: 'placas', acao: 'e placas.\r\n'},
+    
+    {texto: 'AMOLGAMENTOS', acao: '\tQuando dos exames, referido veículo apresentava-se com danos de aspecto recente: AMOLGAMENTOS'},
+    {texto: 'ATRITAMENTOS', acao: '\tQuando dos exames, referido veículo apresentava-se com danos de aspecto recente: ATRITAMENTO'},
+    {texto: 'FRATURAS', acao: '\tQuando dos exames, referido veículo apresentava-se com danos de aspecto recente: FRATURAS'},
+    
+    {texto: 'DE', acao: ', orientados da DIREITA para a ESQUERDA'},
+    {texto: 'ED', acao: ', orientados da ESQUERDA para a DIREITA'},
+    {texto: 'TF', acao: ', orientados de TRÁS para a FRENTE'},
+    {texto: 'FT', acao: ', orientados da FRENTE para a TRÁS'},
+    {texto: 'CB', acao: ', orientados de CIMA para a BAIXO'},
+    {texto: 'BC', acao: ', orientados da BAIXO para a CIMA'},
+
+    {texto: 'Flanco D', acao: ', sediados no flanco DIREITO'},
+    {texto: 'Flanco E', acao: ', sediados no flanco ESQUERDO'},
+    {texto: 'Porção A', acao: ', sediados na porção ANTERIOR'},
+    {texto: 'Porção P', acao: ', sediados no porção POSTERIOR'},
+    {texto: 'Porção S', acao: ', sediados na porção SUPERIOR'},
+    {texto: 'Porção I', acao: ', sediados no porção INFERIOR'},
+    
+    {texto: 'Terço A', acao: ', terço ANTERIOR'},
+    {texto: 'Terço P', acao: ', terço POSTERIOR'},
+
+    {texto: 'Terço D', acao: ', terço DIREITO'},
+    {texto: 'Terço E', acao: ', terço ESQUERDO'},
+    
+    
+    
 
     
     { texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'}
