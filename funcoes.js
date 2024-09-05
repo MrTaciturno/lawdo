@@ -771,6 +771,8 @@ function preencherTextarea(onde,ondeTA, texto) {
             for (var i = 1; i < linhas.length; i++) {
                 if (linhas[i]){
                     textoAtual = textoAtual + "\n" + linhas[i];
+                } else{
+                    textoAtual = textoAtual + "\n"+i+"";
                 }
 
             }
