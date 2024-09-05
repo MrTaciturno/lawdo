@@ -750,14 +750,14 @@ function preencherTextarea(onde,ondeTA, texto) {
         document.getElementById(ondeTA).value = "";
     }
     else {
-        if (onde == "menuOpcoesDoLocal"){
+        if (onde == "menuOpcoesDoLocal" || onde == "menuOpcoesDosVeiculos"){
             document.getElementById(ondeTA).value = document.getElementById(ondeTA).value+texto;
         }
         else if(onde == "menuOpcoesDosVestigios"){
             var textoAtual = document.getElementById(ondeTA).value;
-            console.log("textoatual "+textoAtual);
+
             var linhas = textoAtual.split('\n');
-            console.log("linhas "+linhas);
+
 
 
             if (linhas[parseInt(document.getElementById('contadorVestigios').textContent)]){
@@ -766,7 +766,6 @@ function preencherTextarea(onde,ondeTA, texto) {
                 linhas[parseInt(document.getElementById('contadorVestigios').textContent)]=document.getElementById('contadorVestigios').textContent+") "+texto;
             }
 
-            console.log("linha +numero: "+ linhas[parseInt(document.getElementById('contadorVestigios').textContent)]);
 
             textoAtual = linhas[0];
             for (var i = 1; i < linhas.length; i++) {
@@ -786,7 +785,7 @@ function preencherTextarea(onde,ondeTA, texto) {
     }
 
 
-    if (onde != "menuOpcoesDoLocal" && onde!= "menuOpcoesDosVestigios"){
+    if (onde != "menuOpcoesDosVeiculos" && onde != "menuOpcoesDoLocal" && onde!= "menuOpcoesDosVestigios"){
         document.getElementById(onde).style.display = 'none';
     }
 }
