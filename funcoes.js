@@ -59,6 +59,32 @@
 //     });
 // }
 
+// Função para realizar OCR em uma imagem
+async function realizarOCR(imagem) {
+  try {
+    // Carrega a biblioteca Tesseract.js
+    const worker = await Tesseract.createWorker('por');
+    
+    // Realiza o OCR na imagem
+    const { data: { text } } = await worker.recognize(imagem);
+    
+    // Encerra o worker
+    await worker.terminate();
+    
+    // Retorna o texto extraído
+    return text;
+  } catch (erro) {
+    console.error('Erro ao realizar OCR:', erro);
+    return 'Erro ao processar a imagem';
+  }
+}
+
+// Exemplo de uso:
+// const imagemElement = document.getElementById('minhaImagem');
+// const textoExtraido = await realizarOCR(imagemElement);
+// console.log(textoExtraido);
+
+
 function criaTesteDOCX(textoLaudo, formatacao, nome){
     var currentDate= new Date();
     var day = ("0" + currentDate.getDate()).slice(-2);
