@@ -922,8 +922,157 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Element with ID 'menuOpcoesDosVeiculos' not found.");
         }
     });
-    //menuOpcoesDosVeiculos
+    opcoesDoCadaver.forEach(function(opcao) {
+        const menuOpcoesDoCadaveres = document.getElementById('menuOpcoesDoCadaveres');
+        if (menuOpcoesDoCadaveres) {
+            menuOpcoesDoCadaveres.appendChild(criarBotao('menuOpcoesDoCadaveres','taDoCadaveres',opcao.texto, opcao.acao));
+        } else {
+            console.error("Elemento com ID 'menuOpcoesDoCadaveres' não encontrado.");
+        }
+    });
 });
+
+var opcoesDoCadaver =[
+    //descrição
+    // cutis
+    // parda
+    // branca
+    // negra
+    // vermelha
+    // amarela
+
+    //cabelos tamanho
+    //curtos
+    //longos
+    //médios
+    //calvo
+    //careca
+
+    //cabelos tipo
+    //lisos
+    //carapinha
+    //ondulados
+    //encaracolados
+
+    //cabelos cor
+    //pretos
+    //castanhos
+    //louros
+    //grisalhos
+
+    //compleição
+    //mediana
+    //forte
+    //magra
+    //obesa
+    
+    //estatura
+    //mediana
+    //baixa
+    //alta
+
+
+    //tatuagens
+    //desenho
+        //palhaço
+        //cifrão
+        //diamante
+        //cartas
+        //carpa
+
+    //inscrição
+        
+    //não identificado no local
+
+    //vestimentas
+    //camisa
+    //camiseta
+    //blusa
+    //jaqueta
+    //vestido
+
+    //calça
+    //bermuda
+    //short
+    //saia
+
+    //tênis
+    //chinelo
+    //meias
+    //botas
+    //sandália
+
+    //cueca
+    //calcinha
+
+    //cores
+    //preta
+    //branca
+    //vermelha
+    //verde
+    //amarela
+    //azul
+    //cinza
+    //diversas
+
+    //danos compatíveis com as lesões
+    //não apresentavam danos, sujidades ou vestígios de luta e contenção
+
+
+    {texto: 'alta', acao: ' alta'},
+
+    {texto: 'tatuagem', acao: ' tatuagem'},
+    {texto: 'palhaço', acao: ' de palhaço'},
+    {texto: 'cifrão', acao: ' de cifrão'},
+    {texto: 'diamante', acao: ' de diamante'},
+    {texto: 'cartas', acao: ' de cartas'},
+    {texto: 'carpa', acao: ' de carpa'},
+
+    {texto: 'inscrição', acao: ' inscrição'},
+    
+    {texto: 'não identificado', acao: ' não identificado no local'},
+
+    {texto: 'camisa', acao: ' camisa'},
+    {texto: 'camiseta', acao: ' camiseta'},
+    {texto: 'blusa', acao: ' blusa'},
+    {texto: 'jaqueta', acao: ' jaqueta'},
+    {texto: 'vestido', acao: ' vestido'},
+
+    {texto: 'calça', acao: ' calça'},
+    {texto: 'bermuda', acao: ' bermuda'},
+    {texto: 'short', acao: ' short'},
+    {texto: 'saia', acao: ' saia'},
+
+    {texto: 'tênis', acao: ' tênis'},
+    {texto: 'chinelo', acao: ' chinelo'},
+    {texto: 'meias', acao: ' meias'},
+    {texto: 'botas', acao: ' botas'},
+    {texto: 'sandália', acao: ' sandália'},
+
+    {texto: 'cueca', acao: ' cueca'},
+    {texto: 'calcinha', acao: ' calcinha'},
+
+    {texto: 'preta', acao: ' na cor preta'},
+    {texto: 'branca', acao: ' na cor branca'},
+    {texto: 'vermelha', acao: ' na cor vermelha'},
+    {texto: 'verde', acao: ' na cor verde'},
+    {texto: 'amarela', acao: ' na cor amarela'},
+    {texto: 'azul', acao: ' na cor azul'},
+    {texto: 'cinza', acao: ' na cor cinza'},
+    {texto: 'diversas', acao: ' em diversas cores'},
+
+    {texto: 'danos compatíveis', acao: ' apresentando danos compatíveis com as lesões'},
+    {texto: 'sem danos', acao: ' não apresentavam danos, sujidades ou vestígios de luta e contenção'},
+
+
+    {texto: 'automóvel', acao: ' AUTOMÓVEL'},
+    
+    
+
+    
+    { texto: 'LIMPAR', acao: 'LIMPAR'}
+
+]
 
 var opcoesDeVeiculos =[
     {texto: 'automóvel', acao: ' AUTOMÓVEL'},
@@ -971,7 +1120,7 @@ var opcoesDeVeiculos =[
     
 
     
-    { texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'}
+    { texto: 'LIMPAR', acao: 'LIMPAR'}
 ]
 
 

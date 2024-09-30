@@ -267,7 +267,11 @@
     <fieldset id="fieldDoCadaveres" disabled="true">
         <legend><label><input type="checkbox" name="tDoCadaveres" id="cDoCadaveres"
         onclick="document.getElementById('fieldDoCadaveres').disabled = !document.getElementById('cDoCadaveres').checked"/>Do Cadáver: </label></legend>
-        <textarea id="taDoCadaveres" name="ctaDoCadaveres" rows="4" cols="50">Do Cadáver.</textarea>
+        <div style="display: flex; align-items: stretch;">
+            <textarea id="taDoCadaveres" name="ctaDoCadaveres" rows="4" cols="50">Tratava-se de cadáver...</textarea>
+            
+            <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDoCadaveres')">+</button>
+
     </fieldset>
 </fieldset>
 
