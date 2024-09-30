@@ -63,7 +63,12 @@
 async function realizarOCR(imagem) {
   try {
     // Carrega a biblioteca Tesseract.js
-    const worker = await Tesseract.createWorker('por');
+    const worker = await Tesseract.createWorker({
+      logger: m => console.log(m)
+    });
+    
+    await worker.loadLanguage('por');
+    await worker.initialize('por');
     
     // Realiza o OCR na imagem
     const { data: { text } } = await worker.recognize(imagem);
@@ -79,10 +84,12 @@ async function realizarOCR(imagem) {
   }
 }
 
+
 // Exemplo de uso:
 // const imagemElement = document.getElementById('minhaImagem');
-// const textoExtraido = await realizarOCR(imagemElement);
-// console.log(textoExtraido);
+// realizarOCR(imagemElement)
+//   .then(textoExtraido => console.log(textoExtraido))
+//   .catch(erro => console.error('Erro:', erro));
 
 
 function criaTesteDOCX(textoLaudo, formatacao, nome){
