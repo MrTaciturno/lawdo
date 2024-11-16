@@ -8,7 +8,7 @@
     <script type="text/javascript" src="funcoes.js"></script>
     <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-    <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,25 +40,10 @@
     // }
 </script>
 <h2>Elaborador de Laudos 7 SW</h2>
-<!-- <label for="pdfInput">Selecione o arquivo PDF do BO:</label>
+<label for="pdfInput">Selecione o arquivo PDF do BO:</label>
 <input type="file" id="pdfInput"  accept="application/pdf" />
-<button id="convertButton">Processa BO</button> -->
-<button id="tirarFoto">Tirar Foto ... OCR</button>
-<input type="file" id="inputFoto" accept="image/*" capture="camera" style="display: none;">
-<script>
-    document.getElementById('tirarFoto').addEventListener('click', function() {
-        document.getElementById('inputFoto').click();
-    });
+<button id="convertButton">Processa BO</button>
 
-    document.getElementById('inputFoto').addEventListener('change', async function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            const textoExtraido = await realizarOCR(file);
-            console.log('Texto extraído:', textoExtraido);
-            // Aqui você pode adicionar código para usar o texto extraído como desejar
-        }
-    });
-</script>
 
 
 <fieldset id="fieldCola">
@@ -271,7 +256,9 @@
             <textarea id="taDoCadaveres" name="ctaDoCadaveres" rows="4" cols="50">Tratava-se de cadáver...</textarea>
             
             <button type="button" style="width: 40px; font-size: 24px;" onclick="abrirMenuOpcoes('menuOpcoesDoCadaveres')">+</button>
-
+        </div>
+        <div id="menuOpcoesDoCadaveres" style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
+        </div> 
     </fieldset>
 </fieldset>
 
