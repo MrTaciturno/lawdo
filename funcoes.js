@@ -841,7 +841,7 @@ function criarBotao(onde,ondeTA, texto, acao) {
     //     novaAcao = acao.slice(0, -7);
     //     botao.style.backgroundColor = acao.slice(-7);
     // }else{
-    //     novaAcao = acao;
+         novaAcao = acao;
     // }
 
     botao.onclick = function() {
