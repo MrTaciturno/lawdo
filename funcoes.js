@@ -836,13 +836,13 @@ function criarBotao(onde,ondeTA, texto, acao) {
     var botao = document.createElement('button');
     botao.textContent = texto;
     
-    var novaAcao = "";
-    if (onde == 'menuOpcoesDoLocal' || onde == 'menuOpcoesDosVestigios'){
-        novaAcao = acao.slice(0, -7);
-        botao.style.backgroundColor = acao.slice(-7);
-    }else{
-        novaAcao = acao;
-    }
+    // var novaAcao = "";
+    // if (onde == 'menuOpcoesDoLocal' || onde == 'menuOpcoesDosVestigios'){
+    //     novaAcao = acao.slice(0, -7);
+    //     botao.style.backgroundColor = acao.slice(-7);
+    // }else{
+    //     novaAcao = acao;
+    // }
 
     botao.onclick = function() {
         if (ondeTA == 'taDoMaquinas') {
