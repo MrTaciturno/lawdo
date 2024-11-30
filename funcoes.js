@@ -1126,7 +1126,7 @@ var opcoesDeVeiculos =[
 
 var opcoesDeVestigios = [
 
-    { texto: 'Escalada sem vestígios', acao: 'Apesar de não ter sido encontrado o ponto exato de entrada, entende-se escalada como modo provável de acesso ao interior da propriedade.#32CD32'},
+    { texto: 'Escalada sem vestígios', acao: 'Apesar de não ter sido encontrado o ponto exato de entrada, entende-se escalada como modo provável de acesso ao interior da propriedade.', cor:'#32CD32'},
 
     { texto: 'Vestígios escalada', acao: 'Vestígios compatíveis com escalada,', cor:'#32CD32'},
     { texto: 'Sujidades', acao: ' caracterizados por sujidades', cor:'#DA70D6'},
@@ -1307,45 +1307,45 @@ var opcoesDeLocal = [
     { texto: 'Vidro e Metal', acao: ' em vidro e metal,', cor:'#FA8072'},
     
     { texto: 'Unido', acao: ' unido de vizinhos em ambos os lados,', cor:'#FF7F50'},
-    { texto: 'Geminado E', acao: ' geminado de vizinhos à esquerda,#FF7F50'},
-    { texto: 'Geminado D', acao: ' geminado de vizinhos à direita,#FF7F50'},
-    { texto: 'Isolado Ambos', acao: ' isolado de vizinhos em ambos os lados,#FF7F50'},
-    { texto: 'Isolado E', acao: ' isolado de vizinhos à esquerda,#FF7F50'},
-    { texto: 'Isolado D', acao: ' isolado de vizinhos à direita,#FF7F50'},
+    { texto: 'Geminado E', acao: ' geminado de vizinhos à esquerda,', cor:'#FF7F50'},
+    { texto: 'Geminado D', acao: ' geminado de vizinhos à direita,', cor:'#FF7F50'},
+    { texto: 'Isolado Ambos', acao: ' isolado de vizinhos em ambos os lados,', cor:'#FF7F50'},
+    { texto: 'Isolado E', acao: ' isolado de vizinhos à esquerda,', cor:'#FF7F50'},
+    { texto: 'Isolado D', acao: ' isolado de vizinhos à direita,', cor:'#FF7F50'},
 
-    { texto: 'Alinhado Acima', acao: ' erguido alinhado e acima do nível geral da via pública,#FF69B4'},
-    { texto: 'Recuado Acima', acao: ' erguido recuado e acima do nível geral da via pública,#FF69B4'},
-    { texto: 'Alinhado Abaixo', acao: ' erguido alinhado e abaixo do nível geral da via pública,#FF69B4'},
-    { texto: 'Recuado Abaixo', acao: ' erguido recuado e abaixo do nível geral da via pública,#FF69B4'},
-    { texto: 'Alinhado Ao Nível', acao: ' erguido alinhado e ao nível geral da via pública,#FF69B4'},
-    { texto: 'Recuado Ao Nível', acao: ' erguido recuado e ao nível geral da via pública,#FF69B4'},
+    { texto: 'Alinhado Acima', acao: ' erguido alinhado e acima do nível geral da via pública,', cor:'#FF69B4'},
+    { texto: 'Recuado Acima', acao: ' erguido recuado e acima do nível geral da via pública,', cor:'#FF69B4'},
+    { texto: 'Alinhado Abaixo', acao: ' erguido alinhado e abaixo do nível geral da via pública,', cor:'#FF69B4'},
+    { texto: 'Recuado Abaixo', acao: ' erguido recuado e abaixo do nível geral da via pública,', cor:'#FF69B4'},
+    { texto: 'Alinhado Ao Nível', acao: ' erguido alinhado e ao nível geral da via pública,', cor:'#FF69B4'},
+    { texto: 'Recuado Ao Nível', acao: ' erguido recuado e ao nível geral da via pública,', cor:'#FF69B4'},
 
-    { texto: 'Ved Muro', acao: ' vedada do passeio público por muro de alvenaria, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
-    { texto: 'Ved Grade', acao: ' vedada do passeio público por gradeamento metálico, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
-    { texto: 'Ved Cerca', acao: ' vedada do passeio público por cerca metálica, medindo aproximadamente XX metros em seu ponto mais baixo,#FF6347'},
+    { texto: 'Ved Muro', acao: ' vedada do passeio público por muro de alvenaria, medindo aproximadamente XX metros em seu ponto mais baixo,', cor:'#FF6347'},
+    { texto: 'Ved Grade', acao: ' vedada do passeio público por gradeamento metálico, medindo aproximadamente XX metros em seu ponto mais baixo,', cor:'#FF6347'},
+    { texto: 'Ved Cerca', acao: ' vedada do passeio público por cerca metálica, medindo aproximadamente XX metros em seu ponto mais baixo,', cor:'#FF6347'},
     { texto: 'Não vedada', acao: ' não vedada do passeio público#FF6347'},
 
 //?    { texto: 'Altura', acao: ' medindo aproximadamente XX m em seu ponto mais baixo,#FF6347'},
     
-    { texto: 'Portão social', acao: ' cujo acesso principal era portão social,#DA70D6'},
-    { texto: 'Portão basculante', acao: ' cujo acesso principal era portão metálico basculante,#DA70D6'},
-    { texto: 'Portão deslizante lateral', acao: ' cujo acesso principal era portão metálico de deslizamento lateral,#DA70D6'},
-    { texto: 'Portão metálico folha única', acao: ' cujo acesso principal era portão metálico,#DA70D6'},
-    { texto: 'Portão de madeira folha única', acao: ' cujo acesso principal era portão madeira,#DA70D6'},
-    { texto: 'Portão metálico folha dupla', acao: ' cujo acesso principal era portão metálico,#DA70D6'},
-    { texto: 'Portão de madeira folha dupla', acao: ' cujo acesso principal era portão madeira,#DA70D6'},
+    { texto: 'Portão social', acao: ' cujo acesso principal era portão social,', cor:'#DA70D6'},
+    { texto: 'Portão basculante', acao: ' cujo acesso principal era portão metálico basculante,', cor:'#DA70D6'},
+    { texto: 'Portão deslizante lateral', acao: ' cujo acesso principal era portão metálico de deslizamento lateral,', cor:'#DA70D6'},
+    { texto: 'Portão metálico folha única', acao: ' cujo acesso principal era portão metálico,', cor:'#DA70D6'},
+    { texto: 'Portão de madeira folha única', acao: ' cujo acesso principal era portão madeira,', cor:'#DA70D6'},
+    { texto: 'Portão metálico folha dupla', acao: ' cujo acesso principal era portão metálico,', cor:'#DA70D6'},
+    { texto: 'Portão de madeira folha dupla', acao: ' cujo acesso principal era portão madeira,', cor:'#DA70D6'},
 
-    { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico,#BA55D3'},
-    { texto: 'Portaria 24h', acao: ' com portaria 24h,#BA55D3'},
-    { texto: 'Cerca elétrica', acao: ' com cerca elétrica,#BA55D3'},
+    { texto: 'Acionamento eletrônico', acao: ' com acionamento eletrônico,', cor:'#BA55D3'},
+    { texto: 'Portaria 24h', acao: ' com portaria 24h,', cor:'#BA55D3'},
+    { texto: 'Cerca elétrica', acao: ' com cerca elétrica,', cor:'#BA55D3'},
   
-    { texto: 'Ofício IIRGD', acao: 'Senhor Delegado,\r\n\tPor meio deste, encaminho a V. Sa., XX(XX) lâminas com fragmentos de impressões dígito-papilares e mídia ótica dentro do envelope lacrado para fins de pesquisa criminal, relacionado com a ocorrência abaixo discriminada:\r\nNATUREZA: Furto Qualificado; DATA: 10/07/2023; B.O.: JA6438/2023; Delegacia: 3DP Americana/SP; Laudo: 225712/2023; LOCAL: R. Emilio Menezes, 01, Americana/SP; Lacre: SPTC5978546 SOLICITANTE: Dr. Regina Aparecida Castilho Cunha \r\nAtenciosamente,\r\n#FFFFFF'}, // corrigir texto
+    { texto: 'Ofício IIRGD', acao: 'Senhor Delegado,\r\n\tPor meio deste, encaminho a V. Sa., XX(XX) lâminas com fragmentos de impressões dígito-papilares e mídia ótica dentro do envelope lacrado para fins de pesquisa criminal, relacionado com a ocorrência abaixo discriminada:\r\nNATUREZA: Furto Qualificado; DATA: 10/07/2023; B.O.: JA6438/2023; Delegacia: 3DP Americana/SP; Laudo: 225712/2023; LOCAL: R. Emilio Menezes, 01, Americana/SP; Lacre: SPTC5978546 SOLICITANTE: Dr. Regina Aparecida Castilho Cunha \r\nAtenciosamente,\r\n', cor:'#FFFFFF'}, // corrigir texto
 
-    { texto: 'Ofício Local Fechado', acao: 'Em atenção à requisição de perícia com as referências epigrafadas, sirvo do presente para informar a vossa senhoria que este perito não teve êxito na localização do endereço Delegacia de Sumaré - Plantão, Sumaré/SP, bem como não conseguiu contato com a Paulo Sérgio Bruscagin através do telefone 3465-1352 ou no endereço Av. Comendador Thomaz Fortunato, 3151, Chácara Letônia, Americana/SP, em tentativas consecutivas nos dias 19 de novembro de 2020 e 20 de novembro de 2020; desta forma o exame pericial deixou de ser realizado.#FFFFFF'}, // corrigir texto
+    { texto: 'Ofício Local Fechado', acao: 'Em atenção à requisição de perícia com as referências epigrafadas, sirvo do presente para informar a vossa senhoria que este perito não teve êxito na localização do endereço Delegacia de Sumaré - Plantão, Sumaré/SP, bem como não conseguiu contato com a Paulo Sérgio Bruscagin através do telefone 3465-1352 ou no endereço Av. Comendador Thomaz Fortunato, 3151, Chácara Letônia, Americana/SP, em tentativas consecutivas nos dias 19 de novembro de 2020 e 20 de novembro de 2020; desta forma o exame pericial deixou de ser realizado.', cor:'#FFFFFF'}, // corrigir texto
     //ofícios?
     
-    {texto: 'LIMPAR', acao: 'LIMPAR#FFFFFF'},
-    {texto: 'Tratava-se de ', acao: 'Tratava-se de #FFFFFF'}
+    {texto: 'LIMPAR', acao: 'LIMPAR', cor:'#FFFFFF'},
+    {texto: 'Tratava-se de ', acao: 'Tratava-se de ', cor:'#FFFFFF'}
 
 
 ];
